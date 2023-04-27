@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.chart.XYChart?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.FontWeight?>
+<?import javafx.scene.text.Text?>
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.pidev.gui.adminGUI">
+
+<BorderPane prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #2E4053;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+    <top>
+        <VBox spacing="10.0">
+            <HBox spacing="10.0">
+                <ImageView fitHeight="100.0" fitWidth="250.0" fx:id="logoView">
+                    <image>
+                        <Image url="file:C:/Users/DELL/Downloads/Capture.PNG" />
+                    </image>
+                </ImageView>
+            </HBox>
+            <Text fill="WHITE" font="System Bold 24.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Manage Questions" VBox.vgrow="NEVER" />
+        </VBox>
+    </top>
+    <center>
+        <TableView fx:id="table" editable="true">
+            <columns>
+                <TableColumn fx:id="idCol" prefWidth="75.0" text="ID" />
+                <TableColumn fx:id="contentCol" prefWidth="150.0" text="Question" />
+                <TableColumn fx:id="dateCol" prefWidth="100.0" text="Date" />
+                <TableColumn fx:id="sa" prefWidth="100.0" text="Categorie" />
+                <TableColumn fx:id="likesCol" prefWidth="75.0" text="Likes" />
+                <TableColumn fx:id="dislikesCol" prefWidth="75.0" text="Dislikes" />
+            </columns>
+        </TableView>
+    </center>
+    <bottom>
+        <HBox alignment="CENTER_RIGHT" spacing="10.0">
+            <Button fx:id="refreshBtn" onAction="#handleRefresh" style="-fx-background-color: #3498DB; -fx-text-fill: white; -fx
+
+
+    
+</AnchorPane>
