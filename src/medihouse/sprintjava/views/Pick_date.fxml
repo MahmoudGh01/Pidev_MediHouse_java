@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="526.0" prefWidth="336.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="medihouse.sprintjava.views.Pick_dateController">
+   <children>
+      <Text fill="#52b2cd" layoutX="57.0" layoutY="73.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rendez Vous" wrappingWidth="221.55126953125">
+         <font>
+            <Font name="Arial Bold Italic" size="35.0" />
+         </font>
+      </Text>
+      <Button fx:id="btnAdd" layoutX="176.0" layoutY="412.0" mnemonicParsing="false" onAction="#btnAdd" prefHeight="42.0" prefWidth="130.0" style="-fx-background-color: #D0E8FA; -fx-background-radius: 15;" text="Ajouter" />
+      <DatePicker fx:id="picker" layoutX="107.0" layoutY="268.0" prefHeight="42.0" prefWidth="174.0" style="-fx-background-color: transparent;" />
+      <Label layoutX="40.0" layoutY="278.0" prefHeight="23.0" prefWidth="46.0" text="Date" />
+      <TextField fx:id="TfLocal" layoutX="107.0" layoutY="342.0" prefHeight="42.0" prefWidth="174.0" style="-fx-border-color: #D0E8FA; -fx-background-radius: 15; -fx-border-radius: 15;" />
+      <Label layoutX="40.0" layoutY="352.0" prefHeight="23.0" prefWidth="88.0" text="Local" />
+      <Label fx:id="Doc_Name" layoutX="134.0" layoutY="147.0" prefHeight="42.0" prefWidth="174.0" text="Label">
+         <font>
+            <Font name="Arial Bold" size="20.0" />
+         </font></Label>
+      <Label layoutX="34.0" layoutY="103.0" prefHeight="32.0" prefWidth="100.0" text="Docteur">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="57.0" fitWidth="62.0" layoutX="40.0" layoutY="147.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/patient2.jpg" />
+         </image>
+      </ImageView>
+      <Pane layoutX="10.0" layoutY="226.0" prefHeight="11.0" prefWidth="316.0" style="-fx-background-color: #52b2cd;" />
+   </children>
+</AnchorPane>
