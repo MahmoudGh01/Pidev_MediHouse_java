@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="107.0" prefWidth="472.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.SuccCommandeController">
+   <children>
+      <AnchorPane id="AnchorPane" prefHeight="199.0" prefWidth="393.0">
+         <children>
+            <AnchorPane id="AnchorPane" layoutX="6.0" prefHeight="175.0" prefWidth="420.0">
+               <children>
+                  <Pane layoutX="-7.0" prefHeight="199.0" prefWidth="474.0" style="-fx-background-color: #18539B;">
+                     <children>
+                        <Button fx:id="aa" layoutX="156.0" layoutY="118.0" mnemonicParsing="false" onAction="#Confirmersupp" prefHeight="31.0" prefWidth="163.0" style="-fx-background-color: #06962d;" text="Continuer" textFill="#e8e8e8" />
+                        <Label layoutX="82.0" layoutY="42.0" text="Votre Commande est bien passeé" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold Italic" size="19.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="119.0" layoutY="80.0" text="Merci pour votre fedélité" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold Italic" size="19.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="aa1" layoutX="156.0" layoutY="157.0" mnemonicParsing="false" onAction="#pdfFacture" prefHeight="31.0" prefWidth="163.0" style="-fx-background-color: red;" text="Facture" textFill="#e8e8e8" />
+                     </children>
+                  </Pane>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

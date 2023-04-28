@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="456.0" prefWidth="731.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="GUI.HistoriqueController">
+   <children>
+      <TableView fx:id="TabCommande" layoutX="59.0" layoutY="32.0" prefHeight="354.0" prefWidth="614.0">
+         <columns>
+            <TableColumn fx:id="IdComTab" prefWidth="75.0" text="Id Commande" />
+            <TableColumn fx:id="DateComTab" prefWidth="107.20001220703125" text="Date Commande" />
+            <TableColumn fx:id="prixComTab" prefWidth="158.66665649414062" text="Prix Commande" />
+            <TableColumn fx:id="QuanCommTab" prefWidth="123.73333740234375" text="Quantite" />
+            <TableColumn fx:id="ColorProdTab" prefWidth="133.066650390625" text="User" />
+         </columns>
+      </TableView>
+      <Button layoutX="500.0" layoutY="400.0" mnemonicParsing="false" onAction="#retourPannier" prefHeight="36.0" prefWidth="173.0" text="Retour" />
+      <TextField fx:id="searchProd" layoutX="531.0" layoutY="-1.0" prefHeight="25.0" prefWidth="173.0" visible="false" />
+   </children>
+</AnchorPane>
