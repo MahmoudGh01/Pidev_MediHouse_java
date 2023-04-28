@@ -10,6 +10,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.time.Duration;
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
 import javafx.scene.control.Alert;
@@ -183,4 +186,28 @@ public class RendezVousCRUD {
         }
         return mylist;
     }
+
+   public long getLastRendezVousTime() {
+    long daysRemaining = 0;
+    int Hours =0;
+    int minutes =0;
+    int seconds=0;
+    try {
+        String query = "SELECT MIN(date) FROM rendezvous WHERE date > CURDATE()";
+        Statement st = MyConnection.getInstance().getCnx().createStatement();
+        ResultSet rs = st.executeQuery(query);
+ 
+        if (rs.next()) {
+            LocalDate nextDate = rs.getDate(1).toLocalDate();
+            LocalDate currentDate = LocalDate.now();
+            daysRemaining =  ChronoUnit.DAYS.between(currentDate, nextDate) ;
+            System.out.println(daysRemaining);
+        }
+    } catch (SQLException ex) {
+        System.out.println(ex.getMessage());
+    }
+
+    return daysRemaining;
+}
+
 }

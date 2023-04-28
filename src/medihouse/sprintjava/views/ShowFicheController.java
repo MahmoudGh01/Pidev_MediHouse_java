@@ -156,7 +156,7 @@ public class ShowFicheController implements Initializable {
         // Close the PdfStamper object to finalize the filled PDF
         stamper.close();
 //        printPDF("BL_imprime.pdf");
-        System.out.println("Le fichier BL_imprime.pdf a été généré avec succès !");
+        System.out.println("Le fichier  a été généré avec succès !");
     } catch (Exception e) {
         System.out.println("Erreur lors de la génération du fichier PDF : " + e.getMessage());
     }
@@ -165,7 +165,7 @@ public class ShowFicheController implements Initializable {
     private void addTableHeader(PdfPTable table) {
     for (TableColumn column : Tbv.getColumns()) {
         PdfPCell header = new PdfPCell();
-        header.setBackgroundColor(BaseColor.LIGHT_GRAY);
+        //header.setBackgroundColor(BaseColor.LIGHT_GRAY);
         header.setBorderWidth(1);
         header.setPhrase(new Phrase(column.getText(), new Font(Font.FontFamily.HELVETICA, 12, Font.BOLD)));
         table.addCell(header);

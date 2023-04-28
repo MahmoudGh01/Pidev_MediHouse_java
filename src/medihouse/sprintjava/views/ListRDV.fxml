@@ -62,5 +62,10 @@
             <TableColumn fx:id="Action_Col" editable="false" prefWidth="130.0" text="Action" />
          </columns>
       </TableView>
+      <Label fx:id="timeLeft" layoutX="741.0" layoutY="78.0" prefHeight="30.0" prefWidth="186.0" text="Label">
+         <font>
+            <Font name="Rockwell" size="18.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
