@@ -20,6 +20,10 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
+
+import java.awt.Desktop;
+import java.io.File;
+import java.io.IOException;
 /**
  * FXML Controller class
  *
@@ -56,6 +60,15 @@ public class SuccCommandeController implements Initializable {
 
         ServiceCommande sc= new  ServiceCommande(cnx);
         sc.pdf(Main.cm , Main.produitsCommandes);
+        File file = new File("Facture.pdf");
+        Desktop desktop = Desktop.getDesktop();
+        if (file.exists()) {
+            try {
+                desktop.open(file);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
     
 }
