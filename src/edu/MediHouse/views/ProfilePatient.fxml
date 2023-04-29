@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.shape.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="632.0" prefWidth="1130.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.MediHouse.views.ProfilePatientController">
+   <children>
+      <ImageView fitHeight="632.0" fitWidth="1130.0">
+         <image>
+            <Image url="@../images/back.png" />
+         </image>
+      </ImageView>
+      <AnchorPane layoutX="14.0" layoutY="86.0" prefHeight="525.0" prefWidth="217.0" style="-fx-background-color: #15558D; -fx-border-radius: 15; -fx-background-radius: 15;">
+         <children>
+            <Circle fx:id="profilepicture" fill="#f8fcff" layoutX="109.0" layoutY="69.0" onDragDetected="#profile" radius="65.0" stroke="BLACK" strokeType="INSIDE" />
+            <Button layoutX="33.0" layoutY="274.0" mnemonicParsing="false" onAction="#RechMed" prefHeight="31.0" prefWidth="152.0" style="-fx-background-color: #D0E8FA; -fx-background-radius: 15;" text="Rechercher Medcin" />
+            <Button layoutX="33.0" layoutY="323.0" mnemonicParsing="false" onAction="#parapharmacie" prefHeight="31.0" prefWidth="152.0" style="-fx-background-color: #D0E8FA; -fx-background-radius: 15;" text="Parapharmacie" />
+            <Button layoutX="33.0" layoutY="467.0" mnemonicParsing="false" onAction="#Logout" prefHeight="31.0" prefWidth="152.0" style="-fx-background-color: #D0E8FA; -fx-background-radius: 15;" text="Log out" />
+            <Button layoutX="32.0" layoutY="418.0" mnemonicParsing="false" onAction="#forum" prefHeight="31.0" prefWidth="152.0" style="-fx-background-color: #D0E8FA; -fx-background-radius: 15;" text="Forum" />
+            <Button layoutX="33.0" layoutY="370.0" mnemonicParsing="false" onAction="#reclamation" prefHeight="31.0" prefWidth="152.0" style="-fx-background-color: #D0E8FA; -fx-background-radius: 15;" text="Reclamations" />
+            <Button layoutX="32.0" layoutY="219.0" mnemonicParsing="false" onAction="#RDVP" prefHeight="31.0" prefWidth="152.0" style="-fx-background-color: #D0E8FA; -fx-background-radius: 15;" text="RDV">
+               <font>
+                  <Font name="Arial" size="14.0" />
+               </font>
+            </Button>
+            <Label fx:id="username" layoutX="4.0" layoutY="136.0" prefHeight="24.0" prefWidth="209.0" textFill="WHITE">
+               <font>
+                  <Font name="Arial" size="15.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <ImageView fitHeight="57.0" fitWidth="217.0" layoutX="14.0" layoutY="14.0">
+         <image>
+            <Image url="@../images/logo2.png" />
+         </image>
+      </ImageView>
+      <AnchorPane layoutX="253.0" layoutY="125.0" prefHeight="435.0" prefWidth="368.0" style="-fx-border-color: #09DCA4;">
+         <children>
+            <TextField fx:id="TFname" layoutX="20.0" layoutY="68.0" prefHeight="31.0" prefWidth="139.0" promptText="Nom" style="-fx-background-radius: 15;">
+               <font>
+                  <Font name="Arial" size="15.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="TFlastname" layoutX="176.0" layoutY="68.0" prefHeight="31.0" prefWidth="139.0" promptText="Prenom" style="-fx-background-radius: 15;">
+               <font>
+                  <Font name="Arial" size="15.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="TFemail" layoutX="20.0" layoutY="116.0" prefHeight="31.0" prefWidth="295.0" promptText="Email" style="-fx-background-radius: 15;">
+               <font>
+                  <Font name="Arial" size="15.0" />
+               </font>
+            </TextField>
+            <PasswordField fx:id="TFpassword" layoutX="20.0" layoutY="166.0" prefHeight="31.0" prefWidth="295.0" promptText="Password" style="-fx-background-radius: 15;">
+               <font>
+                  <Font name="Arial" size="15.0" />
+               </font>
+            </PasswordField>
+            <TextField fx:id="TFadresse" layoutX="20.0" layoutY="217.0" prefHeight="31.0" prefWidth="295.0" promptText="Adresse" style="-fx-background-radius: 15;">
+               <font>
+                  <Font name="Arial" size="15.0" />
+               </font>
+            </TextField>
+            <Button fx:id="modifbtn" layoutX="20.0" layoutY="366.0" mnemonicParsing="false" onAction="#modifClicked" prefHeight="31.0" prefWidth="295.0" style="-fx-background-color: #09DCA4; -fx-background-radius: 10;" text="Modifier" textFill="WHITE" />
+            <TextField fx:id="TFnultel" layoutX="20.0" layoutY="265.0" prefHeight="31.0" prefWidth="295.0" promptText="Telephone" style="-fx-background-radius: 15;">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </TextField>
+            <Button fx:id="changepicbtn" layoutX="20.0" layoutY="14.0" mnemonicParsing="false" onAction="#uploadsiguppic" prefHeight="31.0" prefWidth="139.0" style="-fx-background-color: #09DCA4; -fx-background-radius: 10;" text="change pic" textFill="WHITE" />
+            <Button layoutX="227.0" layoutY="15.0" mnemonicParsing="false" onAction="#QrCode" prefHeight="30.0" prefWidth="119.0" style="-fx-background-color: #09DCA4; -fx-background-radius: 10;" text="QRcode" textFill="WHITE" />
+         </children>
+      </AnchorPane>
+      <ImageView fx:id="qrCodeImageView" fitHeight="331.0" fitWidth="327.0" layoutX="709.0" layoutY="183.0" pickOnBounds="true" preserveRatio="true" />
+   </children>
+</AnchorPane>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="edu.MediHouse.views.VerficationController">
+   <children>
+      <ImageView fitHeight="409.0" fitWidth="600.0">
+         <image>
+            <Image url="@../images/back.png" />
+         </image>
+      </ImageView>
+      <TextField fx:id="tfcode" layoutX="163.0" layoutY="185.0" prefHeight="31.0" prefWidth="275.0" promptText="Code" style="-fx-background-radius: 15;">
+         <font>
+            <Font name="Arial" size="15.0" />
+         </font>
+      </TextField>
+      <Button layoutX="223.0" layoutY="268.0" mnemonicParsing="false" onAction="#envoyercodeemail" style="-fx-background-color: #09DCA4; -fx-background-radius: 10;" text="Envoyer code par email" textFill="WHITE">
+         <font>
+            <Font name="Arial" size="15.0" />
+         </font>
+      </Button>
+      <Button layoutX="462.0" layoutY="186.0" mnemonicParsing="false" onAction="#verification" style="-fx-background-color: #09DCA4; -fx-background-radius: 10;" text="Verification" textFill="WHITE">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <ImageView fitHeight="121.0" fitWidth="145.0" layoutX="228.0" layoutY="40.0">
+         <image>
+            <Image url="@../../../../../GestionUser/src/img/912023.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

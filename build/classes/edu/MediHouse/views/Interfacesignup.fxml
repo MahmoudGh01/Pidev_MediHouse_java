@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="682.0" prefWidth="1071.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.MediHouse.views.InterfacesignupController">
+   <children>
+      <ImageView fitHeight="711.0" fitWidth="1098.0">
+         <image>
+            <Image url="@../images/back.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="380.0" fitWidth="500.0" layoutX="55.0" layoutY="131.0">
+         <image>
+            <Image url="@../images/login-banner.png" />
+         </image>
+      </ImageView>
+      <Pane layoutX="645.0" layoutY="11.0" prefHeight="664.0" prefWidth="434.0" style="-fx-border-color: #09DCA4;">
+         <children>
+            <Text layoutX="21.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Register">
+               <font>
+                  <Font name="Arial" size="24.0" />
+               </font>
+            </Text>
+            <TextField fx:id="tfemail" layoutX="42.0" layoutY="67.0" prefHeight="30.0" prefWidth="348.0" promptText="Email" style="-fx-background-radius: 15;">
+               <font>
+                  <Font name="Arial" size="15.0" />
+               </font></TextField>
+            <TextField fx:id="tfnom" layoutX="42.0" layoutY="162.0" prefHeight="30.0" prefWidth="348.0" promptText="Nom" style="-fx-background-radius: 15;">
+               <font>
+                  <Font name="Arial" size="15.0" />
+               </font></TextField>
+            <TextField fx:id="tfprenom" layoutX="43.0" layoutY="218.0" prefHeight="30.0" prefWidth="348.0" promptText="Prenom" style="-fx-background-radius: 15;">
+               <font>
+                  <Font name="Arial" size="15.0" />
+               </font></TextField>
+            <TextField fx:id="tfnumtel" layoutX="43.0" layoutY="309.0" prefHeight="30.0" prefWidth="348.0" promptText="Telephone" style="-fx-background-radius: 15;">
+               <font>
+                  <Font name="Arial" size="15.0" />
+               </font></TextField>
+               
+            <TextField fx:id="tfadresse" layoutX="43.0" layoutY="364.0" prefHeight="30.0" prefWidth="348.0" promptText="Adresse" style="-fx-background-radius: 15;">
+               <font>
+                  <Font name="Arial" size="16.0" />
+               </font></TextField>
+            <RadioButton fx:id="rbmale" layoutX="43.0" layoutY="267.0" mnemonicParsing="false" text="Male">
+               <font>
+                  <Font name="Arial" size="15.0" />
+               </font></RadioButton>
+            <Button layoutX="43.0" layoutY="113.0" mnemonicParsing="false" onAction="#uploadsiguppic" style="-fx-background-color: #09DCA4; -fx-background-radius: 10;" text="choose file" textFill="WHITE">
+               <font>
+                  <Font name="Arial" size="15.0" />
+               </font></Button>
+            <RadioButton fx:id="rbfemale" layoutX="109.0" layoutY="267.0" mnemonicParsing="false" text="Female">
+               <font>
+                  <Font name="Arial" size="15.0" />
+               </font></RadioButton>
+            <PasswordField fx:id="tfmdp" layoutX="36.0" layoutY="440.0" onKeyReleased="#progres" prefHeight="30.0" prefWidth="348.0" promptText="Password" style="-fx-background-radius: 15;">
+               <font>
+                  <Font name="Arial" size="15.0" />
+               </font>
+            </PasswordField>
+            <Button layoutX="43.0" layoutY="574.0" mnemonicParsing="false" onAction="#signup" prefHeight="30.0" prefWidth="348.0" style="-fx-background-color: #09DCA4; -fx-background-radius: 10;" text="Signup" textFill="WHITE">
+               <font>
+                  <Font name="Arial" size="15.0" />
+               </font>
+            </Button>
+            <Text layoutX="51.0" layoutY="634.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vous avez déjà un compte?">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
+            <Label layoutX="252.0" layoutY="617.0" onMouseClicked="#gotologin" text="Login" textFill="#09dca4" underline="true">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <RadioButton fx:id="rbdoctor" layoutX="51.0" layoutY="544.0" mnemonicParsing="false" text="DOCTOR">
+               <font>
+                  <Font name="Arial" size="15.0" />
+               </font>
+            </RadioButton>
+            <RadioButton fx:id="rbpatient" layoutX="153.0" layoutY="544.0" mnemonicParsing="false" text="PATIENT">
+               <font>
+                  <Font name="Arial" size="15.0" />
+               </font>
+            </RadioButton>
+            <RadioButton fx:id="rbpara" layoutX="255.0" layoutY="544.0" mnemonicParsing="false" text="PARA">
+               <font>
+                  <Font name="Arial" size="15.0" />
+               </font>
+            </RadioButton>
+            <ProgressBar fx:id="progressBarMDP" layoutX="41.0" layoutY="478.0" prefHeight="21.0" prefWidth="340.0" progress="0.0" />
+            <Label fx:id="labelMDP" layoutX="43.0" layoutY="505.0" prefHeight="20.0" prefWidth="257.0" />
+            <ImageView fx:id="show" fitHeight="30.0" fitWidth="35.0" layoutX="390.0" layoutY="440.0" preserveRatio="true">
+               <image>
+                  <Image url="@../images/show.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="hide" fitHeight="30.0" fitWidth="30.0" layoutX="390.0" layoutY="440.0" visible="false">
+               <image>
+                  <Image url="@../images/hide.png" />
+               </image>
+            </ImageView>
+            <DatePicker fx:id="date" layoutX="46.0" layoutY="402.0" prefHeight="30.0" prefWidth="340.0" />
+         </children>
+      </Pane>
+      <ImageView layoutX="27.0" layoutY="14.0">
+         <image>
+            <Image url="@../images/logo2.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

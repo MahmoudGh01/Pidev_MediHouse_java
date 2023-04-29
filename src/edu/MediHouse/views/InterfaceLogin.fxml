@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="635.0" prefWidth="1120.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.MediHouse.views.InterfaceLogineeController">
+   <children>
+      <ImageView fitHeight="635.0" fitWidth="1120.0">
+         <image>
+            <Image url="@../images/back.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="380.0" fitWidth="500.0" layoutX="55.0" layoutY="131.0">
+         <image>
+            <Image url="@../images/login-banner.png" />
+         </image>
+      </ImageView>
+      <ImageView layoutX="14.0" layoutY="14.0">
+         <image>
+            <Image url="@../images/logo2.png" />
+         </image>
+      </ImageView>
+      <Pane layoutX="640.0" layoutY="91.0" prefHeight="507.0" prefWidth="430.0" style="-fx-border-color: #09DCA4;">
+         <children>
+            <Text layoutX="30.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Login Medihouse">
+               <font>
+                  <Font name="Arial" size="25.0" />
+               </font>
+            </Text>
+            <TextField fx:id="tfemail" layoutX="30.0" layoutY="102.0" prefHeight="30.0" prefWidth="371.0" promptText="Email" style="-fx-background-radius: 15;">
+               <font>
+                  <Font name="Arial" size="15.0" />
+               </font>
+            </TextField>
+            <PasswordField fx:id="tfmdp" layoutX="30.0" layoutY="160.0" prefHeight="30.0" prefWidth="371.0" promptText="mot de passe" style="-fx-background-radius: 15;">
+               <font>
+                  <Font name="Arial" size="15.0" />
+               </font>
+            </PasswordField>
+            <CheckBox fx:id="cbox" layoutX="37.0" layoutY="204.0" mnemonicParsing="false" onAction="#checkbox" text="View Password" textFill="#09dca4" />
+            <Label layoutX="254.0" layoutY="390.0" onMouseClicked="#gotoforgotpassword" text="Mot de passe oublié ?" textFill="#0abf8f">
+               <font>
+                  <Font name="Arial" size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="222.0" layoutY="464.0" onMouseClicked="#gotosignup" text="Enregistrer" textFill="#0abf8f">
+               <font>
+                  <Font name="Arial" size="15.0" />
+               </font>
+            </Label>
+            <Button layoutX="22.0" layoutY="415.0" mnemonicParsing="false" onAction="#login" prefHeight="35.0" prefWidth="386.0" style="-fx-background-color: #09DCA4; -fx-background-radius: 10;" text="Connexion" textFill="WHITE">
+               <font>
+                  <Font name="Arial" size="17.0" />
+               </font>
+            </Button>
+            <Text layoutX="32.0" layoutY="479.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vous n'avez pas de compte ?" />
+            <ImageView fx:id="captchagenerate" fitHeight="88.0" fitWidth="150.0" layoutX="136.0" layoutY="283.0" pickOnBounds="true" preserveRatio="true" />
+            <TextField fx:id="captchainput" layoutX="37.0" layoutY="239.0" prefHeight="30.0" prefWidth="371.0" promptText="Verify Code" style="-fx-background-radius: 15;">
+               <font>
+                  <Font name="Arial" size="15.0" />
+               </font>
+            </TextField>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
