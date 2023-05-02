@@ -135,63 +135,7 @@ public class ServiceUser implements IServiceUser<Users>{
         
         
     }
-    public List<Users> rechercher(String searchTerm) {
-    List<Users> resultList = new ArrayList<>(); // Liste pour stocker les résultats de recherche
-    
-    try {
-        String requete = "SELECT * FROM user WHERE "
-                + "LOWER(nom) LIKE ? OR "
-                + "LOWER(prenom) LIKE ? OR "
-                + "LOWER(email) LIKE ? OR "
-                + "LOWER(adresse) LIKE ? OR "
-                + "LOWER(telephone) LIKE ? OR "
-                + "LOWER(genre) LIKE ? OR "
-                + "LOWER(roles) LIKE ?";
-        PreparedStatement ps = MyConnection.getInstance().getCnx().prepareStatement(requete);
-        ps.setString(1, "%" + searchTerm.toLowerCase() + "%");
-        ps.setString(2, "%" + searchTerm.toLowerCase() + "%");
-        ps.setString(3, "%" + searchTerm.toLowerCase() + "%");
-        ps.setString(4, "%" + searchTerm.toLowerCase() + "%");
-        ps.setString(5, "%" + searchTerm.toLowerCase() + "%");
-        ps.setString(6, "%" + searchTerm.toLowerCase() + "%");
-        ps.setString(7, "%" + searchTerm.toLowerCase() + "%");
-        
-        ResultSet rs = ps.executeQuery();
-        
-        while (rs.next()) {
-            Users c = new Users();
-            c.setId(rs.getInt("id"));
-            c.setEmail(rs.getString("email"));
-            
-            String roles = rs.getString("roles");
-            if (roles != null) {
-                if (roles.equals("ROLE_DOCTOR")) {
-                    c.setRoles(Role.ROLE_DOCTOR);
-                } else if (roles.equals("ROLE_PATIENT")) {
-                    c.setRoles(Role.ROLE_PATIENT);
-                } else if (roles.equals("ROLE_PARA")) {
-                    c.setRoles(Role.ROLE_PARA);
-                } else if (roles.equals("ROLE_ADMIN")) {
-                    c.setRoles(Role.ROLE_ADMIN);
-                }
-            }
-
-            c.setPassword(rs.getString("password"));
-            c.setNom(rs.getString("nom"));
-            c.setPrenom(rs.getString("prenom"));
-            c.setGenre(rs.getString("genre"));
-            c.setTelephone(rs.getString("telephone"));
-            c.setAdresse(rs.getString("adresse"));
-            c.setProfilePicture(rs.getString("profilepicture"));
-
-            resultList.add(c);
-        }
-    } catch (SQLException ex) {
-        System.out.println(ex.getMessage());
-    }
-    
-    return resultList;
-}
+   
 
     /*private List<Users> listeUtilisateurs = new ArrayList<>(); // Déclaration d'une liste en mémoire pour stocker les utilisateurs
 private List<Users> listeUtilisateurs;

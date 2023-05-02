@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="632.0" prefWidth="1130.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.MediHouse.views.ListProduitsController">
+   <children>
+      <ImageView fitHeight="713.0" fitWidth="1191.0">
+         <image>
+            <Image url="@../images/back.png" />
+         </image>
+      </ImageView>
+      <TableView fx:id="TabMagasin" layoutX="262.0" layoutY="85.0" prefHeight="486.0" prefWidth="661.0">
+         <columns>
+            <TableColumn fx:id="IdProTab" prefWidth="75.0" text="Id Produit" />
+            <TableColumn fx:id="nomProTab" prefWidth="107.20001220703125" text="Nom Produit" />
+            <TableColumn fx:id="ProxProdTab" prefWidth="105.60003662109375" text="Prix Produit" />
+            <TableColumn fx:id="QuanProdTab" prefWidth="116.0" text="Quantite" />
+            <TableColumn fx:id="DisProTab" prefWidth="87.99993896484375" text="Disponibilite" />
+            <TableColumn fx:id="ImgProTab" prefWidth="75.0" text="Image" />
+            <TableColumn fx:id="ColorProdTab" prefWidth="75.0" text="Color" />
+         </columns>
+      </TableView>
+      <Button layoutX="515.0" layoutY="582.0" mnemonicParsing="false" onAction="#SuppProdGo" prefHeight="36.0" prefWidth="173.0" style="-fx-background-color: #09DCA4; -fx-background-radius: 10;" text="Supprimer" textFill="WHITE" />
+      <Button layoutX="750.0" layoutY="582.0" mnemonicParsing="false" onAction="#ModifierProdGo" prefHeight="36.0" prefWidth="173.0" style="-fx-background-color: #09DCA4; -fx-background-radius: 10;" text="Modifier" textFill="WHITE" />
+      <Button layoutX="971.0" layoutY="138.0" mnemonicParsing="false" onAction="#CsVCreate" prefHeight="36.0" prefWidth="200.0" style="-fx-background-color: #09DCA4; -fx-background-radius: 10;" text="csv" textFill="WHITE">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <TextField fx:id="searchProd" layoutX="989.0" layoutY="80.0" prefHeight="25.0" prefWidth="173.0" />
+      <Label layoutX="945.0" layoutY="84.0" text="Search">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="Err" layoutX="815.0" layoutY="28.0" prefHeight="17.0" prefWidth="156.0" text="*" textFill="#ff0505" />
+      <Button layoutX="964.0" layoutY="485.0" mnemonicParsing="false" onAction="#imageget" prefHeight="31.0" prefWidth="200.0" style="-fx-background-color: #09DCA4; -fx-background-radius: 10;" text="Image" textFill="WHITE" />
+      <ImageView fx:id="imageV" fitHeight="228.0" fitWidth="200.0" layoutX="964.0" layoutY="222.0" pickOnBounds="true" preserveRatio="true" />
+      <AnchorPane layoutX="23.0" layoutY="124.0" prefHeight="525.0" prefWidth="217.0" style="-fx-background-color: #15558D; -fx-border-radius: 15; -fx-background-radius: 15;">
+         <children>
+            <Circle fx:id="profilepicture" fill="#f8fcff" layoutX="102.0" layoutY="76.0" onDragDetected="#profile" radius="65.0" stroke="BLACK" strokeType="INSIDE" />
+            <Button layoutX="32.0" layoutY="175.0" mnemonicParsing="false" onAction="#TabBord" prefHeight="31.0" prefWidth="152.0" style="-fx-background-color: #7989E4; -fx-background-radius: 15;" text="Tableau de bord" />
+            <Button layoutX="32.0" layoutY="263.0" mnemonicParsing="false" onAction="#AddProduit" prefHeight="31.0" prefWidth="152.0" style="-fx-background-color: #D0E8FA; -fx-background-radius: 15;" text="Ajouter Produit" />
+            <Button layoutX="33.0" layoutY="313.0" mnemonicParsing="false" onAction="#logout" prefHeight="31.0" prefWidth="152.0" style="-fx-background-color: #D0E8FA; -fx-background-radius: 15;" text="Log out" />
+            <Label fx:id="Username" layoutX="2.0" layoutY="154.0" prefHeight="21.0" prefWidth="211.0" textFill="WHITE">
+               <font>
+                  <Font name="Arial" size="15.0" />
+               </font>
+            </Label>
+            <Button layoutX="32.0" layoutY="217.0" mnemonicParsing="false" onAction="#ListeC" prefHeight="31.0" prefWidth="152.0" style="-fx-background-color: #D0E8FA; -fx-background-radius: 15;" text="Liste Commandes" />
+         </children>
+      </AnchorPane>
+      <ImageView fitHeight="57.0" fitWidth="217.0" layoutX="34.0" layoutY="34.0">
+         <image>
+            <Image url="@../images/logo2.png" />
+         </image>
+      </ImageView>
+      <Text layoutX="415.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="List des Produits" wrappingWidth="298.55126953125">
+         <fill>
+            <LinearGradient cycleMethod="REFLECT" endX="1.0" endY="1.0" startX="0.3140096618357488">
+               <stops>
+                  <Stop color="#315ceb" />
+                  <Stop color="WHITE" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </fill>
+         <font>
+            <Font name="Arial Bold Italic" size="35.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>

@@ -12,20 +12,20 @@
 
 <AnchorPane id="AnchorPane" prefHeight="635.0" prefWidth="1130.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.MediHouse.views.InterfaceePatientController">
    <children>
-      <ImageView fitHeight="635.0" fitWidth="1130.0">
+      <ImageView fitHeight="655.0" fitWidth="1130.0">
          <image>
             <Image url="@../images/back.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="60.0" fitWidth="220.0" layoutX="14.0" layoutY="14.0">
+      <ImageView fitHeight="60.0" fitWidth="220.0" layoutX="260.0" layoutY="71.0">
          <image>
             <Image url="@../images/logo2.png" />
          </image>
       </ImageView>
-      <AnchorPane layoutX="14.0" layoutY="86.0" prefHeight="525.0" prefWidth="217.0" style="-fx-background-color: #15558D; -fx-background-radius: 15;">
+      <AnchorPane layoutX="-7.0" layoutY="-11.0" prefHeight="666.0" prefWidth="249.0" style="-fx-background-color: #15558D; -fx-background-radius: 15;">
          <children>
-            <Circle fx:id="ProfilePic" fill="#f8f8f8" layoutX="109.0" layoutY="76.0" onDragDetected="#Profile1" radius="65.0" stroke="BLACK" strokeType="INSIDE" />
-            <Label fx:id="UserName" layoutX="3.0" layoutY="156.0" prefHeight="17.0" prefWidth="211.0" textFill="WHITE">
+            <Circle fx:id="ProfilePic" fill="#f8f8f8" layoutX="125.0" layoutY="113.0" onDragDetected="#Profile1" radius="76.0" stroke="BLACK" strokeType="INSIDE" />
+            <Label fx:id="UserName" layoutX="21.0" layoutY="169.0" prefHeight="39.0" prefWidth="207.0" textFill="WHITE">
                <font>
                   <Font name="Arial" size="15.0" />
                </font>
@@ -42,7 +42,7 @@
             <Button layoutX="33.0" layoutY="279.0" mnemonicParsing="false" onAction="#RechMed" prefHeight="30.0" prefWidth="152.0" style="-fx-background-color: #D0E8FA; -fx-background-radius: 15;" text="Rechercher Medecin" />
          </children>
       </AnchorPane>
-      <ImageView fitHeight="450.0" fitWidth="600.0" layoutX="375.0" layoutY="125.0">
+      <ImageView fitHeight="450.0" fitWidth="600.0" layoutX="396.0" layoutY="131.0">
          <image>
             <Image url="@../images/login-banner.png" />
          </image>

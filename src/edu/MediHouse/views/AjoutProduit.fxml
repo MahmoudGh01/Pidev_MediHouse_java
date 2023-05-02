@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ColorPicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="595.0" prefWidth="818.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.MediHouse.views.AjoutProduitController">
+   <children>
+      <Pane prefHeight="595.0" prefWidth="818.0" />
+      <ImageView fitHeight="632.0" fitWidth="1130.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/back.png" />
+         </image>
+      </ImageView>
+      <TextField fx:id="NomProduit" layoutX="341.0" layoutY="138.0" prefHeight="25.0" prefWidth="318.0" />
+      <TextField fx:id="QuantProduit" layoutX="341.0" layoutY="272.0" prefHeight="25.0" prefWidth="318.0" />
+      <TextField fx:id="PrixProduit" layoutX="341.0" layoutY="205.0" prefHeight="25.0" prefWidth="318.0" />
+      <Button layoutX="392.0" layoutY="532.0" mnemonicParsing="false" onAction="#Enregistremagasin" prefHeight="35.0" prefWidth="148.0" style="-fx-background-color: #64CEDC;" text="Enregistre" textFill="#fffdfd" />
+      <Label layoutX="295.0" layoutY="110.0" text="Nom Produit">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="294.0" layoutY="173.0" text="Prix Produit">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="293.0" layoutY="244.0" text="Quantit Produit">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="ErrNom" layoutX="689.0" layoutY="142.0" prefHeight="17.0" prefWidth="156.0" text="*" textFill="RED" />
+      <Label fx:id="ErrQnt" layoutX="689.0" layoutY="276.0" prefHeight="17.0" prefWidth="156.0" text="*" textFill="#ff0505" />
+      <Label fx:id="Errprix" layoutX="687.0" layoutY="210.0" prefHeight="17.0" prefWidth="156.0" text="*" textFill="RED" />
+      <Button layoutX="344.0" layoutY="392.0" mnemonicParsing="false" onAction="#file" prefHeight="35.0" prefWidth="186.0" style="-fx-background-color: #09DCA4; -fx-background-radius: 10;" text="Ajouter Image">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+      </Button>
+      <TextField fx:id="imageText" layoutX="346.0" layoutY="461.0" prefHeight="31.0" prefWidth="368.0" />
+      <Label fx:id="ErrImage" layoutX="555.0" layoutY="402.0" text="*" textFill="#c60303">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <ColorPicker fx:id="ColorProdut" layoutX="341.0" layoutY="341.0" prefHeight="26.0" prefWidth="318.0" />
+      <Label layoutX="295.0" layoutY="308.0" text="Color Produit">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="imageV" fitHeight="226.0" fitWidth="241.0" layoutX="549.0" layoutY="266.0" pickOnBounds="true" preserveRatio="true" />
+      <AnchorPane layoutX="14.0" layoutY="90.0" prefHeight="525.0" prefWidth="217.0" style="-fx-background-color: #15558D; -fx-border-radius: 15; -fx-background-radius: 15;">
+         <children>
+            <Circle fx:id="profilepicture" fill="#f8fcff" layoutX="102.0" layoutY="76.0" onDragDetected="#profile" radius="65.0" stroke="BLACK" strokeType="INSIDE" />
+            <Button layoutX="32.0" layoutY="175.0" mnemonicParsing="false" onAction="#TabBord" prefHeight="31.0" prefWidth="152.0" style="-fx-background-color: #D0E8FA; -fx-background-radius: 15;" text="Tableau de bord" />
+            <Button layoutX="32.0" layoutY="263.0" mnemonicParsing="false" onAction="#AddProduit" prefHeight="31.0" prefWidth="152.0" style="-fx-background-color: #7989E4; -fx-background-radius: 15;" text="Ajouter Produit" />
+            <Button layoutX="33.0" layoutY="313.0" mnemonicParsing="false" onAction="#logout" prefHeight="31.0" prefWidth="152.0" style="-fx-background-color: #D0E8FA; -fx-background-radius: 15;" text="Log out" />
+            <Label fx:id="Username" layoutX="2.0" layoutY="154.0" prefHeight="21.0" prefWidth="211.0" textFill="WHITE">
+               <font>
+                  <Font name="Arial" size="15.0" />
+               </font>
+            </Label>
+            <Button layoutX="32.0" layoutY="217.0" mnemonicParsing="false" onAction="#ListeC" prefHeight="31.0" prefWidth="152.0" style="-fx-background-color: #D0E8FA; -fx-background-radius: 15;" text="Liste Commandes" />
+         </children>
+      </AnchorPane>
+      <ImageView fitHeight="57.0" fitWidth="217.0" layoutX="14.0" layoutY="18.0">
+         <image>
+            <Image url="@../images/logo2.png" />
+         </image>
+      </ImageView>
+      <Text layoutX="346.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ajouter Produit" wrappingWidth="284.55126953125">
+         <fill>
+            <LinearGradient cycleMethod="REFLECT" endX="1.0" endY="1.0" startX="0.3140096618357488">
+               <stops>
+                  <Stop color="#315ceb" />
+                  <Stop color="WHITE" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </fill>
+         <font>
+            <Font name="Arial Bold Italic" size="35.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>

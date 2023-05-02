@@ -19,15 +19,10 @@
       </ImageView>
       <AnchorPane layoutX="14.0" layoutY="86.0" prefHeight="525.0" prefWidth="217.0" style="-fx-background-color: #15558D; -fx-border-radius: 15; -fx-background-radius: 15;">
          <children>
-            <Button layoutX="32.0" layoutY="201.0" mnemonicParsing="false" onAction="#profile" prefHeight="31.0" prefWidth="152.0" style="-fx-background-color: #7989E4; -fx-background-radius: 15;" text="My Profile">
-               <font>
-                  <Font name="Arial" size="14.0" />
-               </font>
-            </Button>
-            <Circle fx:id="profilepicture" fill="#f8fcff" layoutX="105.0" layoutY="76.0" radius="62.0" stroke="BLACK" strokeType="INSIDE" />
-            <Button layoutX="33.0" layoutY="250.0" mnemonicParsing="false" onAction="#TabBord" prefHeight="31.0" prefWidth="152.0" style="-fx-background-color: #D0E8FA; -fx-background-radius: 15;" text="Tableau de bord" />
-            <Button layoutX="33.0" layoutY="300.0" mnemonicParsing="false" onAction="#AddProduit" prefHeight="31.0" prefWidth="152.0" style="-fx-background-color: #D0E8FA; -fx-background-radius: 15;" text="Ajouter Produit" />
-            <Button layoutX="33.0" layoutY="349.0" mnemonicParsing="false" onAction="#logout" prefHeight="31.0" prefWidth="152.0" style="-fx-background-color: #D0E8FA; -fx-background-radius: 15;" text="Log out" />
+            <Circle fx:id="profilepicture" fill="#f8fcff" layoutX="105.0" layoutY="76.0" onDragDetected="#profile" radius="62.0" stroke="BLACK" strokeType="INSIDE" />
+            <Button layoutX="33.0" layoutY="198.0" mnemonicParsing="false" onAction="#TabBord" prefHeight="31.0" prefWidth="152.0" style="-fx-background-color: #D0E8FA; -fx-background-radius: 15;" text="Tableau de bord" />
+            <Button layoutX="33.0" layoutY="248.0" mnemonicParsing="false" onAction="#AddProduit" prefHeight="31.0" prefWidth="152.0" style="-fx-background-color: #D0E8FA; -fx-background-radius: 15;" text="Ajouter Produit" />
+            <Button layoutX="33.0" layoutY="297.0" mnemonicParsing="false" onAction="#logout" prefHeight="31.0" prefWidth="152.0" style="-fx-background-color: #D0E8FA; -fx-background-radius: 15;" text="Log out" />
             <Label fx:id="Username" layoutX="2.0" layoutY="154.0" prefHeight="21.0" prefWidth="211.0" textFill="WHITE">
                <font>
                   <Font name="Arial" size="15.0" />
@@ -74,7 +69,9 @@
                </font>
             </TextField>
             <Button fx:id="changepicbtn" layoutX="20.0" layoutY="14.0" mnemonicParsing="false" onAction="#uploadsiguppic" prefHeight="31.0" prefWidth="139.0" style="-fx-background-color: #09DCA4; -fx-background-radius: 10;" text="change pic" textFill="WHITE" />
+            <Button layoutX="244.0" layoutY="12.0" mnemonicParsing="false" onAction="#QrCode" prefHeight="30.0" prefWidth="119.0" style="-fx-background-color: #09DCA4; -fx-background-radius: 10;" text="QRcode" textFill="WHITE" />
          </children>
       </AnchorPane>
+      <ImageView fx:id="qrCodeImageView" fitHeight="300.0" fitWidth="300.0" layoutX="712.0" layoutY="183.0" pickOnBounds="true" preserveRatio="true" />
    </children>
 </AnchorPane>

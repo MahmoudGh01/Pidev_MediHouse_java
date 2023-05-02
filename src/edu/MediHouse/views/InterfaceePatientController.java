@@ -91,7 +91,7 @@ public class InterfaceePatientController implements Initializable {
 
     @FXML
     private void parapharmacie(ActionEvent event) {
-        FXMain.setScene("parapharmacie");
+        FXMain.setScene("ProduitsUser");
     }
     
     @FXML

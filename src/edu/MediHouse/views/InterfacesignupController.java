@@ -29,6 +29,7 @@ import javafx.scene.control.TextField;
 
 import java.net.URL;
 import java.sql.Date;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -274,7 +275,12 @@ private void hidePassword() {
         if(su.checkuser(tfemail.getText())){
             erreur+="-email existe deja\n";
         }
-        
+        // Vérifier que la date de naissance est valide
+    LocalDate selectedDate = date.getValue();
+    LocalDate limitDate = LocalDate.of(2004, 12, 31);
+    if (selectedDate != null && selectedDate.isAfter(limitDate)) {
+        erreur += "- Date de naissance refuser age 18 ans\n";
+    }
         if(tfnom.getText().trim().isEmpty()){
             erreur+="-nom vide\n";
         }

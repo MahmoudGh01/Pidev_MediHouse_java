@@ -30,6 +30,7 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
@@ -120,12 +121,12 @@ private static String profilepictures="";
                 TFnultel.setText(suggestionsMap.getOrDefault(selectedAdresse, ""));
             }
         });
-      //  DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-d");
-  
-
- // convert String to LocalDate
- // LocalDate localDate = LocalDate.parse(String.valueOf(u.getDatenes()), formatter);
-   //     dpdate.setValue(localDate);
+       profilepicture.setOnMouseClicked(new EventHandler<MouseEvent>() {
+        @Override
+        public void handle(MouseEvent event) {
+            profile(event);
+                  }
+    });
     }   
     
  // Méthode pour configurer les suggestions automatiques
@@ -351,6 +352,7 @@ private void QrCode(ActionEvent event) {
 
     @FXML
     private void profile(MouseEvent event) {
+         FXMain.setScene("ProfilePatient");
     }
    
 

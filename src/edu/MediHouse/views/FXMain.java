@@ -5,6 +5,8 @@
  */
 package edu.MediHouse.views;
 
+import edu.MediHouse.entities.Commande;
+import edu.MediHouse.entities.Produit;
 import java.awt.Graphics2D;
 import java.awt.GraphicsConfiguration;
 import java.awt.GraphicsDevice;
@@ -13,6 +15,8 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.io.InputStream;
 import javafx.application.Application;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
@@ -33,7 +37,14 @@ import javax.swing.ImageIcon;
 public class FXMain extends Application {
     public static FXMain _self;
     public static Stage _stage;
-      
+       public  static String user = "Imen ";
+    
+      public  static Double prix ;
+
+    static Produit pr = new Produit();
+    static Commande cm = new Commande();
+static  ObservableList<Produit> produitsCommandes = FXCollections.observableArrayList();
+static Produit pn = new Produit();
     @Override
     public void start(Stage primaryStage) {
       

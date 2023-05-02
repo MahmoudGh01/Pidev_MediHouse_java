@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="145.0" prefWidth="433.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="edu.MediHouse.views.AddToPannierController">
+   <children>
+      <Pane prefHeight="199.0" prefWidth="474.0" style="-fx-background-color: #18539B;">
+         <children>
+            <Button fx:id="aa" layoutX="156.0" layoutY="118.0" mnemonicParsing="false" onAction="#Confirmersupp" prefHeight="31.0" prefWidth="163.0" style="-fx-background-color: #06962d;" text="Ok" textFill="#e8e8e8" />
+            <Label layoutX="82.0" layoutY="42.0" text="Produit est ajoute aux pannier" textFill="WHITE">
+               <font>
+                  <Font name="System Bold Italic" size="19.0" />
+               </font>
+            </Label>
+            <Label fx:id="prName" layoutX="168.0" layoutY="78.0" text="Produit Name" textFill="WHITE">
+               <font>
+                  <Font name="System Bold Italic" size="19.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

@@ -12,6 +12,7 @@ import java.util.Optional;
 import java.util.Random;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
@@ -20,6 +21,7 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
@@ -54,6 +56,12 @@ Users u =new Users();
         ProfilePic1.setEffect(new DropShadow(20, Color.BLACK));
        // String pseudo = generatePseudo(u.getNom(), u.getPrenom());
         UserName1.setText(generatePseudo(u.getNom(), u.getPrenom()));
+          ProfilePic1.setOnMouseClicked(new EventHandler<MouseEvent>() {
+        @Override
+        public void handle(MouseEvent event) {
+            profile(event);
+                  }
+    });
     }
       public static String generatePseudo(String tfnom, String tfprenom) {
         String firstInitial = tfprenom.substring(0, 1).toLowerCase();
@@ -61,8 +69,9 @@ Users u =new Users();
         int randomNum = new Random().nextInt(10000); // generate a random number between 0 and 9999
         String pseudo = firstInitial + lastInitial + randomNum;
         return pseudo;
+        
     }
-    @FXML
+      
     private void Profile(ActionEvent event) {
          FXMain.setScene("ProfileAdmin");
     }
@@ -94,7 +103,7 @@ Users u =new Users();
 
     @FXML
     private void reclamation(ActionEvent event) {
-         FXMain.setScene("Rec");
+         FXMain.setScene("Reponse");
     }
 
     @FXML
@@ -110,6 +119,11 @@ Users u =new Users();
     @FXML
     private void RDV(ActionEvent event) {
          FXMain.setScene("RDV");
+    }
+
+    @FXML
+    private void profile(MouseEvent event) {
+         FXMain.setScene("ProfileAdmin");
     }
     
 }

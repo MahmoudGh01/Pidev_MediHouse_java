@@ -11,6 +11,7 @@ import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
@@ -19,6 +20,7 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
@@ -52,22 +54,26 @@ Users u =new Users();
         profilepicture.setStroke(Color.SEAGREEN);
         profilepicture.setEffect(new DropShadow(20, Color.BLACK));
         Username.setText(u.getNom().toUpperCase()+" "+u.getPrenom().toUpperCase());
-        
+           profilepicture.setOnMouseClicked(new EventHandler<MouseEvent>() {
+        @Override
+        public void handle(MouseEvent event) {
+            profile(event);
+                  }
+    });
     }    
 
-    @FXML
     private void profile(ActionEvent event) {
         FXMain.setScene("ProfilePara");
     }
 
     @FXML
     private void TabBord(ActionEvent event) {
-        FXMain.setScene("Tabbord");
+        FXMain.setScene("ListProduits");
     }
 
     @FXML
     private void AddProduit(ActionEvent event) {
-        FXMain.setScene("AddProduit");
+        FXMain.setScene("AjoutProduit");
     }
 
     @FXML
@@ -87,6 +93,16 @@ Users u =new Users();
          FXMain.setScene("InterfaceLogin");
         
     }
+    }
+
+    @FXML
+    private void profile(MouseEvent event) {
+           FXMain.setScene("ProfilePara");
+    }
+
+    @FXML
+    private void ListeC(ActionEvent event) {
+         FXMain.setScene("ListCommandes");
     }
     
 }

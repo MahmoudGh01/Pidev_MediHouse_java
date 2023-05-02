@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="542.0" prefWidth="767.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.MediHouse.views.PanierController">
+   <children>
+      <ImageView fitHeight="608.0" fitWidth="767.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../../MediHouse/src/edu/MediHouse/images/back.png" />
+         </image>
+      </ImageView>
+      <TableView fx:id="TabMagasin" layoutX="14.0" layoutY="86.0" prefHeight="328.0" prefWidth="696.0">
+         <columns>
+            <TableColumn fx:id="IdProTab" prefWidth="75.0" text="Id Produit" />
+            <TableColumn fx:id="nomProTab" prefWidth="107.20001220703125" text="Nom Produit" />
+            <TableColumn fx:id="ProxProdTab" prefWidth="105.60003662109375" text="Prix Produit" />
+            <TableColumn fx:id="QuanProdTab" prefWidth="116.0" text="Quantite" />
+            <TableColumn fx:id="DisProTab" prefWidth="87.99993896484375" text="Disponibilite" />
+            <TableColumn fx:id="ImgProTab" prefWidth="109.60003662109375" text="Image" />
+            <TableColumn fx:id="ColorProdTab" prefWidth="91.20001220703125" text="Color" />
+         </columns>
+      </TableView>
+      <Button layoutX="490.0" layoutY="424.0" mnemonicParsing="false" onAction="#SuppProdGo" prefHeight="36.0" prefWidth="173.0" style="-fx-background-color: #09DCA4; -fx-background-radius: 10;" text="Supprimer" textFill="WHITE" />
+      <Label layoutX="272.0" layoutY="47.0" text="List des Produits" textFill="#5ab9c7">
+         <font>
+            <Font name="System Bold Italic" size="27.0" />
+         </font>
+      </Label>
+      <TextField fx:id="searchProd" layoutX="501.0" layoutY="27.0" prefHeight="25.0" prefWidth="173.0" />
+      <Label layoutX="453.0" layoutY="31.0" text="Search">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="Err" layoutX="501.0" layoutY="57.0" prefHeight="18.0" prefWidth="119.0" text="*" textFill="#ff0505" />
+      <Button layoutX="490.0" layoutY="467.0" mnemonicParsing="false" onAction="#PasseCommande" prefHeight="36.0" prefWidth="173.0" style="-fx-background-color: #09DCA4; -fx-background-radius: 10;" text="Passe Commande" textFill="WHITE" />
+      <Button layoutX="490.0" layoutY="513.0" mnemonicParsing="false" onAction="#retourPannier" prefHeight="36.0" prefWidth="173.0" style="-fx-background-color: #09DCA4; -fx-background-radius: 10;" text="Retour" textFill="WHITE" />
+      <Label layoutX="55.0" layoutY="484.0" text="Prix Total :" textFill="#5ab9c7">
+         <font>
+            <Font name="System Bold Italic" size="27.0" />
+         </font>
+      </Label>
+      <Label fx:id="prixlabel" layoutX="202.0" layoutY="484.0" text="0" textFill="#5ab9c7">
+         <font>
+            <Font name="System Bold Italic" size="27.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

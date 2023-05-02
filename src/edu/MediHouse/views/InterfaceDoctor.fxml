@@ -19,19 +19,14 @@
       </ImageView>
       <AnchorPane layoutX="14.0" layoutY="86.0" prefHeight="525.0" prefWidth="217.0" style="-fx-background-color: #15558D; -fx-border-radius: 15; -fx-background-radius: 15;">
          <children>
-            <Button layoutX="32.0" layoutY="201.0" mnemonicParsing="false" onAction="#profile" prefHeight="31.0" prefWidth="152.0" style="-fx-background-color: #D0E8FA; -fx-background-radius: 15;" text="My Profile">
-               <font>
-                  <Font name="Arial" size="14.0" />
-               </font>
-            </Button>
-            <Circle fx:id="profilepicture" fill="#f8fcff" layoutX="108.0" layoutY="76.0" radius="62.0" stroke="BLACK" strokeType="INSIDE" />
-            <Button layoutX="33.0" layoutY="250.0" mnemonicParsing="false" onAction="#Fiches" prefHeight="31.0" prefWidth="152.0" style="-fx-background-color: #D0E8FA; -fx-background-radius: 15;" text="Fiches">
+            <Circle fx:id="profilepicture" fill="#f8fcff" layoutX="108.0" layoutY="76.0" onDragDetected="#profile" radius="62.0" stroke="BLACK" strokeType="INSIDE" />
+            <Button layoutX="33.0" layoutY="173.0" mnemonicParsing="false" onAction="#Fiches" prefHeight="31.0" prefWidth="152.0" style="-fx-background-color: #D0E8FA; -fx-background-radius: 15;" text="Fiches">
                <font>
                   <Font name="Arial" size="14.0" />
                </font></Button>
-            <Button layoutX="33.0" layoutY="300.0" mnemonicParsing="false" onAction="#RDVD" prefHeight="31.0" prefWidth="152.0" style="-fx-background-color: #D0E8FA; -fx-background-radius: 15;" text="RDV" />
-            <Button layoutX="33.0" layoutY="398.0" mnemonicParsing="false" onAction="#logout" prefHeight="31.0" prefWidth="152.0" style="-fx-background-color: #D0E8FA; -fx-background-radius: 15;" text="Log out" />
-            <Button layoutX="33.0" layoutY="347.0" mnemonicParsing="false" onAction="#calendrier" prefHeight="31.0" prefWidth="152.0" style="-fx-background-color: #D0E8FA; -fx-background-radius: 15;" text="Calendrier" />
+            <Button layoutX="33.0" layoutY="223.0" mnemonicParsing="false" onAction="#RDVD" prefHeight="31.0" prefWidth="152.0" style="-fx-background-color: #D0E8FA; -fx-background-radius: 15;" text="RDV" />
+            <Button layoutX="33.0" layoutY="321.0" mnemonicParsing="false" onAction="#logout" prefHeight="31.0" prefWidth="152.0" style="-fx-background-color: #D0E8FA; -fx-background-radius: 15;" text="Log out" />
+            <Button layoutX="33.0" layoutY="270.0" mnemonicParsing="false" onAction="#calendrier" prefHeight="31.0" prefWidth="152.0" style="-fx-background-color: #D0E8FA; -fx-background-radius: 15;" text="Calendrier" />
             <Label fx:id="username" layoutX="5.0" layoutY="154.0" prefHeight="20.0" prefWidth="208.0" textFill="WHITE">
                <font>
                   <Font name="Arial" size="15.0" />

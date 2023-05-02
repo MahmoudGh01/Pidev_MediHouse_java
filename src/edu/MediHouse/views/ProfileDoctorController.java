@@ -5,8 +5,14 @@
  */
 package edu.MediHouse.views;
 
+import com.google.zxing.BarcodeFormat;
+import com.google.zxing.WriterException;
+import com.google.zxing.client.j2se.MatrixToImageWriter;
+import com.google.zxing.common.BitMatrix;
+import com.google.zxing.qrcode.QRCodeWriter;
 import edu.MediHouse.entities.Users;
 import edu.MediHouse.services.ServiceUser;
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.net.URL;
 import java.sql.Date;
@@ -20,7 +26,9 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
@@ -33,6 +41,8 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
@@ -75,6 +85,8 @@ Users u =new Users();
     ServiceUser su=new ServiceUser();
     private String cImageUrl = "";
     private static String profilepictures="";
+    @FXML
+    private ImageView qrCodeImageView;
     /**
      * Initializes the controller class.
      */
@@ -107,12 +119,12 @@ Users u =new Users();
                 TFnumtel.setText(suggestionsMap.getOrDefault(selectedAdresse, ""));
             }
         });
-       // DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-d");
-  
-
-  //convert String to LocalDate
- // LocalDate localDate = LocalDate.parse(String.valueOf(u.getDatenes()), formatter);
-   //     dpdate.setValue(localDate);
+        profilepicture.setOnMouseClicked(new EventHandler<MouseEvent>() {
+        @Override
+        public void handle(MouseEvent event) {
+            profile(event);
+                  }
+    });
         
     }    
        // Méthode pour configurer les suggestions automatiques
@@ -165,7 +177,6 @@ Users u =new Users();
         // Définir le nombre minimum de caractères pour activer les suggestions
         autoCompletionBinding.setMinWidth(2);
     }
-    @FXML
     private void profile(ActionEvent event) {
         FXMain.setScene("ProfileDoctor");
     }
@@ -306,6 +317,31 @@ Users u =new Users();
         erreur+="-mot de passe doit contenir au moins une lettre majuscule, une lettre minuscule, un chiffre et un caractère spécial et avoir une longueur d'au moins 8 caractères\n";
     }
         return erreur;
+    }
+
+    @FXML
+    private void profile(MouseEvent event) {
+        FXMain.setScene("ProfileDoctor");
+    }
+
+    @FXML
+    private void QrCode(ActionEvent event) {
+              // Generate QR code with user's information
+    String text = String.format("Nom : %s%nPrénom : %s%nEmail : %s%nAdresse : %s%nTéléphone : %s", 
+                                u.getNom(), u.getPrenom(), u.getEmail(), u.getAdresse(), u.getTelephone());
+    int width = 300;
+    int height = 300;
+    String format = "png";
+    File file = new File("C:\\Users\\chaab\\Desktop\\3A41\\S2\\web-java-mobile\\java\\MediHouse\\src\\edu\\MediHouse\\images/","qrcode.png");
+    try {
+        QRCodeWriter qrCodeWriter = new QRCodeWriter();
+        BitMatrix bitMatrix = qrCodeWriter.encode(text, BarcodeFormat.QR_CODE, width, height);
+        BufferedImage bufferedImage = MatrixToImageWriter.toBufferedImage(bitMatrix);
+        Image image = SwingFXUtils.toFXImage(bufferedImage, null);
+        qrCodeImageView.setImage(image);
+    } catch (WriterException ex) {
+        ex.printStackTrace();
+    }
     }
     
 

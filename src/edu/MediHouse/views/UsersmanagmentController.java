@@ -19,7 +19,10 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
@@ -102,11 +105,7 @@ Users u =new Users();
         // Load all users data
         loadData();
 
-        // Bind the search box with the search action
-        searchBox.setOnKeyReleased(e -> {
-            String searchTerm = searchBox.getText().trim();
-            rechercher(searchTerm);
-        });
+      
 
         // Initialize user info
         u = su.getUserByEmail(InterfaceLogineeController.iduserglobal);
@@ -116,7 +115,14 @@ Users u =new Users();
         ProfilePic1.setStroke(Color.SEAGREEN);
         ProfilePic1.setEffect(new DropShadow(20, Color.BLACK));
         UserName1.setText("ADMIN " + u.getNom().toUpperCase() + " " + u.getPrenom().toUpperCase());
-
+//searchBox.search;
+search();
+  ProfilePic1.setOnMouseClicked(new EventHandler<MouseEvent>() {
+        @Override
+        public void handle(MouseEvent event) {
+            profile(event);
+                  }
+    });
     }
 // Load all users data into the table
     private void loadData() {
@@ -127,14 +133,8 @@ Users u =new Users();
     }
 
     // Search users by search term and display the results in the table
-    private void rechercher(String searchTerm) {
-        List<Users> usersList = su.rechercher(searchTerm);
-        data.clear();
-        data.addAll(usersList);
-        tvuser.setItems(data);
-    }
    
-    @FXML
+   
     private void Profile(ActionEvent event) {
         FXMain.setScene("ProfileAdmin");
     }
@@ -227,7 +227,66 @@ Users u =new Users();
         alert.showAndWait();
     }
     }
-    
+    void search() {
+        Users p = new Users();
+        cnom.setCellValueFactory(new PropertyValueFactory<>("nom"));
+        cprenom.setCellValueFactory(new PropertyValueFactory<>("prenom"));
+        cemail.setCellValueFactory(new PropertyValueFactory<>("email"));
+        cadresse.setCellValueFactory(new PropertyValueFactory<>("adresse"));
+        ctelephone.setCellValueFactory(new PropertyValueFactory<>("telephone"));
+        cgenre.setCellValueFactory(new PropertyValueFactory<>("genre"));
+        crole.setCellValueFactory(new PropertyValueFactory<>("roles"));
+        cdate.setCellValueFactory(new PropertyValueFactory<>("Datenes"));
+        
+        
+       
+        tvuser.setItems(data);
+       
+        FilteredList<Users> filteredData = new FilteredList<>(data, b -> true);
+       
+        searchBox.textProperty().addListener((observable, oldValue, newValue) -> {
+            filteredData.setPredicate((Users us) -> {
+                if (newValue == null || newValue.isEmpty()) {
+                    return true;
+                }
+                String lowerCaseFilter = newValue.toLowerCase();
+
+                if (us.getNom().toLowerCase().indexOf(lowerCaseFilter) != -1 ) {
+					return true; // Filter matches first name.
+				} else if (us.getPrenom().toLowerCase().indexOf(lowerCaseFilter) != -1) {
+					return true; // Filter matches last name.
+				}
+                                else if (us.getAdresse().indexOf(lowerCaseFilter)!=-1){
+				     return true;
+                                }
+                                else if (us.getAdresse().indexOf(lowerCaseFilter)!=-1){
+				     return true;
+                                }else if (us.getAdresse().toUpperCase().indexOf(lowerCaseFilter.toUpperCase()) != -1){
+                                    return true; // Filter matches address.
+} 
+                                else if (us.getEmail().indexOf(lowerCaseFilter)!=-1){
+				     return true;
+                                }
+                                
+                                
+                               
+                                else if (String.valueOf(us.getDatenes()).indexOf(lowerCaseFilter)!=-1){
+				     return true;
+                                }
+                                else if (String.valueOf(us.getTelephone()).indexOf(lowerCaseFilter)!=-1){
+				     return true;
+                                }
+                                
+                                
+                               
+				     else  
+				    	 return false; // Does not match.
+			});
+		});
+        SortedList<Users> sortedData = new SortedList<>(filteredData);
+        sortedData.comparatorProperty().bind(tvuser.comparatorProperty());
+        tvuser.setItems(sortedData);
+   }
    /* if (tvuser.getSelectionModel().getSelectedItem() != null) {
         int id = tvuser.getSelectionModel().getSelectedItem().getId();
         
@@ -332,5 +391,10 @@ alert.showAndWait();
         alert.setContentText("Veuillez sélectionner un Utilisateur");
         alert.showAndWait();
     }
+    }
+
+    @FXML
+    private void profile(MouseEvent event) {
+        FXMain.setScene("ProfileAdmin");
     }
 }
