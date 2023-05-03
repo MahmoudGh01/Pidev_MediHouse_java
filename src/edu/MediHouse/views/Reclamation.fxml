@@ -1,12 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.net.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.shape.*?>
-<?import javafx.scene.text.*?>
 <?import java.net.URL?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
@@ -22,9 +15,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="635.0" prefWidth="1130.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.MediHouse.views.ReclamationController">
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.MediHouse.views.ReclamationController">
    <children>
-      <ImageView fitHeight="635.0" fitWidth="1130.0">
+      <ImageView fitHeight="800.0" fitWidth="1280.0">
          <image>
             <Image url="@../images/back.png" />
          </image>
@@ -39,13 +32,8 @@
             <Font name="Arial Bold Italic" size="35.0" />
          </font>
       </Text>
-      <AnchorPane layoutX="262.0" layoutY="14.0" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" style="-fx-background-color: transparent;">
-         <children>
-            <Label layoutX="35.0" layoutY="117.0" prefHeight="23.0" prefWidth="88.0" text="Email" />
-         </children>
-      </AnchorPane>
-      <AnchorPane layoutX="503.0" layoutY="74.0" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" />
-      <TableView fx:id="Tbv" editable="true" layoutX="517.0" layoutY="119.0" onMouseClicked="#tbC" prefHeight="459.0" prefWidth="564.0">
+      <Label layoutX="324.0" layoutY="222.0" prefHeight="23.0" prefWidth="88.0" text="Email" />
+      <TableView fx:id="Tbv" editable="true" layoutX="581.0" layoutY="213.0" onMouseClicked="#tbC" prefHeight="496.0" prefWidth="654.0">
          <columns>
             <TableColumn fx:id="Id_Col" prefWidth="54.0" text="ID" />
             <TableColumn fx:id="Email_Col" prefWidth="171.0" text="Email" />
@@ -58,14 +46,14 @@
             <URL value="@tableview.css" />
          </stylesheets>
       </TableView>
-      <Button fx:id="btnAdd" layoutX="296.0" layoutY="487.0" mnemonicParsing="false" onAction="#btnAdd" prefHeight="17.0" prefWidth="88.0" style="-fx-background-color: #D0E8FA; -fx-background-radius: 15;" text="Ajouter" />
-      <Button fx:id="btnDelete" layoutX="347.0" layoutY="533.0" mnemonicParsing="false" onAction="#btnDelete" prefHeight="17.0" prefWidth="88.0" style="-fx-background-color: #D0E8FA; -fx-background-radius: 15;" text="Supprimer" />
-      <Button fx:id="btnUpdate" layoutX="405.0" layoutY="485.0" mnemonicParsing="false" onAction="#btnUpdate" prefHeight="17.0" prefWidth="88.0" style="-fx-background-color: #D0E8FA; -fx-background-radius: 15;" text="Modifier" />
-      <TextField fx:id="TfEmail" layoutX="296.0" layoutY="161.0" prefHeight="42.0" prefWidth="174.0" style="-fx-border-color: #D0E8FA; -fx-background-radius: 15; -fx-border-radius: 15;" />
-      <ChoiceBox fx:id="CBSujet" layoutX="297.0" layoutY="228.0" prefHeight="42.0" prefWidth="174.0" style="-fx-background-color: #D0E8FA; -fx-background-radius: 15;" />
-      <TextArea fx:id="TaDesc" layoutX="297.0" layoutY="347.0" prefHeight="113.0" prefWidth="174.0" style="-fx-background-color: #D0E8FA; -fx-background-radius: 15;" />
-      <Label layoutX="296.0" layoutY="318.0" prefHeight="23.0" prefWidth="88.0" text="Description" />
-      <Label layoutX="241.0" layoutY="238.0" prefHeight="23.0" prefWidth="88.0" text="Sujet" />
+      <Button fx:id="btnAdd" layoutX="335.0" layoutY="579.0" mnemonicParsing="false" onAction="#btnAdd" prefHeight="17.0" prefWidth="88.0" style="-fx-background-color: #D0E8FA; -fx-background-radius: 15;" text="Ajouter" />
+      <Button fx:id="btnDelete" layoutX="386.0" layoutY="625.0" mnemonicParsing="false" onAction="#btnDelete" prefHeight="17.0" prefWidth="88.0" style="-fx-background-color: #D0E8FA; -fx-background-radius: 15;" text="Supprimer" />
+      <Button fx:id="btnUpdate" layoutX="444.0" layoutY="577.0" mnemonicParsing="false" onAction="#btnUpdate" prefHeight="17.0" prefWidth="88.0" style="-fx-background-color: #D0E8FA; -fx-background-radius: 15;" text="Modifier" />
+      <TextField fx:id="TfEmail" layoutX="335.0" layoutY="253.0" prefHeight="42.0" prefWidth="174.0" style="-fx-border-color: #D0E8FA; -fx-background-radius: 15; -fx-border-radius: 15;" />
+      <ChoiceBox fx:id="CBSujet" layoutX="336.0" layoutY="348.0" prefHeight="42.0" prefWidth="174.0" style="-fx-background-color: #D0E8FA; -fx-background-radius: 15;" />
+      <TextArea fx:id="TaDesc" layoutX="336.0" layoutY="439.0" prefHeight="113.0" prefWidth="174.0" style="-fx-background-color: #D0E8FA; -fx-background-radius: 15;" />
+      <Label layoutX="335.0" layoutY="410.0" prefHeight="23.0" prefWidth="88.0" text="Description" />
+      <Label layoutX="324.0" layoutY="324.0" prefHeight="23.0" prefWidth="88.0" text="Sujet" />
       <AnchorPane layoutX="16.0" layoutY="85.0" prefHeight="525.0" prefWidth="217.0" style="-fx-background-color: #15558D; -fx-background-radius: 15;">
          <children>
             <Circle fx:id="ProfilePic" fill="#f8f8f8" layoutX="109.0" layoutY="76.0" onDragDetected="#Profile1" radius="65.0" stroke="BLACK" strokeType="INSIDE" />

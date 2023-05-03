@@ -86,7 +86,7 @@ public class InterfaceePatientController implements Initializable {
     
     @FXML
      private void RechMed(ActionEvent event) {
-        FXMain.setScene("RechMed");
+        FXMain.setScene("Search_doctor");
     }
 
     @FXML
@@ -96,7 +96,7 @@ public class InterfaceePatientController implements Initializable {
     
     @FXML
     private void forum(ActionEvent event) {
-        FXMain.setScene("Forum");
+        FXMain.setScene("pi");
     }
 
     @FXML

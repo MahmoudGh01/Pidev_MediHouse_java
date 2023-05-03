@@ -40,7 +40,7 @@ public class ReponseCRUD {
             alert.showAndWait();
 
         } catch ( SQLException ex) {
-            //System.out.println(ex.getMessage());
+            System.out.println(ex.getMessage());
             // Afficher une alerte d'erreur si l'ajout de rendez-vous échoue
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Erreur");

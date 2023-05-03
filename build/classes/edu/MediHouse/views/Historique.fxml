@@ -1,29 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.image.*?>
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="456.0" prefWidth="731.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.MediHouse.views.HistoriqueController">
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.MediHouse.views.HistoriqueController">
    <children>
-      <ImageView fitHeight="456.0" fitWidth="731.0">
+      <ImageView fitHeight="800.0" fitWidth="1280.0">
          <image>
             <Image url="@../images/back.png" />
          </image>
       </ImageView>
-      <TableView fx:id="TabCommande" layoutX="59.0" layoutY="32.0" prefHeight="354.0" prefWidth="614.0">
+      <TableView fx:id="TabCommande" layoutX="101.0" layoutY="137.0" prefHeight="451.0" prefWidth="879.0">
          <columns>
-            <TableColumn fx:id="IdComTab" prefWidth="75.0" text="Id Commande" />
-            <TableColumn fx:id="DateComTab" prefWidth="107.20001220703125" text="Date Commande" />
-            <TableColumn fx:id="prixComTab" prefWidth="158.66665649414062" text="Prix Commande" />
-            <TableColumn fx:id="QuanCommTab" prefWidth="123.73333740234375" text="Quantite" />
-            <TableColumn fx:id="ColorProdTab" prefWidth="133.066650390625" text="User" />
+            <TableColumn fx:id="IdComTab" prefWidth="108.80001831054688" text="Id Commande" />
+            <TableColumn fx:id="DateComTab" prefWidth="235.9999542236328" text="Date Commande" />
+            <TableColumn fx:id="prixComTab" prefWidth="203.19998168945312" text="Prix Commande" />
+            <TableColumn fx:id="QuanCommTab" prefWidth="173.5999755859375" text="Quantite" />
+            <TableColumn fx:id="ColorProdTab" prefWidth="159.199951171875" text="User" />
          </columns>
       </TableView>
-      <Button layoutX="500.0" layoutY="400.0" mnemonicParsing="false" onAction="#retourPannier" prefHeight="36.0" prefWidth="173.0" style="-fx-background-color: #09DCA4; -fx-background-radius: 15;" text="Retour" textFill="WHITE" />
+      <Button layoutX="894.0" layoutY="658.0" mnemonicParsing="false" onAction="#retourPannier" prefHeight="36.0" prefWidth="173.0" style="-fx-background-color: #09DCA4; -fx-background-radius: 15;" text="Retour" textFill="WHITE" />
       <TextField fx:id="searchProd" layoutX="531.0" layoutY="-1.0" prefHeight="25.0" prefWidth="173.0" visible="false" />
    </children>
 </AnchorPane>

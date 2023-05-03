@@ -1,10 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
@@ -15,14 +10,14 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="542.0" prefWidth="767.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.MediHouse.views.PanierController">
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.MediHouse.views.PanierController">
    <children>
-      <ImageView fitHeight="608.0" fitWidth="767.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="800.0" fitWidth="1287.0" layoutX="-4.0" pickOnBounds="true">
          <image>
-            <Image url="@../../../../../../MediHouse/src/edu/MediHouse/images/back.png" />
+            <Image url="@../images/back.png" />
          </image>
       </ImageView>
-      <TableView fx:id="TabMagasin" layoutX="14.0" layoutY="86.0" prefHeight="328.0" prefWidth="696.0">
+      <TableView fx:id="TabMagasin" layoutX="336.0" layoutY="188.0" prefHeight="328.0" prefWidth="696.0">
          <columns>
             <TableColumn fx:id="IdProTab" prefWidth="75.0" text="Id Produit" />
             <TableColumn fx:id="nomProTab" prefWidth="107.20001220703125" text="Nom Produit" />
@@ -33,27 +28,27 @@
             <TableColumn fx:id="ColorProdTab" prefWidth="91.20001220703125" text="Color" />
          </columns>
       </TableView>
-      <Button layoutX="490.0" layoutY="424.0" mnemonicParsing="false" onAction="#SuppProdGo" prefHeight="36.0" prefWidth="173.0" style="-fx-background-color: #09DCA4; -fx-background-radius: 10;" text="Supprimer" textFill="WHITE" />
-      <Label layoutX="272.0" layoutY="47.0" text="List des Produits" textFill="#5ab9c7">
+      <Button layoutX="812.0" layoutY="526.0" mnemonicParsing="false" onAction="#SuppProdGo" prefHeight="36.0" prefWidth="173.0" style="-fx-background-color: #09DCA4; -fx-background-radius: 10;" text="Supprimer" textFill="WHITE" />
+      <Label layoutX="594.0" layoutY="149.0" text="List des Produits" textFill="#5ab9c7">
          <font>
             <Font name="System Bold Italic" size="27.0" />
          </font>
       </Label>
-      <TextField fx:id="searchProd" layoutX="501.0" layoutY="27.0" prefHeight="25.0" prefWidth="173.0" />
-      <Label layoutX="453.0" layoutY="31.0" text="Search">
+      <TextField fx:id="searchProd" layoutX="823.0" layoutY="129.0" prefHeight="25.0" prefWidth="173.0" />
+      <Label layoutX="775.0" layoutY="133.0" text="Search">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
-      <Label fx:id="Err" layoutX="501.0" layoutY="57.0" prefHeight="18.0" prefWidth="119.0" text="*" textFill="#ff0505" />
-      <Button layoutX="490.0" layoutY="467.0" mnemonicParsing="false" onAction="#PasseCommande" prefHeight="36.0" prefWidth="173.0" style="-fx-background-color: #09DCA4; -fx-background-radius: 10;" text="Passe Commande" textFill="WHITE" />
-      <Button layoutX="490.0" layoutY="513.0" mnemonicParsing="false" onAction="#retourPannier" prefHeight="36.0" prefWidth="173.0" style="-fx-background-color: #09DCA4; -fx-background-radius: 10;" text="Retour" textFill="WHITE" />
-      <Label layoutX="55.0" layoutY="484.0" text="Prix Total :" textFill="#5ab9c7">
+      <Label fx:id="Err" layoutX="823.0" layoutY="159.0" prefHeight="18.0" prefWidth="119.0" text="*" textFill="#ff0505" />
+      <Button layoutX="812.0" layoutY="569.0" mnemonicParsing="false" onAction="#PasseCommande" prefHeight="36.0" prefWidth="173.0" style="-fx-background-color: #09DCA4; -fx-background-radius: 10;" text="Passe Commande" textFill="WHITE" />
+      <Button layoutX="812.0" layoutY="615.0" mnemonicParsing="false" onAction="#retourPannier" prefHeight="36.0" prefWidth="173.0" style="-fx-background-color: #09DCA4; -fx-background-radius: 10;" text="Retour" textFill="WHITE" />
+      <Label layoutX="377.0" layoutY="586.0" text="Prix Total :" textFill="#5ab9c7">
          <font>
             <Font name="System Bold Italic" size="27.0" />
          </font>
       </Label>
-      <Label fx:id="prixlabel" layoutX="202.0" layoutY="484.0" text="0" textFill="#5ab9c7">
+      <Label fx:id="prixlabel" layoutX="524.0" layoutY="586.0" text="0" textFill="#5ab9c7">
          <font>
             <Font name="System Bold Italic" size="27.0" />
          </font>

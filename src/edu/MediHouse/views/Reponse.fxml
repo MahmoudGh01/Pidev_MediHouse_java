@@ -14,9 +14,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="635.0" prefWidth="1130.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.medihouse.view.ReponseController">
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.medihouse.view.ReponseController">
    <children>
-      <ImageView fitHeight="635.0" fitWidth="1130.0">
+      <ImageView fitHeight="800.0" fitWidth="1280.0">
          <image>
             <Image url="@../images/back.png" />
          </image>
@@ -53,16 +53,11 @@
             <Font name="Arial Bold Italic" size="35.0" />
          </font>
       </Text>
-      <AnchorPane layoutX="262.0" layoutY="14.0" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" style="-fx-background-color: transparent;">
-         <children>
-            <Label layoutX="-9.0" layoutY="115.0" prefHeight="30.0" prefWidth="118.0" text="Reclamation" />
-         </children>
-      </AnchorPane>
-      <AnchorPane layoutX="503.0" layoutY="74.0" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" />
-      <Button fx:id="btnAdd" layoutX="903.0" layoutY="96.0" mnemonicParsing="false" onAction="#btnAdd" prefHeight="17.0" prefWidth="88.0" style="-fx-background-color: #D0E8FA; -fx-background-radius: 15;" text="Ajouter" />
-      <Button fx:id="btnDelete" layoutX="903.0" layoutY="174.0" mnemonicParsing="false" onAction="#btnDelete" prefHeight="17.0" prefWidth="88.0" style="-fx-background-color: #D0E8FA; -fx-background-radius: 15;" text="Supprimer" />
-      <Button fx:id="btnUpdate" layoutX="903.0" layoutY="134.0" mnemonicParsing="false" onAction="#btnUpdate" prefHeight="17.0" prefWidth="88.0" style="-fx-background-color: #D0E8FA; -fx-background-radius: 15;" text="Modifier" />
-      <TableView fx:id="Tbv" editable="true" layoutX="312.0" layoutY="349.0" onMouseClicked="#tbC" prefHeight="238.0" prefWidth="718.0">
+      <Label layoutX="369.0" layoutY="229.0" prefHeight="30.0" prefWidth="118.0" text="Reclamation" />
+      <Button fx:id="btnAdd" layoutX="1017.0" layoutY="200.0" mnemonicParsing="false" onAction="#btnAdd" prefHeight="17.0" prefWidth="88.0" style="-fx-background-color: #D0E8FA; -fx-background-radius: 15;" text="Ajouter" />
+      <Button fx:id="btnDelete" layoutX="1017.0" layoutY="272.0" mnemonicParsing="false" onAction="#btnDelete" prefHeight="17.0" prefWidth="88.0" style="-fx-background-color: #D0E8FA; -fx-background-radius: 15;" text="Supprimer" />
+      <Button fx:id="btnUpdate" layoutX="1017.0" layoutY="238.0" mnemonicParsing="false" onAction="#btnUpdate" prefHeight="17.0" prefWidth="88.0" style="-fx-background-color: #D0E8FA; -fx-background-radius: 15;" text="Modifier" />
+      <TableView fx:id="Tbv" editable="true" layoutX="429.0" layoutY="447.0" onMouseClicked="#tbC" prefHeight="238.0" prefWidth="718.0">
          <columns>
             <TableColumn fx:id="Id_Col" prefWidth="54.0" text="ID" />
             <TableColumn fx:id="Email_Col" prefWidth="244.80001831054688" text="Reclamation Email" />
@@ -73,8 +68,8 @@
             <URL value="@tableview.css" />
          </stylesheets>
       </TableView>
-      <TextArea fx:id="TaReponse" layoutX="376.0" layoutY="200.0" prefHeight="89.0" prefWidth="454.0" style="-fx-background-color: #D0E8FA; -fx-background-radius: 15;" />
-      <Label layoutX="253.0" layoutY="214.0" prefHeight="30.0" prefWidth="118.0" text="Description" />
-      <ChoiceBox fx:id="CBReclamation" layoutX="376.0" layoutY="122.0" prefHeight="39.0" prefWidth="342.0" style="-fx-background-color: #D0E8FA; -fx-background-radius: 15;" />
+      <TextArea fx:id="TaReponse" layoutX="493.0" layoutY="298.0" prefHeight="89.0" prefWidth="454.0" style="-fx-background-color: #D0E8FA; -fx-background-radius: 15;" />
+      <Label layoutX="370.0" layoutY="312.0" prefHeight="30.0" prefWidth="118.0" text="Description" />
+      <ChoiceBox fx:id="CBReclamation" layoutX="493.0" layoutY="220.0" prefHeight="39.0" prefWidth="342.0" style="-fx-background-color: #D0E8FA; -fx-background-radius: 15;" />
    </children>
 </AnchorPane>

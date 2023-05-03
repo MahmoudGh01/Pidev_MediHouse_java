@@ -5,10 +5,7 @@
  */
 package edu.MediHouse.entities;
 
-import static com.oracle.jrockit.jfr.ContentType.Timestamp;
-import java.security.Timestamp;
 import java.sql.Date;
-import javafx.scene.chart.PieChart;
 
 /**
  *

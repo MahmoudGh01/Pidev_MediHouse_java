@@ -199,7 +199,8 @@ private List<Users> listeUtilisateurs;
                 
                 c.setId(rs.getInt("id"));
                 c.setEmail(rs.getString("email"));                
-                c.setRoles(Role.valueOf(rs.getString("role")));
+                //c.setRoles(Role.valueOf(rs.getString("role")));
+                c.setDatenes(rs.getDate("date_naissance"));
                 c.setPassword(rs.getString("password"));
                 c.setNom(rs.getString("nom"));
                 c.setPrenom(rs.getString("prenom"));               

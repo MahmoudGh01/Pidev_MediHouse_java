@@ -3,24 +3,41 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/chaab/Desktop/3A41/S2/web-java-mobile/java/MediHouse-Integration/MediHouse%20-%20Copy/src/edu/MediHouse/services/ReclamationCRUD.java</file>
-            <file>file:/C:/Users/chaab/Desktop/3A41/S2/web-java-mobile/java/MediHouse-Integration/MediHouse%20-%20Copy/src/edu/MediHouse/entities/Commande_produit.java</file>
-            <file>file:/C:/Users/chaab/Desktop/3A41/S2/web-java-mobile/java/MediHouse-Integration/MediHouse%20-%20Copy/src/edu/MediHouse/services/ServiceCommande.java</file>
-            <file>file:/C:/Users/chaab/Desktop/3A41/S2/web-java-mobile/java/MediHouse-Integration/MediHouse%20-%20Copy/src/edu/MediHouse/views/PanierController.java</file>
-            <file>file:/C:/Users/chaab/Desktop/3A41/S2/web-java-mobile/java/MediHouse-Integration/MediHouse%20-%20Copy/src/edu/MediHouse/views/ListCommandesController.java</file>
-            <file>file:/C:/Users/chaab/Desktop/3A41/S2/web-java-mobile/java/MediHouse-Integration/MediHouse%20-%20Copy/src/edu/MediHouse/views/ReclamationController.java</file>
-            <file>file:/C:/Users/chaab/Desktop/3A41/S2/web-java-mobile/java/MediHouse-Integration/MediHouse%20-%20Copy/src/edu/MediHouse/views/ReponseController.java</file>
-            <file>file:/C:/Users/chaab/Desktop/3A41/S2/web-java-mobile/java/MediHouse-Integration/MediHouse%20-%20Copy/src/edu/MediHouse/views/ModifeirProduitController.java</file>
-            <file>file:/C:/Users/chaab/Desktop/3A41/S2/web-java-mobile/java/MediHouse-Integration/MediHouse%20-%20Copy/src/edu/MediHouse/views/AjoutProduitController.java</file>
-            <file>file:/C:/Users/chaab/Desktop/3A41/S2/web-java-mobile/java/MediHouse-Integration/MediHouse%20-%20Copy/src/edu/MediHouse/services/ReponseCRUD.java</file>
-            <file>file:/C:/Users/chaab/Desktop/3A41/S2/web-java-mobile/java/MediHouse-Integration/MediHouse%20-%20Copy/src/edu/MediHouse/entities/Commande.java</file>
-            <file>file:/C:/Users/chaab/Desktop/3A41/S2/web-java-mobile/java/MediHouse-Integration/MediHouse%20-%20Copy/src/edu/MediHouse/views/FXMain.java</file>
-            <file>file:/C:/Users/chaab/Desktop/3A41/S2/web-java-mobile/java/MediHouse-Integration/MediHouse%20-%20Copy/src/edu/MediHouse/views/ListProduitsController.java</file>
-            <file>file:/C:/Users/chaab/Desktop/3A41/S2/web-java-mobile/java/MediHouse-Integration/MediHouse%20-%20Copy/src/edu/MediHouse/views/InterfaceePatientController.java</file>
-            <file>file:/C:/Users/chaab/Desktop/3A41/S2/web-java-mobile/java/MediHouse-Integration/MediHouse%20-%20Copy/src/edu/MediHouse/views/InterfaceParaController.java</file>
-            <file>file:/C:/Users/chaab/Desktop/3A41/S2/web-java-mobile/java/MediHouse-Integration/MediHouse%20-%20Copy/src/edu/MediHouse/views/SuccCommandeController.java</file>
-            <file>file:/C:/Users/chaab/Desktop/3A41/S2/web-java-mobile/java/MediHouse-Integration/MediHouse%20-%20Copy/src/edu/MediHouse/views/HistoriqueController.java</file>
-            <file>file:/C:/Users/chaab/Desktop/3A41/S2/web-java-mobile/java/MediHouse-Integration/MediHouse%20-%20Copy/src/edu/MediHouse/views/ProduitsUserController.java</file>
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/Pidev_MediHouse_java/src/edu/MediHouse/tools/BCryptPass.java</file>
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/Pidev_MediHouse_java/src/edu/MediHouse/views/ReponseController.java</file>
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/Pidev_MediHouse_java/src/edu/MediHouse/views/FXMain.java</file>
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/Pidev_MediHouse_java/src/edu/MediHouse/views/ListRDVController.java</file>
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/Pidev_MediHouse_java/src/edu/MediHouse/views/addGUI.fxml</file>
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/Pidev_MediHouse_java/src/edu/MediHouse/entities/RendezVous.java</file>
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/Pidev_MediHouse_java/src/edu/MediHouse/entities/Fiche.java</file>
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/Pidev_MediHouse_java/src/edu/MediHouse/entities/Commande.java</file>
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/Pidev_MediHouse_java/src/edu/MediHouse/views/AdminPOVController.java</file>
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/Pidev_MediHouse_java/src/edu/MediHouse/views/Search_doctorController.java</file>
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/Pidev_MediHouse_java/src/edu/MediHouse/views/Pick_dateController.java</file>
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/Pidev_MediHouse_java/src/edu/MediHouse/views/ShowFicheController.java</file>
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/Pidev_MediHouse_java/src/edu/MediHouse/views/UsersmanagmentController.java</file>
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/Pidev_MediHouse_java/src/edu/MediHouse/views/HistoriqueController.java</file>
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/Pidev_MediHouse_java/src/edu/MediHouse/views/pi.fxml</file>
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/Pidev_MediHouse_java/src/edu/MediHouse/views/InterfacesignupController.java</file>
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/Pidev_MediHouse_java/src/edu/MediHouse/views/InterfaceLogineeController.java</file>
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/Pidev_MediHouse_java/src/edu/MediHouse/tools/MailAPI.java</file>
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/Pidev_MediHouse_java/src/edu/MediHouse/services/questionCRUD.java</file>
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/Pidev_MediHouse_java/src/edu/MediHouse/views/FXMLController.java</file>
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/Pidev_MediHouse_java/src/edu/MediHouse/views/ModifeirProduitController.java</file>
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/Pidev_MediHouse_java/src/edu/MediHouse/views/InterfaceePatientController.java</file>
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/Pidev_MediHouse_java/src/edu/MediHouse/views/adminPOV.fxml</file>
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/Pidev_MediHouse_java/src/edu/MediHouse/views/AdminController.java</file>
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/Pidev_MediHouse_java/src/edu/MediHouse/views/PiController.java</file>
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/Pidev_MediHouse_java/src/edu/MediHouse/views/AddGUIController.java</file>
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/Pidev_MediHouse_java/src/edu/MediHouse/views/ListProduitsController.java</file>
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/Pidev_MediHouse_java/src/edu/MediHouse/views/ChartController.java</file>
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/Pidev_MediHouse_java/src/edu/MediHouse/entities/Users.java</file>
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/Pidev_MediHouse_java/src/edu/MediHouse/services/FicheCRUD.java</file>
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/Pidev_MediHouse_java/src/edu/MediHouse/services/RendezVousCRUD.java</file>
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/Pidev_MediHouse_java/src/edu/MediHouse/services/ReponseCRUD.java</file>
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/Pidev_MediHouse_java/src/edu/MediHouse/services/EntityCRUD.java</file>
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/Pidev_MediHouse_java/src/edu/MediHouse/views/FicheController.java</file>
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/Pidev_MediHouse_java/src/edu/MediHouse/services/ServiceUser.java</file>
         </group>
     </open-files>
 </project-private>

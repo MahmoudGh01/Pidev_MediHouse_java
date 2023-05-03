@@ -1,53 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.shape.*?>
-<?import javafx.scene.paint.*?>
-<?import javafx.scene.text.*?>
-<?import javafx.scene.image.*?>
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="635.0" prefWidth="1130.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.MediHouse.views.InterfaceePatientController">
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.MediHouse.views.InterfaceePatientController">
    <children>
-      <ImageView fitHeight="655.0" fitWidth="1130.0">
+      <ImageView fitHeight="821.0" fitWidth="1297.0" layoutX="-22.0" layoutY="-16.0">
          <image>
             <Image url="@../images/back.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="60.0" fitWidth="220.0" layoutX="260.0" layoutY="71.0">
-         <image>
-            <Image url="@../images/logo2.png" />
-         </image>
-      </ImageView>
-      <AnchorPane layoutX="-7.0" layoutY="-11.0" prefHeight="666.0" prefWidth="249.0" style="-fx-background-color: #15558D; -fx-background-radius: 15;">
-         <children>
-            <Circle fx:id="ProfilePic" fill="#f8f8f8" layoutX="125.0" layoutY="113.0" onDragDetected="#Profile1" radius="76.0" stroke="BLACK" strokeType="INSIDE" />
-            <Label fx:id="UserName" layoutX="21.0" layoutY="169.0" prefHeight="39.0" prefWidth="207.0" textFill="WHITE">
-               <font>
-                  <Font name="Arial" size="15.0" />
-               </font>
-            </Label>
-            <Button layoutX="33.0" layoutY="460.0" mnemonicParsing="false" onAction="#Logout" prefHeight="30.0" prefWidth="152.0" style="-fx-background-color: #D0E8FA; -fx-background-radius: 15;" text="Log Out" />
-            <Button layoutX="33.0" layoutY="238.0" mnemonicParsing="false" onAction="#RDVP" prefHeight="30.0" prefWidth="152.0" style="-fx-background-color: #D0E8FA; -fx-background-radius: 15;" text="RDV">
-               <font>
-                  <Font name="Arial" size="14.0" />
-               </font>
-            </Button>
-            <Button layoutX="33.0" layoutY="367.0" mnemonicParsing="false" onAction="#reclamation" prefHeight="30.0" prefWidth="152.0" style="-fx-background-color: #D0E8FA; -fx-background-radius: 15;" text="Reclamations" />
-            <Button layoutX="33.0" layoutY="410.0" mnemonicParsing="false" onAction="#forum" prefHeight="30.0" prefWidth="152.0" style="-fx-background-color: #D0E8FA; -fx-background-radius: 15;" text="Forum" />
-            <Button layoutX="33.0" layoutY="321.0" mnemonicParsing="false" onAction="#parapharmacie" prefHeight="30.0" prefWidth="152.0" style="-fx-background-color: #D0E8FA; -fx-background-radius: 15;" text="Parapharmacie" />
-            <Button layoutX="33.0" layoutY="279.0" mnemonicParsing="false" onAction="#RechMed" prefHeight="30.0" prefWidth="152.0" style="-fx-background-color: #D0E8FA; -fx-background-radius: 15;" text="Rechercher Medecin" />
-         </children>
-      </AnchorPane>
-      <ImageView fitHeight="450.0" fitWidth="600.0" layoutX="396.0" layoutY="131.0">
+      <ImageView fitHeight="434.0" fitWidth="649.0" layoutX="489.0" layoutY="227.0">
          <image>
             <Image url="@../images/login-banner.png" />
          </image>
       </ImageView>
-      <Text layoutX="429.0" layoutY="73.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome To MediHouse" wrappingWidth="430.55126953125">
+      <Text layoutX="504.0" layoutY="224.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome To MediHouse" wrappingWidth="623.3512573242188">
          <fill>
             <LinearGradient cycleMethod="REFLECT" endX="1.0" endY="1.0" startX="0.3140096618357488">
                <stops>
@@ -57,8 +33,53 @@
             </LinearGradient>
          </fill>
          <font>
-            <Font name="Arial Bold Italic" size="35.0" />
+            <Font name="Arial Bold Italic" size="41.0" />
          </font>
       </Text>
+      <ImageView fitHeight="110.0" fitWidth="402.0" layoutX="429.0" layoutY="52.0">
+         <image>
+            <Image url="@../images/logo2.png" />
+         </image>
+      </ImageView>
+      <AnchorPane layoutX="-1.0" layoutY="-8.0" prefHeight="816.0" prefWidth="371.0" style="-fx-background-color: #15558D; -fx-background-radius: 15;">
+         <children>
+            <Circle fx:id="ProfilePic" fill="#f8f8f8" layoutX="192.0" layoutY="127.0" onDragDetected="#Profile1" radius="92.0" stroke="BLACK" strokeType="INSIDE" />
+            <Label fx:id="UserName" layoutX="100.0" layoutY="224.0" prefHeight="30.0" prefWidth="188.0" style="-fx-alignment: Center;" text="User_Name" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="Arial Bold" size="30.0" />
+               </font>
+            </Label>
+            <Button layoutX="78.0" layoutY="689.0" mnemonicParsing="false" onAction="#Logout" prefHeight="50.0" prefWidth="250.0" style="-fx-background-color: #D0E8FA; -fx-background-radius: 15;" text="Log Out" textFill="#271cbc">
+               <font>
+                  <Font name="Arial" size="25.0" />
+               </font>
+            </Button>
+            <Button layoutX="81.0" layoutY="300.0" mnemonicParsing="false" onAction="#RDVP" prefHeight="50.0" prefWidth="250.0" style="-fx-background-color: #D0E8FA; -fx-background-radius: 15;" text="RDV" textFill="#2016a8">
+               <font>
+                  <Font name="Arial" size="25.0" />
+               </font>
+            </Button>
+            <Button layoutX="85.0" layoutY="504.0" mnemonicParsing="false" onAction="#reclamation" prefHeight="50.0" prefWidth="250.0" style="-fx-background-color: #D0E8FA; -fx-background-radius: 15;" text="Reclamations" textFill="#271cbc">
+               <font>
+                  <Font name="Arial" size="25.0" />
+               </font>
+            </Button>
+            <Button layoutX="88.0" layoutY="572.0" mnemonicParsing="false" onAction="#forum" prefHeight="50.0" prefWidth="250.0" style="-fx-background-color: #D0E8FA; -fx-background-radius: 15;" text="Forum" textFill="#271cbc">
+               <font>
+                  <Font name="Arial" size="25.0" />
+               </font>
+            </Button>
+            <Button layoutX="81.0" layoutY="426.0" mnemonicParsing="false" onAction="#parapharmacie" prefHeight="50.0" prefWidth="250.0" style="-fx-background-color: #D0E8FA; -fx-background-radius: 15;" text="Parapharmacie" textFill="#271cbc">
+               <font>
+                  <Font name="Arial" size="25.0" />
+               </font>
+            </Button>
+            <Button layoutX="65.0" layoutY="362.0" mnemonicParsing="false" onAction="#RechMed" prefHeight="50.0" prefWidth="250.0" style="-fx-background-color: #D0E8FA; -fx-background-radius: 15;" text="Rechercher Medecin" textFill="#271cbc">
+               <font>
+                  <Font name="Arial" size="25.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>

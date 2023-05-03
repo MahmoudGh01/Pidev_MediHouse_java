@@ -5,10 +5,6 @@
  */
 package edu.MediHouse.tools;
 
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import org.mindrot.jbcrypt.BCrypt;
 
 /**

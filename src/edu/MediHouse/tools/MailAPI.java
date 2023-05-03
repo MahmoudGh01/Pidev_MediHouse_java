@@ -5,6 +5,7 @@
  */
 package edu.MediHouse.tools;
 
+import edu.MediHouse.entities.RendezVous;
 import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -97,6 +98,36 @@ public class MailAPI {
         }   catch (MessagingException e){
             e.printStackTrace();
         }
+
+    }
+       public static void sendMail(String to, String sub, String msg, RendezVous r) throws MessagingException {
+
+        Properties prop = new Properties();
+        prop.put("mail.smtp.host", "smtp.gmail.com");
+
+        prop.put("mail.smtp.port", "587");
+        prop.put("mail.smtp.auth", "true");
+        prop.put("mail.smtp.starttls.enable", "true");
+        prop.put("mail.smpt.ssl.trust", "smtp.gmail.com");
+        Session session = Session.getDefaultInstance(prop, new javax.mail.Authenticator() {
+            protected PasswordAuthentication getPasswordAuthentication() {
+                return new PasswordAuthentication("mahmoud.gharbi@esprit.tn", "itbotbfebnnunity");
+            }
+        });
+        MimeMessage message = new MimeMessage(session);
+
+        message.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
+
+        message.setSubject("New Appointment Added: Medihouse");
+        // message.setText(msg);
+        message.setContent("<div style=\"background-color:#3399FF; padding:20px;\">\n"
+                + "        <h2 style=\"color:#FFFFFF;\">RendezVous Ajouté !!</h2>\n"
+                + "        <p style=\"color:#FFFFFF;\">Votre prochain Rendez Vous avec "+r.getDocteur().getNom()+" est programmé pour "+r.getDate_RDV()+" "+r.getTime()+" à " +r.getLocal()+"</p>\n"
+                + "        <p style=\"color:#FFFFFF;\">Merci de respecter l'heure du Rendez vous</p>\n"
+               
+                + "      </div>", "text/html");
+        Transport.send(message);
+        System.out.println("message sent");
 
     }
 }

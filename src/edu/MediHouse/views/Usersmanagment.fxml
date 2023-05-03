@@ -1,18 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.paint.*?>
-<?import javafx.scene.shape.*?>
-<?import javafx.scene.text.*?>
-<?import javafx.scene.image.*?>
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="640.0" prefWidth="1130.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.MediHouse.views.UsersmanagmentController">
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.MediHouse.views.UsersmanagmentController">
    <children>
-      <ImageView fitHeight="671.0" fitWidth="1334.0">
+      <ImageView fitHeight="800.0" fitWidth="1280.0">
          <image>
             <Image url="@../images/back.png" />
          </image>
@@ -55,40 +59,40 @@
             <Font name="Arial Bold Italic" size="35.0" />
          </font>
       </Text>
-      <TableView fx:id="tvuser" layoutX="248.0" layoutY="141.0" opacity="0.8" prefHeight="481.0" prefWidth="1073.0" style="-fx-background-color: #D0E8FA; -fx-background-radius: 15;">
+      <TableView fx:id="tvuser" layoutX="253.0" layoutY="199.0" opacity="0.8" prefHeight="516.0" prefWidth="990.0" style="-fx-background-color: #D0E8FA; -fx-background-radius: 15;" stylesheets="@tableview.css">
          <columns>
             <TableColumn fx:id="cnom" prefWidth="77.0" text="Nom" />
             <TableColumn fx:id="cprenom" prefWidth="84.0" text="Prenom" />
-            <TableColumn fx:id="cemail" prefWidth="199.0" text="Email" />
-            <TableColumn fx:id="cadresse" minWidth="7.0" prefWidth="104.0" text="Adresse" />
-            <TableColumn fx:id="ctelephone" prefWidth="150.0" text="Telephone" />
-            <TableColumn fx:id="crole" prefWidth="131.0" text="Role" />
-            <TableColumn fx:id="cgenre" prefWidth="95.0" text="Genre" />
-            <TableColumn fx:id="Cact" prefWidth="95.0" text="Activate" />
-            <TableColumn fx:id="cdate" prefWidth="137.0" text="Date de naissance" />
+            <TableColumn fx:id="cemail" prefWidth="168.79995727539062" text="Email" />
+            <TableColumn fx:id="cadresse" minWidth="7.0" prefWidth="134.4000244140625" text="Adresse" />
+            <TableColumn fx:id="ctelephone" prefWidth="125.60003662109375" text="Telephone" />
+            <TableColumn fx:id="crole" prefWidth="100.800048828125" text="Role" />
+            <TableColumn fx:id="cgenre" prefWidth="104.79998779296875" text="Genre" />
+            <TableColumn fx:id="Cact" minWidth="0.0" prefWidth="68.800048828125" text="Activate" />
+            <TableColumn fx:id="cdate" prefWidth="123.199951171875" resizable="false" text="Date de naissance" />
          </columns>
       </TableView>
-      <Button layoutX="277.0" layoutY="100.0" mnemonicParsing="false" onAction="#resfreshuser" prefHeight="31.0" prefWidth="138.0" style="-fx-background-color: #09DCA4; -fx-background-radius: 10;" text="Refresh" textFill="WHITE">
+      <Button layoutX="282.0" layoutY="158.0" mnemonicParsing="false" onAction="#resfreshuser" prefHeight="31.0" prefWidth="138.0" style="-fx-background-color: #09DCA4; -fx-background-radius: 10;" text="Refresh" textFill="WHITE">
          <font>
             <Font name="Arial" size="15.0" />
          </font>
       </Button>
-      <Button layoutX="978.0" layoutY="100.0" mnemonicParsing="false" onAction="#remove" prefHeight="31.0" prefWidth="138.0" style="-fx-background-color: #09DCA4; -fx-background-radius: 10;" text="Delete " textFill="WHITE">
+      <Button layoutX="983.0" layoutY="158.0" mnemonicParsing="false" onAction="#remove" prefHeight="31.0" prefWidth="138.0" style="-fx-background-color: #09DCA4; -fx-background-radius: 10;" text="Delete " textFill="WHITE">
          <font>
             <Font name="Arial" size="15.0" />
          </font>
       </Button>
-      <Button layoutX="548.0" layoutY="100.0" mnemonicParsing="false" onAction="#desactivate" prefHeight="31.0" prefWidth="145.0" style="-fx-background-color: #09DCA4; -fx-background-radius: 10;" text="Ban a user" textFill="WHITE">
+      <Button layoutX="553.0" layoutY="158.0" mnemonicParsing="false" onAction="#desactivate" prefHeight="31.0" prefWidth="145.0" style="-fx-background-color: #09DCA4; -fx-background-radius: 10;" text="Ban a user" textFill="WHITE">
          <font>
             <Font name="Arial" size="15.0" />
          </font>
       </Button>
-      <Button layoutX="702.0" layoutY="100.0" mnemonicParsing="false" onAction="#Activate" prefHeight="31.0" prefWidth="145.0" style="-fx-background-color: #09DCA4; -fx-background-radius: 10;" text="Activate" textFill="WHITE">
+      <Button layoutX="707.0" layoutY="158.0" mnemonicParsing="false" onAction="#Activate" prefHeight="31.0" prefWidth="145.0" style="-fx-background-color: #09DCA4; -fx-background-radius: 10;" text="Activate" textFill="WHITE">
          <font>
             <Font size="15.0" />
          </font>
       </Button>
-      <TextField fx:id="searchBox" layoutX="978.0" layoutY="48.0" promptText="Recherche" style="-fx-background-radius: 10;">
+      <TextField fx:id="searchBox" layoutX="983.0" layoutY="106.0" promptText="Recherche" style="-fx-background-radius: 10;">
          <font>
             <Font name="Arial" size="15.0" />
          </font>
