@@ -98,7 +98,7 @@ Users u =new Users();
 
     @FXML
     private void Dashboard(ActionEvent event) {
-         FXMain.setScene("Dashbord");
+        // FXMain.setScene("Dashbord");
     }
 
     @FXML
@@ -108,7 +108,7 @@ Users u =new Users();
 
     @FXML
     private void forum(ActionEvent event) {
-         FXMain.setScene("Forum");
+         FXMain.setScene("adminPOV");
     }
 
     @FXML
@@ -118,7 +118,7 @@ Users u =new Users();
 
     @FXML
     private void RDV(ActionEvent event) {
-         FXMain.setScene("RDV");
+     //    FXMain.setScene("RDV");
     }
 
     @FXML

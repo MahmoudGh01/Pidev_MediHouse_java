@@ -77,12 +77,14 @@ public class ListProduitsController implements Initializable {
     private ImageView imageV;
     @FXML
     private Label Err;
-    @FXML
     private Circle profilepicture;
-    @FXML
     private Label Username;
      Users u =new Users();
      ServiceUser su=new ServiceUser();
+    @FXML
+    private Circle profilepicture1;
+    @FXML
+    private Label Username1;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
           
@@ -90,11 +92,11 @@ public class ListProduitsController implements Initializable {
            u=su.getUserByEmail(InterfaceLogineeController.iduserglobal);
         Image im = new Image(u.getProfilePicture());
         ImagePattern pattern = new ImagePattern(im);
-        profilepicture.setFill(pattern);
-        profilepicture.setStroke(Color.SEAGREEN);
-        profilepicture.setEffect(new DropShadow(20, Color.BLACK));
-        Username.setText(u.getNom().toUpperCase()+" "+u.getPrenom().toUpperCase());
-           profilepicture.setOnMouseClicked(new EventHandler<MouseEvent>() {
+        profilepicture1.setFill(pattern);
+        profilepicture1.setStroke(Color.SEAGREEN);
+        profilepicture1.setEffect(new DropShadow(20, Color.BLACK));
+        Username1.setText(u.getNom().toUpperCase()+" "+u.getPrenom().toUpperCase());
+           profilepicture1.setOnMouseClicked(new EventHandler<MouseEvent>() {
         @Override
         public void handle(MouseEvent event) {
             profile(event);

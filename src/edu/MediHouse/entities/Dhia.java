@@ -9,21 +9,21 @@ package edu.MediHouse.entities;
  *
  * @author user
  */
-public class Reponse {
+public class Dhia {
     private int id;
     private String reponse;
     private Reclamation reclamation;
 
-    public Reponse() {
+    public Dhia() {
     }
 
-    public Reponse(int id, String reponse, Reclamation reclamation) {
+    public Dhia(int id, String reponse, Reclamation reclamation) {
         this.id = id;
         this.reponse = reponse;
         this.reclamation = reclamation;
     }
 
-    public Reponse(String reponse, Reclamation reclamation) {
+    public Dhia(String reponse, Reclamation reclamation) {
         this.reponse = reponse;
         this.reclamation = reclamation;
     }

@@ -122,12 +122,12 @@ public class RendezVousCRUD {
             String requete = "UPDATE rendez_vous SET patient_id = ?, docteur_id = ?, date = ?,local= ?,time=? WHERE id=?";
 
             PreparedStatement pst = MyConnection.getInstance().getCnx().prepareStatement(requete);
-            pst.setInt(5, c.getId());
+            pst.setInt(6, c.getId());
             pst.setInt(2, c.getDocteur().getId());
             pst.setInt(1, c.getPatient().getId());
             pst.setDate(3, (Date) c.getDate_RDV());
             pst.setString(4, c.getLocal());
-            pst.setTime(6, c.getTime());
+            pst.setTime(5, c.getTime());
             pst.executeUpdate();
             System.out.println("rendezvous modifiée!");
 

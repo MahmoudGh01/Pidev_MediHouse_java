@@ -31,7 +31,7 @@ import javax.swing.ImageIcon;
 public class FXMain extends Application {
     public static FXMain _self;
     public static Stage _stage;
-       public  static String user = "Imen ";
+       public  static int user ;
     
       public  static Double prix ;
 
@@ -44,7 +44,7 @@ static Produit pn = new Produit();
       
         _stage = primaryStage;
          _self = this;
-         setScene("pi");
+         setScene("InterfaceLogin");
          
         
     }

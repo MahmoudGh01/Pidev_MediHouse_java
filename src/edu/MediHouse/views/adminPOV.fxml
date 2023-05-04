@@ -7,8 +7,11 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.MediHouse.views.AdminPOVController">
    <children>
@@ -32,42 +35,65 @@
             <Image url="file:///C:/Users/DELL/Downloads/logo2.PNG" />
          </image>
       </ImageView>
-      <AnchorPane layoutX="26.0" layoutY="137.0" prefHeight="525.0" prefWidth="217.0" style="-fx-background-color: #15558D; -fx-border-radius: 15; -fx-background-radius: 15;">
+      <Button fx:id="Deletebtn" layoutX="912.0" layoutY="648.0" mnemonicParsing="false" onAction="#Delete" prefHeight="42.0" prefWidth="166.0" style="-fx-background-color: #D0E8FA; -fx-border-radius: 15;" text="Supprimer" />
+      <Button fx:id="stat" layoutX="699.0" layoutY="648.0" mnemonicParsing="false" onAction="#stat" prefHeight="42.0" prefWidth="166.0" style="-fx-background-color: #D0E8FA; -fx-border-radius: 15;" text="Statistique" />
+      <ImageView fitHeight="60.0" fitWidth="220.0" layoutX="24.0" layoutY="24.0">
+         <image>
+            <Image url="@../images/logo2.png" />
+         </image>
+      </ImageView>
+      <Text layoutX="447.0" layoutY="76.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gestions des Questions" wrappingWidth="521.55126953125">
+         <fill>
+            <LinearGradient cycleMethod="REFLECT" endX="1.0" endY="1.0" startX="0.3140096618357488">
+               <stops>
+                  <Stop color="#315ceb" />
+                  <Stop color="WHITE" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </fill>
+         <font>
+            <Font name="Arial Bold Italic" size="35.0" />
+         </font>
+      </Text>
+      <AnchorPane layoutX="14.0" layoutY="90.0" prefHeight="600.0" prefWidth="240.0" style="-fx-background-color: #15558D; -fx-background-radius: 15;">
          <children>
-            <Button layoutX="33.0" layoutY="225.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="152.0" style="-fx-background-color: #D0E8FA; -fx-background-radius: 15;" text="My Profile">
+            <Circle fx:id="ProfilePic12" fill="#f8f8f8" layoutX="111.0" layoutY="101.0" onDragDetected="#profile" radius="80.0" stroke="BLACK" strokeType="INSIDE" />
+            <Label fx:id="UserName12" layoutX="14.0" layoutY="203.0" prefHeight="17.0" prefWidth="211.0" textFill="WHITE">
                <font>
-                  <Font name="Arial" size="14.0" />
-               </font>
-            </Button>
-            <Circle fx:id="profilepicture" fill="#f8fcff" layoutX="109.0" layoutY="69.0" radius="62.0" stroke="BLACK" strokeType="INSIDE" />
-            <Button layoutX="33.0" layoutY="274.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="152.0" style="-fx-background-color: #D0E8FA; -fx-background-radius: 15;" text="Rechercher Medcin" />
-            <Button layoutX="33.0" layoutY="323.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="152.0" style="-fx-background-color: #D0E8FA; -fx-background-radius: 15;" text="Parapharmacie" />
-            <Button layoutX="33.0" layoutY="467.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="152.0" style="-fx-background-color: #D0E8FA; -fx-background-radius: 15;" text="Log out" />
-            <Button layoutX="32.0" layoutY="418.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="152.0" style="-fx-background-color: #7989E4; -fx-background-radius: 15;" text="Forum" />
-            <Button layoutX="33.0" layoutY="370.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="152.0" style="-fx-background-color: #D0E8FA; -fx-background-radius: 15;" text="Reclamations" />
-            <Button layoutX="33.0" layoutY="174.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="152.0" style="-fx-background-color: #D0E8FA; -fx-background-radius: 15;" text="RDV">
-               <font>
-                  <Font name="Arial" size="14.0" />
-               </font>
-            </Button>
-            <Label fx:id="username" layoutX="4.0" layoutY="136.0" prefHeight="24.0" prefWidth="209.0" text="          Mehdi" textAlignment="CENTER" textFill="WHITE">
-               <font>
-                  <Font name="Arial Bold" size="24.0" />
+                  <Font name="Arial" size="15.0" />
                </font>
             </Label>
-            <ImageView fitHeight="108.0" fitWidth="124.0" layoutX="47.0" layoutY="12.0">
-               <image>
-                  <Image url="file:///C:/Users/DELL/Downloads/use.png" />
-               </image>
-            </ImageView>
+            <Button layoutX="37.0" layoutY="533.0" mnemonicParsing="false" onAction="#Logout" prefHeight="30.0" prefWidth="170.0" style="-fx-background-color: #D0E8FA; -fx-background-radius: 15;" text="Log Out" textFill="#4e22c9">
+               <font>
+                  <Font name="Arial" size="15.0" />
+               </font>
+            </Button>
+            <Button layoutX="37.0" layoutY="250.0" mnemonicParsing="false" onAction="#Dashboard" prefHeight="30.0" prefWidth="170.0" style="-fx-background-color: #D0E8FA; -fx-background-radius: 15;" text="Tableau De Bord" textFill="#4e22c9">
+               <font>
+                  <Font name="Arial" size="15.0" />
+               </font>
+            </Button>
+            <Button layoutX="37.0" layoutY="418.0" mnemonicParsing="false" onAction="#reclamation" prefHeight="30.0" prefWidth="170.0" style="-fx-background-color: #D0E8FA; -fx-background-radius: 15;" text="Reponse" textFill="#4e22c9">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
+            <Button layoutX="37.0" layoutY="474.0" mnemonicParsing="false" onAction="#forum" prefHeight="30.0" prefWidth="170.0" style="-fx-background-color: #7989E4; -fx-background-radius: 15;" text="Forum" textFill="WHITE">
+               <font>
+                  <Font name="Arial" size="15.0" />
+               </font>
+            </Button>
+            <Button layoutX="37.0" layoutY="362.0" mnemonicParsing="false" onAction="#Users" prefHeight="30.0" prefWidth="170.0" style="-fx-background-color: #D0E8FA; -fx-background-radius: 15;" text="Users" textFill="#4e22c9">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
+            <Button layoutX="37.0" layoutY="306.0" mnemonicParsing="false" onAction="#RDV" prefHeight="30.0" prefWidth="170.0" style="-fx-background-color: #D0E8FA; -fx-background-radius: 15;" text="Rendez-Vous" textFill="#4e22c9">
+               <font>
+                  <Font name="Arial" size="15.0" />
+               </font>
+            </Button>
          </children>
       </AnchorPane>
-      <Button fx:id="Deletebtn" layoutX="912.0" layoutY="648.0" mnemonicParsing="false" onAction="#Delete" prefHeight="42.0" prefWidth="166.0" style="-fx-background-color: #D0E8FA; -fx-border-radius: 15;" text="Supprimer" />
-      <Label fx:id="username1" layoutX="422.0" layoutY="43.0" prefHeight="62.0" prefWidth="437.0" text="Gestions des Questions" textAlignment="CENTER">
-         <font>
-            <Font name="Arial Bold" size="35.0" />
-         </font>
-      </Label>
-      <Button fx:id="stat" layoutX="699.0" layoutY="648.0" mnemonicParsing="false" onAction="#stat" prefHeight="42.0" prefWidth="166.0" style="-fx-background-color: #D0E8FA; -fx-border-radius: 15;" text="Statistique" />
    </children>
 </AnchorPane>

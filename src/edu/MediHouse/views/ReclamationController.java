@@ -53,9 +53,7 @@ import org.controlsfx.control.Notifications;
 public class ReclamationController implements Initializable {
 
     Notifications no;
-    @FXML
     private Circle ProfilePic;
-    @FXML
     private Label UserName;
     @FXML
     private TableView<Reclamation> Tbv;
@@ -83,6 +81,10 @@ public class ReclamationController implements Initializable {
     private TextArea TaDesc;
  Users u =new Users();
      ServiceUser su=new ServiceUser();
+    @FXML
+    private Circle ProfilePic1;
+    @FXML
+    private Label UserName1;
     /**
      * Initializes the controller class.
      */
@@ -94,11 +96,11 @@ public class ReclamationController implements Initializable {
          u=su.getUserByEmail(InterfaceLogineeController.iduserglobal);
         Image im = new Image(u.getProfilePicture());
         ImagePattern pattern = new ImagePattern(im);
-        ProfilePic.setFill(pattern);
-        ProfilePic.setStroke(Color.SEAGREEN);
-        ProfilePic.setEffect(new DropShadow(20, Color.BLACK));
-        UserName.setText(u.getNom().toUpperCase()+" "+u.getPrenom().toUpperCase());
-        ProfilePic.setOnMouseClicked(new EventHandler<MouseEvent>() {
+        ProfilePic1.setFill(pattern);
+        ProfilePic1.setStroke(Color.SEAGREEN);
+        ProfilePic1.setEffect(new DropShadow(20, Color.BLACK));
+        UserName1.setText(u.getNom().toUpperCase()+" "+u.getPrenom().toUpperCase());
+        ProfilePic1.setOnMouseClicked(new EventHandler<MouseEvent>() {
         @Override
         public void handle(MouseEvent event) {
             Profile1(event);
@@ -249,9 +251,38 @@ public class ReclamationController implements Initializable {
     }
 
    @FXML
-    private void Logout(ActionEvent event) { 
-        Stage stage;
-    Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+   private void RechMed(ActionEvent event) {
+        FXMain.setScene("Search_doctor");
+    }
+
+    @FXML
+    private void parapharmacie(ActionEvent event) {
+        FXMain.setScene("ProduitsUser");
+    }
+    
+    @FXML
+    private void forum(ActionEvent event) {
+        FXMain.setScene("pi");
+    }
+
+    @FXML
+    private void reclamation(ActionEvent event) {
+       FXMain.setScene("Reclamation");
+    }
+
+    @FXML
+    private void RDVP(ActionEvent event) {
+       FXMain.setScene("ListRDV");
+    }
+   @FXML
+    private void Profile1(MouseEvent event) {
+        FXMain.setScene("ProfilePatient");
+    }
+
+    @FXML
+    private void Logout(ActionEvent event) {
+            Stage stage;
+    javafx.scene.control.Alert alert = new javafx.scene.control.Alert(javafx.scene.control.Alert.AlertType.CONFIRMATION);
     alert.setTitle("Déconnexion");
     alert.setHeaderText("Vous êtes sur le point de vous déconnecter");
     alert.setContentText("Voulez-vous vous déconnecter "+u.getEmail()+"?");
@@ -263,35 +294,5 @@ public class ReclamationController implements Initializable {
          FXMain.setScene("InterfaceLogin");
         
     }
-    }
-    
-    @FXML
-     private void RechMed(ActionEvent event) {
-        FXMain.setScene("RechMed");
-    }
-
-    @FXML
-    private void parapharmacie(ActionEvent event) {
-        FXMain.setScene("ProduitsUser");
-    }
-    
-    @FXML
-    private void forum(ActionEvent event) {
-        FXMain.setScene("Forum");
-    }
-
-    @FXML
-    private void reclamation(ActionEvent event) {
-       FXMain.setScene("Reclamation");
-    }
-
-    @FXML
-    private void RDVP(ActionEvent event) {
-       FXMain.setScene("RDVP");
-    }
-
-    @FXML
-    private void Profile1(MouseEvent event) {
-        FXMain.setScene("ProfilePatient");
     }
 }

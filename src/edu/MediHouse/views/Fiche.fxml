@@ -24,29 +24,7 @@
             <Image url="@../images/logo2.png" />
          </image>
       </ImageView>
-      <AnchorPane layoutX="14.0" layoutY="86.0" prefHeight="525.0" prefWidth="217.0" style="-fx-background-color: #15558D; -fx-background-radius: 15;">
-         <children>
-            <Circle fx:id="ProfilePic" fill="#f8f8f8" layoutX="109.0" layoutY="91.0" radius="65.0" stroke="BLACK" strokeType="INSIDE" />
-            <Label fx:id="UserName" layoutX="3.0" layoutY="156.0" prefHeight="17.0" prefWidth="211.0" textFill="WHITE">
-               <font>
-                  <Font name="Arial" size="15.0" />
-               </font>
-            </Label>
-            <Button layoutX="33.0" layoutY="195.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="152.0" style="-fx-background-color: #D0E8FA; -fx-background-radius: 15;" text="My Profile" />
-            <Button layoutX="33.0" layoutY="460.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="152.0" style="-fx-background-color: #D0E8FA; -fx-background-radius: 15;" text="Log Out" />
-            <Button fx:id="btnRDV" layoutX="33.0" layoutY="241.0" mnemonicParsing="false" onAction="#btnRDV" prefHeight="30.0" prefWidth="152.0" style="-fx-background-color: #D0E8FA; -fx-background-radius: 15;" text="Rendez Vous">
-               <font>
-                  <Font name="Arial" size="14.0" />
-               </font>
-            </Button>
-            <Button layoutX="33.0" layoutY="367.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="152.0" style="-fx-background-color: #D0E8FA; -fx-background-radius: 15;" text="Reclamations" />
-            <Button layoutX="33.0" layoutY="410.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="152.0" style="-fx-background-color: #D0E8FA; -fx-background-radius: 15;" text="Forum" />
-            <Button layoutX="33.0" layoutY="321.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="152.0" style="-fx-background-color: #7989E4; -fx-background-radius: 15;" text="Fiche Médicale" />
-            <Button fx:id="btnsearch" layoutX="33.0" layoutY="280.0" mnemonicParsing="false" onAction="#btnsearch" prefHeight="30.0" prefWidth="152.0" style="-fx-background-color: #D0E8FA; -fx-background-radius: 15;" text="Rechercher Medecin" />
-            <ImageView fitHeight="130.0" fitWidth="130.0" layoutX="43.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true" />
-         </children>
-      </AnchorPane>
-      <Text fill="#52b2cd" layoutX="429.0" layoutY="73.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fiche Medicale" wrappingWidth="430.55126953125">
+      <Text fill="#52b2cd" layoutX="512.0" layoutY="71.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fiche Medicale" wrappingWidth="430.55126953125">
          <font>
             <Font name="Arial Bold Italic" size="35.0" />
          </font>
@@ -62,12 +40,52 @@
             <TableColumn fx:id="Action_Col" prefWidth="143.199951171875" text="Action" />
          </columns>
       </TableView>
-      <Button fx:id="btnAdd" layoutX="382.0" layoutY="575.0" mnemonicParsing="false" onAction="#btnAdd" prefHeight="17.0" prefWidth="88.0" style="-fx-background-color: #D0E8FA; -fx-background-radius: 15;" text="Ajouter" />
-      <Button fx:id="btnDelete" layoutX="437.0" layoutY="629.0" mnemonicParsing="false" onAction="#btnDelete" prefHeight="17.0" prefWidth="88.0" style="-fx-background-color: #D0E8FA; -fx-background-radius: 15;" text="Supprimer" />
-      <Button fx:id="btnUpdate" layoutX="492.0" layoutY="575.0" mnemonicParsing="false" onAction="#btnUpdate" prefHeight="17.0" prefWidth="88.0" style="-fx-background-color: #D0E8FA; -fx-background-radius: 15;" text="Modifier" />
-      <Label layoutX="362.0" layoutY="430.0" prefHeight="23.0" prefWidth="88.0" text="BloodType" />
-      <ChoiceBox fx:id="CBloodType" layoutX="394.0" layoutY="461.0" prefHeight="42.0" prefWidth="174.0" style="-fx-background-color: #D0E8FA; -fx-background-radius: 15;" />
-      <ChoiceBox fx:id="CBPatient" layoutX="383.0" layoutY="289.0" prefHeight="42.0" prefWidth="174.0" style="-fx-background-color: #D0E8FA; -fx-background-radius: 15;" />
-      <Label layoutX="351.0" layoutY="236.0" prefHeight="23.0" prefWidth="88.0" text="Patient" />
+      <Button fx:id="btnAdd" layoutX="352.0" layoutY="572.0" mnemonicParsing="false" onAction="#btnAdd" prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: #D0E8FA; -fx-background-radius: 15;" text="Ajouter">
+         <font>
+            <Font size="15.0" />
+         </font></Button>
+      <Button fx:id="btnDelete" layoutX="421.0" layoutY="630.0" mnemonicParsing="false" onAction="#btnDelete" prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: #D0E8FA; -fx-background-radius: 15;" text="Supprimer">
+         <font>
+            <Font name="Arial" size="15.0" />
+         </font></Button>
+      <Button fx:id="btnUpdate" layoutX="488.0" layoutY="571.0" mnemonicParsing="false" onAction="#btnUpdate" prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: #D0E8FA; -fx-background-radius: 15;" text="Modifier">
+         <font>
+            <Font name="Arial" size="15.0" />
+         </font></Button>
+      <Label layoutX="354.0" layoutY="388.0" prefHeight="23.0" prefWidth="88.0" text="BloodType">
+         <font>
+            <Font name="Arial" size="15.0" />
+         </font></Label>
+      <ChoiceBox fx:id="CBloodType" layoutX="376.0" layoutY="426.0" prefHeight="45.0" prefWidth="162.0" style="-fx-background-color: #D0E8FA; -fx-background-radius: 15;" />
+      <ChoiceBox fx:id="CBPatient" layoutX="356.0" layoutY="289.0" prefHeight="45.0" prefWidth="216.0" style="-fx-background-color: #D0E8FA; -fx-background-radius: 15;" />
+      <Label layoutX="341.0" layoutY="250.0" prefHeight="23.0" prefWidth="88.0" text="Patient">
+         <font>
+            <Font size="15.0" />
+         </font></Label>
+      <AnchorPane layoutX="24.0" layoutY="96.0" prefHeight="600.0" prefWidth="240.0" style="-fx-background-color: #15558D; -fx-border-radius: 15; -fx-background-radius: 15;">
+         <children>
+            <Circle fx:id="profilepicture" fill="#f8fcff" layoutX="111.0" layoutY="101.0" onDragDetected="#profile" radius="80.0" stroke="BLACK" strokeType="INSIDE" />
+            <Button layoutX="26.0" layoutY="268.0" mnemonicParsing="false" onAction="#Fiches" prefHeight="31.0" prefWidth="170.0" style="-fx-background-color: #7989E4; -fx-background-radius: 15;" text="Fiches" textFill="WHITE">
+               <font>
+                  <Font name="Arial" size="15.0" />
+               </font>
+            </Button>
+            <Button layoutX="26.0" layoutY="334.0" mnemonicParsing="false" onAction="#RDVD" prefHeight="31.0" prefWidth="170.0" style="-fx-background-color: #D0E8FA; -fx-background-radius: 15;" text="RDV" textFill="#4e22c9">
+               <font>
+                  <Font name="Arial" size="15.0" />
+               </font>
+            </Button>
+            <Button layoutX="27.0" layoutY="395.0" mnemonicParsing="false" onAction="#logout" prefHeight="30.0" prefWidth="170.0" style="-fx-background-color: #D0E8FA; -fx-background-radius: 15;" text="Log out" textFill="#4e22c9">
+               <font>
+                  <Font name="Arial" size="15.0" />
+               </font>
+            </Button>
+            <Label fx:id="username" layoutX="14.0" layoutY="207.0" prefHeight="20.0" prefWidth="208.0" textFill="WHITE">
+               <font>
+                  <Font name="Arial" size="15.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>

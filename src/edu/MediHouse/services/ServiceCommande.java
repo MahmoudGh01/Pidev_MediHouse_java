@@ -22,6 +22,8 @@ import javafx.collections.ObservableList;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfWriter;
+import com.twilio.rest.chat.v1.service.User;
+import edu.MediHouse.entities.Users;
 import edu.MediHouse.tools.MailAPI;
 import java.io.FileOutputStream;
 import java.util.Calendar;
@@ -36,7 +38,8 @@ public class ServiceCommande {
     public ServiceCommande(Connection cnx) {
         this.cnx = cnx;
     }
-    
+    Users u = new Users();
+    ServiceUser su = new ServiceUser();
      public void ajouter(Commande p , ObservableList<Produit> produitsCommandes) {
         try {
             
@@ -58,7 +61,7 @@ public class ServiceCommande {
             
             }
             System.out.println(ppp);
-            String req = "INSERT INTO `commande`(`datecommande`, `prix`, `qtcommande`, `color`) VALUES ('"+p.getDatecommande()+"','"+ ppp +"','"+p.getQtcommande()+"','"+FXMain.user+"')";
+            String req = "INSERT INTO `commande`(`datecommande`, `prix`, `qtcommande`,user_id) VALUES ('"+p.getDatecommande()+"','"+ ppp +"','"+p.getQtcommande()+"','"+FXMain.user+"')";
             Statement stm = cnx.createStatement();
             stm.executeUpdate(req);
             ObservableList<Commande> cc = getAll();
@@ -102,7 +105,7 @@ public class ServiceCommande {
                   public void modifier(Commande m) {
           
       try {
-            String req="UPDATE `commande` SET `datecommande`=?,`prix`=?,`qtcommande`=?,`color` =? ,`img`=? ,`color` =? WHERE `id`="+m.getId();
+            String req="UPDATE `commande` SET `datecommande`=?,`prix`=?,`qtcommande`=?,`user_id` =? WHERE `id`="+m.getId();
             PreparedStatement st = cnx.prepareStatement(req);
             st.setDate(1, m.getDatecommande());
             st.setDouble(2, m.getPrix());

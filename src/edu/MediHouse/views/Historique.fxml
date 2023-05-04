@@ -7,6 +7,7 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.MediHouse.views.HistoriqueController">
    <children>
@@ -15,7 +16,7 @@
             <Image url="@../images/back.png" />
          </image>
       </ImageView>
-      <TableView fx:id="TabCommande" layoutX="101.0" layoutY="137.0" prefHeight="451.0" prefWidth="879.0">
+      <TableView fx:id="TabCommande" layoutX="264.0" layoutY="146.0" prefHeight="499.0" prefWidth="884.0">
          <columns>
             <TableColumn fx:id="IdComTab" prefWidth="108.80001831054688" text="Id Commande" />
             <TableColumn fx:id="DateComTab" prefWidth="235.9999542236328" text="Date Commande" />
@@ -24,7 +25,10 @@
             <TableColumn fx:id="ColorProdTab" prefWidth="159.199951171875" text="User" />
          </columns>
       </TableView>
-      <Button layoutX="894.0" layoutY="658.0" mnemonicParsing="false" onAction="#retourPannier" prefHeight="36.0" prefWidth="173.0" style="-fx-background-color: #09DCA4; -fx-background-radius: 15;" text="Retour" textFill="WHITE" />
+      <Button layoutX="928.0" layoutY="662.0" mnemonicParsing="false" onAction="#retourPannier" prefHeight="36.0" prefWidth="173.0" style="-fx-background-color: #09DCA4; -fx-background-radius: 15;" text="Retour" textFill="WHITE">
+         <font>
+            <Font name="Arial" size="15.0" />
+         </font></Button>
       <TextField fx:id="searchProd" layoutX="531.0" layoutY="-1.0" prefHeight="25.0" prefWidth="173.0" visible="false" />
    </children>
 </AnchorPane>

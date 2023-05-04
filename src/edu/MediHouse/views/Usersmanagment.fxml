@@ -26,26 +26,6 @@
             <Image url="@../images/logo2.png" />
          </image>
       </ImageView>
-      <AnchorPane layoutX="14.0" layoutY="100.0" prefHeight="525.0" prefWidth="217.0" style="-fx-background-color: #15558D; -fx-background-radius: 15;">
-         <children>
-            <Circle fx:id="ProfilePic1" fill="#f8f8f8" layoutX="109.0" layoutY="76.0" onDragDetected="#profile" radius="65.0" stroke="BLACK" strokeType="INSIDE" />
-            <Label fx:id="UserName1" layoutX="3.0" layoutY="156.0" prefHeight="17.0" prefWidth="211.0" textFill="WHITE">
-               <font>
-                  <Font name="Arial" size="15.0" />
-               </font>
-            </Label>
-            <Button layoutX="33.0" layoutY="460.0" mnemonicParsing="false" onAction="#Logout" prefHeight="30.0" prefWidth="152.0" style="-fx-background-color: #D0E8FA; -fx-background-radius: 15;" text="Log Out" />
-            <Button layoutX="33.0" layoutY="238.0" mnemonicParsing="false" onAction="#Dashboard" prefHeight="30.0" prefWidth="152.0" style="-fx-background-color: #D0E8FA; -fx-background-radius: 15;" text="Tableau De Bord">
-               <font>
-                  <Font name="Arial" size="14.0" />
-               </font>
-            </Button>
-            <Button layoutX="33.0" layoutY="367.0" mnemonicParsing="false" onAction="#reclamation" prefHeight="30.0" prefWidth="152.0" style="-fx-background-color: #D0E8FA; -fx-background-radius: 15;" text="Reclamations" />
-            <Button layoutX="33.0" layoutY="410.0" mnemonicParsing="false" onAction="#forum" prefHeight="30.0" prefWidth="152.0" style="-fx-background-color: #D0E8FA; -fx-background-radius: 15;" text="Forum" />
-            <Button layoutX="33.0" layoutY="321.0" mnemonicParsing="false" onAction="#Users" prefHeight="30.0" prefWidth="152.0" style="-fx-background-color: #7989E4; -fx-background-radius: 15;" text="Users" />
-            <Button layoutX="33.0" layoutY="279.0" mnemonicParsing="false" onAction="#RDV" prefHeight="30.0" prefWidth="152.0" style="-fx-background-color: #D0E8FA; -fx-background-radius: 15;" text="Rendez-Vous" />
-         </children>
-      </AnchorPane>
       <Text layoutX="371.0" layoutY="75.0" strokeType="OUTSIDE" strokeWidth="0.0" text="List of Users Accounts" wrappingWidth="388.0">
          <fill>
             <LinearGradient cycleMethod="REFLECT" endX="0.6714975845410628" endY="1.0" startX="0.6714975845410628">
@@ -59,7 +39,7 @@
             <Font name="Arial Bold Italic" size="35.0" />
          </font>
       </Text>
-      <TableView fx:id="tvuser" layoutX="253.0" layoutY="199.0" opacity="0.8" prefHeight="516.0" prefWidth="990.0" style="-fx-background-color: #D0E8FA; -fx-background-radius: 15;" stylesheets="@tableview.css">
+      <TableView fx:id="tvuser" layoutX="286.0" layoutY="199.0" opacity="0.8" prefHeight="516.0" prefWidth="990.0" style="-fx-background-radius: 15;" stylesheets="@tableview.css">
          <columns>
             <TableColumn fx:id="cnom" prefWidth="77.0" text="Nom" />
             <TableColumn fx:id="cprenom" prefWidth="84.0" text="Prenom" />
@@ -72,12 +52,12 @@
             <TableColumn fx:id="cdate" prefWidth="123.199951171875" resizable="false" text="Date de naissance" />
          </columns>
       </TableView>
-      <Button layoutX="282.0" layoutY="158.0" mnemonicParsing="false" onAction="#resfreshuser" prefHeight="31.0" prefWidth="138.0" style="-fx-background-color: #09DCA4; -fx-background-radius: 10;" text="Refresh" textFill="WHITE">
+      <Button layoutX="307.0" layoutY="158.0" mnemonicParsing="false" onAction="#resfreshuser" prefHeight="31.0" prefWidth="138.0" style="-fx-background-color: #09DCA4; -fx-background-radius: 10;" text="Refresh" textFill="WHITE">
          <font>
             <Font name="Arial" size="15.0" />
          </font>
       </Button>
-      <Button layoutX="983.0" layoutY="158.0" mnemonicParsing="false" onAction="#remove" prefHeight="31.0" prefWidth="138.0" style="-fx-background-color: #09DCA4; -fx-background-radius: 10;" text="Delete " textFill="WHITE">
+      <Button layoutX="1094.0" layoutY="157.0" mnemonicParsing="false" onAction="#remove" prefHeight="31.0" prefWidth="138.0" style="-fx-background-color: #09DCA4; -fx-background-radius: 10;" text="Delete " textFill="WHITE">
          <font>
             <Font name="Arial" size="15.0" />
          </font>
@@ -92,10 +72,50 @@
             <Font size="15.0" />
          </font>
       </Button>
-      <TextField fx:id="searchBox" layoutX="983.0" layoutY="106.0" promptText="Recherche" style="-fx-background-radius: 10;">
+      <TextField fx:id="searchBox" layoutX="977.0" layoutY="104.0" prefHeight="29.0" prefWidth="264.0" promptText="Recherche" style="-fx-background-radius: 10;">
          <font>
             <Font name="Arial" size="15.0" />
          </font>
       </TextField>
+      <AnchorPane layoutX="14.0" layoutY="86.0" prefHeight="600.0" prefWidth="240.0" style="-fx-background-color: #15558D; -fx-background-radius: 15;">
+         <children>
+            <Circle fx:id="ProfilePic11" fill="#f8f8f8" layoutX="111.0" layoutY="101.0" onDragDetected="#profile" radius="80.0" stroke="BLACK" strokeType="INSIDE" />
+            <Label fx:id="UserName11" layoutX="14.0" layoutY="203.0" prefHeight="17.0" prefWidth="211.0" textFill="WHITE">
+               <font>
+                  <Font name="Arial" size="15.0" />
+               </font>
+            </Label>
+            <Button layoutX="37.0" layoutY="533.0" mnemonicParsing="false" onAction="#Logout" prefHeight="30.0" prefWidth="170.0" style="-fx-background-color: #D0E8FA; -fx-background-radius: 15;" text="Log Out" textFill="#4e22c9">
+               <font>
+                  <Font name="Arial" size="15.0" />
+               </font>
+            </Button>
+            <Button layoutX="37.0" layoutY="250.0" mnemonicParsing="false" onAction="#Dashboard" prefHeight="30.0" prefWidth="170.0" style="-fx-background-color: #D0E8FA; -fx-background-radius: 15;" text="Tableau De Bord" textFill="#4e22c9">
+               <font>
+                  <Font name="Arial" size="15.0" />
+               </font>
+            </Button>
+            <Button layoutX="37.0" layoutY="418.0" mnemonicParsing="false" onAction="#reclamation" prefHeight="30.0" prefWidth="170.0" style="-fx-background-color: #D0E8FA; -fx-background-radius: 15;" text="Reponse" textFill="#4e22c9">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
+            <Button layoutX="37.0" layoutY="474.0" mnemonicParsing="false" onAction="#forum" prefHeight="30.0" prefWidth="170.0" style="-fx-background-color: #D0E8FA; -fx-background-radius: 15;" text="Forum" textFill="#4e22c9">
+               <font>
+                  <Font name="Arial" size="15.0" />
+               </font>
+            </Button>
+            <Button layoutX="37.0" layoutY="362.0" mnemonicParsing="false" onAction="#Users" prefHeight="30.0" prefWidth="170.0" style="-fx-background-color: #7989E4; -fx-background-radius: 15;" text="Users" textFill="WHITE">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
+            <Button layoutX="37.0" layoutY="306.0" mnemonicParsing="false" onAction="#RDV" prefHeight="30.0" prefWidth="170.0" style="-fx-background-color: #D0E8FA; -fx-background-radius: 15;" text="Rendez-Vous" textFill="#4e22c9">
+               <font>
+                  <Font name="Arial" size="15.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>

@@ -7,20 +7,27 @@ package edu.MediHouse.views;
 
 import static edu.MediHouse.entities.BadWords.checkWords;
 import edu.MediHouse.entities.Reclamation;
-import edu.MediHouse.entities.Reponse;
+import edu.MediHouse.entities.Dhia;
+import edu.MediHouse.entities.Users;
 import edu.MediHouse.services.ReclamationCRUD;
 import edu.MediHouse.services.ReponseCRUD;
+import edu.MediHouse.services.ServiceUser;
+import static edu.MediHouse.views.InterfaceAdminController.generatePseudo;
 import java.net.URL;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonBar;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableCell;
@@ -28,8 +35,13 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.effect.DropShadow;
+import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.paint.Color;
+import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
+import javafx.stage.Stage;
 import javafx.util.Duration;
 import org.controlsfx.control.Notifications;
 
@@ -42,34 +54,29 @@ public class ReponseController implements Initializable {
 
     Notifications no;
     @FXML
-    private Circle ProfilePic;
-    @FXML
-    private Label UserName;
-    @FXML
-    private Button btnRDV;
-    @FXML
-    private Button Reclamation_btn;
-    @FXML
-    private Button btnsearch;
-    @FXML
     private Button btnAdd;
     @FXML
     private Button btnDelete;
     @FXML
     private Button btnUpdate;
     @FXML
-    private TableView<Reponse> Tbv;
+    private TableView<Dhia> Tbv;
     @FXML
-    private TableColumn<Reponse, Integer> Id_Col;
+    private TableColumn<Dhia, Integer> Id_Col;
     @FXML
-    private TableColumn<Reponse, String> Email_Col;
+    private TableColumn<Dhia, String> Email_Col;
     @FXML
-    private TableColumn<Reponse, String> Sujet_Col;
+    private TableColumn<Dhia, String> Sujet_Col;
     @FXML
     private TextArea TaReponse;
     @FXML
     private ChoiceBox<Reclamation> CBReclamation;
-
+    @FXML
+    private Circle ProfilePic12;
+    @FXML
+    private Label UserName12;
+Users u =new Users();
+     ServiceUser su=new ServiceUser();
     /**
      * Initializes the controller class.
      */
@@ -77,24 +84,31 @@ public class ReponseController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         ComboxClient();
         ShowReponse();
+         u=su.getUserByEmail(InterfaceLogineeController.iduserglobal);
+        Image im = new Image(u.getProfilePicture());
+        ImagePattern pattern = new ImagePattern(im);
+        ProfilePic12.setFill(pattern);
+        ProfilePic12.setStroke(Color.SEAGREEN);
+        ProfilePic12.setEffect(new DropShadow(20, Color.BLACK));
+       // String pseudo = generatePseudo(u.getNom(), u.getPrenom());
+        UserName12.setText(generatePseudo(u.getNom(), u.getPrenom()));
+          ProfilePic12.setOnMouseClicked(new EventHandler<MouseEvent>() {
+        @Override
+        public void handle(MouseEvent event) {
+            profile(event);
+                  }
+    });
     }
 
-    @FXML
-    private void btnRDV(ActionEvent event) {
-    }
 
-    @FXML
     private void Reclamation_btn(ActionEvent event) {
         FXMain.setScene("Reclamation");
     }
 
-    @FXML
-    private void btnsearch(ActionEvent event) {
-    }
 
     @FXML
     private void tbC(MouseEvent event) {
-        Reponse rv = Tbv.getSelectionModel().getSelectedItem();
+        Dhia rv = Tbv.getSelectionModel().getSelectedItem();
         //CBDocteur.getSelectionModel().select(rv.getDocteur());
 
         CBReclamation.setValue(rv.getReclamation());
@@ -114,7 +128,7 @@ public class ReponseController implements Initializable {
         }
         if (checkWords(TaReponse.getText()).equals("false")) {
             ReponseCRUD rdv = new ReponseCRUD();
-            Reponse r = new Reponse(TaReponse.getText(), CBReclamation.getValue());
+            Dhia r = new Dhia(TaReponse.getText(), CBReclamation.getValue());
             rdv.ajouterReponse(r);
             ShowReponse();
 
@@ -137,7 +151,7 @@ public class ReponseController implements Initializable {
     @FXML
     private void btnDelete(ActionEvent event) {
 
-        Reponse rv = Tbv.getSelectionModel().getSelectedItem();
+        Dhia rv = Tbv.getSelectionModel().getSelectedItem();
         if (Tbv.getSelectionModel().isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Erreur");
@@ -161,7 +175,7 @@ public class ReponseController implements Initializable {
 
     @FXML
     private void btnUpdate(ActionEvent event) {
-        Reponse rv = Tbv.getSelectionModel().getSelectedItem();
+        Dhia rv = Tbv.getSelectionModel().getSelectedItem();
         if (Tbv.getSelectionModel().isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Erreur");
@@ -170,7 +184,7 @@ public class ReponseController implements Initializable {
             return;
         }
 
-        Reponse r = new Reponse(rv.getId(), TaReponse.getText(), CBReclamation.getValue());
+        Dhia r = new Dhia(rv.getId(), TaReponse.getText(), CBReclamation.getValue());
         if (checkWords(TaReponse.getText()).equals("false")) {
             ReponseCRUD rdv = new ReponseCRUD();
             rdv.modifierReponse(r);
@@ -195,13 +209,13 @@ public class ReponseController implements Initializable {
     private void ShowReponse() {
         ReponseCRUD rdv = new ReponseCRUD();
 
-        ObservableList<Reponse> list = FXCollections.observableArrayList(rdv.listerReponse());
-        Id_Col.setCellValueFactory(new PropertyValueFactory<Reponse, Integer>("id"));
+        ObservableList<Dhia> list = FXCollections.observableArrayList(rdv.listerReponse());
+        Id_Col.setCellValueFactory(new PropertyValueFactory<Dhia, Integer>("id"));
         //Patient_Col.setCellValueFactory(new PropertyValueFactory<Reponse, String>("Name"));
 
         //Email_Col.setCellValueFactory(new PropertyValueFactory<Reponse, Reclamation>("Email"));
         Email_Col.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getReclamation().getEmail()));
-        Email_Col.setCellFactory(column -> new TableCell<Reponse, String>() {
+        Email_Col.setCellFactory(column -> new TableCell<Dhia, String>() {
             @Override
             protected void updateItem(String docteur, boolean empty) {
                 super.updateItem(docteur, empty);
@@ -213,7 +227,7 @@ public class ReponseController implements Initializable {
             }
         });
 
-        Sujet_Col.setCellValueFactory(new PropertyValueFactory<Reponse, String>("Reponse"));
+        Sujet_Col.setCellValueFactory(new PropertyValueFactory<Dhia, String>("Reponse"));
 
         //System.out.print("test");
         Tbv.setItems(list);
@@ -228,5 +242,62 @@ public class ReponseController implements Initializable {
         CBReclamation.setItems(list);
 
     }
+   @FXML
+    private void Dashboard(ActionEvent event) {
+        // FXMain.setScene("Dashbord");
+    }
+
+    @FXML
+    private void reclamation(ActionEvent event) {
+         FXMain.setScene("Reponse");
+    }
+
+    @FXML
+    private void forum(ActionEvent event) {
+         FXMain.setScene("adminPOV");
+    }
+
+    @FXML
+    private void Users(ActionEvent event) {
+         FXMain.setScene("Usersmanagment");
+    }
+
+    @FXML
+    private void RDV(ActionEvent event) {
+     //    FXMain.setScene("RDV");
+    }
+
+    @FXML
+    private void profile(MouseEvent event) {
+         FXMain.setScene("ProfileAdmin");
+    }
+   
+
+   
+    @FXML
+    private void Logout(ActionEvent event) {
+        
+         
+        Stage stage;
+    Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+    alert.setTitle("Déconnexion");
+    alert.setHeaderText("Vous êtes sur le point de vous déconnecter");
+    alert.setContentText("Voulez-vous vous déconnecter "+u.getEmail()+"?");
+    ButtonType okButton = new ButtonType("OK", ButtonBar.ButtonData.OK_DONE);
+    ButtonType cancelButton = new ButtonType("Annuler", ButtonBar.ButtonData.CANCEL_CLOSE);
+    alert.getButtonTypes().setAll(okButton, cancelButton);
+    Optional<ButtonType> result = alert.showAndWait();
+    if (result.isPresent() && result.get() == okButton) {
+         FXMain.setScene("InterfaceLogin");
+        
+    }
+        
+    }
+   
+
+    
+
+    
+   
 
 }

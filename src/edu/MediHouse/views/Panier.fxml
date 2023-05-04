@@ -17,7 +17,7 @@
             <Image url="@../images/back.png" />
          </image>
       </ImageView>
-      <TableView fx:id="TabMagasin" layoutX="336.0" layoutY="188.0" prefHeight="328.0" prefWidth="696.0">
+      <TableView fx:id="TabMagasin" layoutX="336.0" layoutY="188.0" prefHeight="328.0" prefWidth="696.0" stylesheets="@tableview.css">
          <columns>
             <TableColumn fx:id="IdProTab" prefWidth="75.0" text="Id Produit" />
             <TableColumn fx:id="nomProTab" prefWidth="107.20001220703125" text="Nom Produit" />

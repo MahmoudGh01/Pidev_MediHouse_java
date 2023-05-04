@@ -60,9 +60,7 @@ import org.controlsfx.control.textfield.TextFields;
  */
 public class ProfilePatientController implements Initializable {
 private static String profilepictures="";
-    @FXML
     private Circle profilepicture;
-    @FXML
     private Label username;
     @FXML
     private TextField TFname;
@@ -86,6 +84,10 @@ private static String profilepictures="";
     private String cImageUrl = "";
     @FXML
     private ImageView qrCodeImageView;
+    @FXML
+    private Circle ProfilePic;
+    @FXML
+    private Label UserName;
     //  @FXML
    // private DatePicker dpdate;
     /**
@@ -193,7 +195,7 @@ private void QrCode(ActionEvent event) {
     int width = 300;
     int height = 300;
     String format = "png";
-    File file = new File("C:\\Users\\chaab\\Desktop\\3A41\\S2\\web-java-mobile\\java\\MediHouse\\src\\edu\\MediHouse\\images/","qrcode.png");
+    File file = new File("C:\\Users\\user\\Documents\\NetBeansProjects\\Pidev_MediHouse_java\\src\\edu\\MediHouse\\images/","qrcode.png");
     try {
         QRCodeWriter qrCodeWriter = new QRCodeWriter();
         BitMatrix bitMatrix = qrCodeWriter.encode(text, BarcodeFormat.QR_CODE, width, height);
@@ -223,17 +225,17 @@ private void QrCode(ActionEvent event) {
 
     @FXML
    private void RechMed(ActionEvent event) {
-        FXMain.setScene("RechMed");
+        FXMain.setScene("Search_doctor");
     }
 
     @FXML
     private void parapharmacie(ActionEvent event) {
-        FXMain.setScene("parapharmacie");
+        FXMain.setScene("ProduitsUser");
     }
     
     @FXML
     private void forum(ActionEvent event) {
-        FXMain.setScene("Forum");
+        FXMain.setScene("pi");
     }
 
     @FXML
@@ -243,7 +245,7 @@ private void QrCode(ActionEvent event) {
 
     @FXML
     private void RDVP(ActionEvent event) {
-       FXMain.setScene("RDVP");
+       FXMain.setScene("ListRDV");
     }
 
     @FXML
@@ -280,7 +282,7 @@ private void QrCode(ActionEvent event) {
         fileChooser.setTitle("Open Resource File");
         fileChooser.getExtensionFilters().addAll(
                 new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.jpeg"));
-        fileChooser.setInitialDirectory(new File("C:\\Users\\chaab\\Desktop\\3A41\\S2\\web-java-mobile\\java\\MediHouse\\src\\edu\\MediHouse\\images"));
+        fileChooser.setInitialDirectory(new File("C:\\Users\\user\\Documents\\NetBeansProjects\\Pidev_MediHouse_java\\src\\edu\\MediHouse\\images"));
         File file = fileChooser.showOpenDialog(null);
         if (file != null) {
             String TempprofilePicture = file.toURI().toString();
@@ -350,9 +352,13 @@ private void QrCode(ActionEvent event) {
         return erreur;
     }
 
-    @FXML
     private void profile(MouseEvent event) {
          FXMain.setScene("ProfilePatient");
+    }
+
+    @FXML
+    private void Profile1(MouseEvent event) {
+        FXMain.setScene("ProfilePatient");
     }
    
 

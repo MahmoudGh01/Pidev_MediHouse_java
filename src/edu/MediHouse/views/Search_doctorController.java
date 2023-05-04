@@ -11,12 +11,16 @@ import edu.MediHouse.entities.Users;
 import edu.MediHouse.services.ServiceUser;
 import java.io.IOException;
 import java.net.URL;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -24,6 +28,8 @@ import javafx.geometry.Insets;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonBar;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.ContentDisplay;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableCell;
@@ -31,11 +37,14 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.paint.Color;
+import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -48,10 +57,9 @@ import javafx.util.Callback;
  * @author user
  */
 public class Search_doctorController implements Initializable {
-
+Users u =new Users();
+    ServiceUser su=new ServiceUser();
     ServiceUser UC = new ServiceUser();
-    @FXML
-    private Circle ProfilePic;
 
     @FXML
     private TableView<Users> Tbv;
@@ -68,15 +76,11 @@ public class Search_doctorController implements Initializable {
     @FXML
     private TableColumn<Users, Void> Action_Col;
     @FXML
-    private Label UserName;
-    @FXML
-    private Button btnsearch;
-    @FXML
-    private Button RDVBtn;
-    @FXML
     private TextField TfSearch;
     @FXML
-    private Button btnFiche;
+    private Circle ProfilePic1;
+    @FXML
+    private Label UserName1;
 
     /**
      * Initializes the controller class.
@@ -84,12 +88,25 @@ public class Search_doctorController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         ShowUsers();
+         u=su.getUserByEmail(InterfaceLogineeController.iduserglobal);
+        UserName1.setText(u.getNom().toUpperCase()+" "+u.getPrenom().toUpperCase());
+        Image im = new Image(u.getProfilePicture());
+        ImagePattern pattern = new ImagePattern(im);
+        ProfilePic1.setFill(pattern);
+        ProfilePic1.setStroke(Color.SEAGREEN);
+        ProfilePic1.setEffect(new DropShadow(20, Color.BLACK));
+        
+    
+        
+                   
+       ProfilePic1.setOnMouseClicked(new EventHandler<MouseEvent>() {
+        @Override
+        public void handle(MouseEvent event) {
+            Profile1(event);
+                  }
+    });
     }
 
-    @FXML
-    private void btnsearch(ActionEvent event) {
-
-    }
 
     private void ShowUsers() {
         ServiceUser rdv = new ServiceUser();
@@ -215,7 +232,6 @@ public class Search_doctorController implements Initializable {
         Tbv.setItems(list);
     }
 
-    @FXML
     private void RDVBtn(ActionEvent event) {
         FXMain.setScene("ListRDV");
     }
@@ -320,9 +336,55 @@ public class Search_doctorController implements Initializable {
 //        Tbv.setItems(list);
     }
 
-    @FXML
     private void btnFiche(ActionEvent event) {
         FXMain.setScene("Fiche");
     }
+ @FXML
+   private void RechMed(ActionEvent event) {
+        FXMain.setScene("Search_doctor");
+    }
+
+    @FXML
+    private void parapharmacie(ActionEvent event) {
+        FXMain.setScene("ProduitsUser");
+    }
+    
+    @FXML
+    private void forum(ActionEvent event) {
+        FXMain.setScene("pi");
+    }
+
+    @FXML
+    private void reclamation(ActionEvent event) {
+       FXMain.setScene("Reclamation");
+    }
+
+    @FXML
+    private void RDVP(ActionEvent event) {
+       FXMain.setScene("ListRDV");
+    }
+   @FXML
+    private void Profile1(MouseEvent event) {
+        FXMain.setScene("ProfilePatient");
+    }
+
+    @FXML
+    private void Logout(ActionEvent event) {
+            Stage stage;
+    javafx.scene.control.Alert alert = new javafx.scene.control.Alert(javafx.scene.control.Alert.AlertType.CONFIRMATION);
+    alert.setTitle("Déconnexion");
+    alert.setHeaderText("Vous êtes sur le point de vous déconnecter");
+    alert.setContentText("Voulez-vous vous déconnecter "+u.getEmail()+"?");
+    ButtonType okButton = new ButtonType("OK", ButtonBar.ButtonData.OK_DONE);
+    ButtonType cancelButton = new ButtonType("Annuler", ButtonBar.ButtonData.CANCEL_CLOSE);
+    alert.getButtonTypes().setAll(okButton, cancelButton);
+    Optional<ButtonType> result = alert.showAndWait();
+    if (result.isPresent() && result.get() == okButton) {
+         FXMain.setScene("InterfaceLogin");
+        
+    }
+    }
+
+    
 
 }

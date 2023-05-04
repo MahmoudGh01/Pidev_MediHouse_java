@@ -5,7 +5,7 @@
  */
 package edu.MediHouse.services;
 
-import edu.MediHouse.entities.reponse1;
+import edu.MediHouse.entities.Reponse1;
 import edu.MediHouse.tools.MyConnection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
@@ -21,8 +21,8 @@ import java.util.List;
  *
  * @author DELL
  */
-public class reponse1CRUD {
-     public void addEntity2(reponse1 t) {
+public class Reponse1CRUD {
+     public void addEntity2(Reponse1 t) {
         try {
             String requete="INSERT INTO reponse (reponse,date_pub,likes,dislikes,id_question,id_user)"
                     + "VALUES (?,?,?,?,?,?)";
@@ -125,8 +125,8 @@ public int quest_id(int questionId) {
     }
     return hidden;
 }
-public List<reponse1> getResponsesByQuestId(int quest_id) {
-    List<reponse1> responseList = new ArrayList<>();
+public List<Reponse1> getResponsesByQuestId(int quest_id) {
+    List<Reponse1> responseList = new ArrayList<>();
     
     try {
         String query = "SELECT * FROM reponse WHERE id_question	 = ?";
@@ -135,7 +135,7 @@ public List<reponse1> getResponsesByQuestId(int quest_id) {
         ResultSet rs = stmt.executeQuery();
         
         while (rs.next()) {
-            reponse1 r = new reponse1();
+            Reponse1 r = new Reponse1();
             r.setId(rs.getInt("id"));
             r.setRep_contenu(rs.getString("reponse"));
             r.setRep_date_pub(rs.getDate("date_pub"));
@@ -166,15 +166,15 @@ public void editReponse(int id, String newContent) {
     }
 }
     
-    public List<reponse1> display() {
-        List<reponse1> myList = new ArrayList<>();
+    public List<Reponse1> display() {
+        List<Reponse1> myList = new ArrayList<>();
         try {
             String requete = "SELECT * FROM reponse";
             Statement st = MyConnection.getInstance().getCnx()
                     .createStatement();
             ResultSet rs = st.executeQuery(requete);
             while(rs.next()){
-                reponse1 p = new reponse1();
+                Reponse1 p = new Reponse1();
                 p.setId(rs.getInt(1));
                 p.setRep_contenu(rs.getString("reponse"));
                 p.setRep_date_pub(rs.getDate("date_pub"));

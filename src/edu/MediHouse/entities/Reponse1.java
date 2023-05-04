@@ -11,7 +11,7 @@ import java.sql.Date;
  *
  * @author DELL
  */
-public class reponse1 {
+public class Reponse1 {
      private int id;
     private String rep_contenu;
     private Date rep_date_pub;
@@ -58,7 +58,7 @@ private int dislikes;
         this.dislikes++;
     }
 
-    public reponse1(String rep_contenu, Date rep_date_pub) {
+    public Reponse1(String rep_contenu, Date rep_date_pub) {
         this.rep_contenu = rep_contenu;
         this.rep_date_pub = rep_date_pub;
     }
@@ -91,7 +91,7 @@ private int dislikes;
         return rep_date_pub;
     }
 
-    public reponse1(String rep_contenu, Date rep_date_pub, int likes, int dislikes) {
+    public Reponse1(String rep_contenu, Date rep_date_pub, int likes, int dislikes) {
         this.rep_contenu = rep_contenu;
         this.rep_date_pub = rep_date_pub;
         this.likes = likes;
@@ -109,7 +109,7 @@ private int dislikes;
 
   
 
-    public reponse1() {
+    public Reponse1() {
     }
     
     

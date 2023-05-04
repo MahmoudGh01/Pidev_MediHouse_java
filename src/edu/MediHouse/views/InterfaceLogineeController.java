@@ -93,6 +93,7 @@ public class InterfaceLogineeController implements Initializable {
         String access;
        
         if(u!=null){
+            FXMain.user = u.getId();
             iduserglobal=u.getEmail();
             switch (u.getRoles()) {
                 //interface admin
@@ -142,6 +143,26 @@ public class InterfaceLogineeController implements Initializable {
        {
            System.out.println("captcha valid");
           FXMain.setScene("InterfaceDoctor");
+       }else
+       {
+           System.out.println("captcha invalid");
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+        alert.setTitle("Invalid Captcha");
+         alert.setContentText("The captcha code entered is invalid.");
+        alert.showAndWait();
+        cap.setImageCaptcha(tempLabel);
+        captchagenerate.setImage(SwingFXUtils.toFXImage(FXMain.iconToImage(tempLabel.getIcon()),null));
+
+          
+       }
+                    
+                    break;
+                    case ROLE_PARA:
+                    //interface Doctor
+                        if(cap.Validate(tempLabel, captchainput.getText()))
+       {
+           System.out.println("captcha valid");
+          FXMain.setScene("InterfacePara");
        }else
        {
            System.out.println("captcha invalid");

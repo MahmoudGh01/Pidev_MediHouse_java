@@ -7,7 +7,6 @@ package edu.MediHouse.views;
 
 import edu.MediHouse.entities.Role;
 import edu.MediHouse.entities.Users;
-import edu.MediHouse.services.BooleanTableCell;
 import edu.MediHouse.services.ServiceUser;
 import edu.MediHouse.tools.MyConnection;
 import java.net.URL;
@@ -30,13 +29,10 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ButtonBar;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
-import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
-import javafx.scene.control.TablePosition;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
@@ -44,7 +40,6 @@ import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
-import javafx.util.converter.BooleanStringConverter;
 
 /**
  * FXML Controller class
@@ -53,9 +48,7 @@ import javafx.util.converter.BooleanStringConverter;
  */
 public class UsersmanagmentController implements Initializable {
 
-    @FXML
     private Circle ProfilePic1;
-    @FXML
     private Label UserName1;
     @FXML
     private TableView<Users> tvuser;
@@ -71,24 +64,30 @@ public class UsersmanagmentController implements Initializable {
     private TableColumn<Users, String> ctelephone;
     @FXML
     private TableColumn<Users, Role> crole;
-Users u =new Users();
-     ServiceUser su=new ServiceUser();
-    
-     ObservableList<Users> data=FXCollections.observableArrayList();
+    Users u = new Users();
+    ServiceUser su = new ServiceUser();
+
+    ObservableList<Users> data = FXCollections.observableArrayList();
     @FXML
     private TableColumn<Users, String> cgenre;
     @FXML
     private TableColumn<Users, Boolean> Cact;
-     @FXML
+    @FXML
     private TextField searchBox;
     @FXML
     private TableColumn<Users, Date> cdate;
+    @FXML
+    private Circle ProfilePic11;
+    @FXML
+    private Label UserName11;
+
     /**
      * Initializes the controller class.
+     *
      * @param url
      * @param rb
      */
-       @Override
+    @Override
     public void initialize(URL url, ResourceBundle rb) {
 
         // Initialize table columns
@@ -111,13 +110,13 @@ Users u =new Users();
         u = su.getUserByEmail(InterfaceLogineeController.iduserglobal);
         Image im = new Image(u.getProfilePicture());
         ImagePattern pattern = new ImagePattern(im);
-        ProfilePic1.setFill(pattern);
-        ProfilePic1.setStroke(Color.SEAGREEN);
-        ProfilePic1.setEffect(new DropShadow(20, Color.BLACK));
-        UserName1.setText("ADMIN " + u.getNom().toUpperCase() + " " + u.getPrenom().toUpperCase());
+        ProfilePic11.setFill(pattern);
+        ProfilePic11.setStroke(Color.SEAGREEN);
+        ProfilePic11.setEffect(new DropShadow(20, Color.BLACK));
+        UserName11.setText("ADMIN " + u.getNom().toUpperCase() + " " + u.getPrenom().toUpperCase());
 //searchBox.search;
 search();
-  ProfilePic1.setOnMouseClicked(new EventHandler<MouseEvent>() {
+  ProfilePic11.setOnMouseClicked(new EventHandler<MouseEvent>() {
         @Override
         public void handle(MouseEvent event) {
             profile(event);
@@ -125,6 +124,7 @@ search();
     });
     }
 // Load all users data into the table
+
     private void loadData() {
         List<Users> usersList = su.afficher();
         data.clear();
@@ -133,62 +133,58 @@ search();
     }
 
     // Search users by search term and display the results in the table
-   
-   
     private void Profile(ActionEvent event) {
         FXMain.setScene("ProfileAdmin");
     }
 
     @FXML
     private void Logout(ActionEvent event) {
-          Stage stage;
-    Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-    alert.setTitle("Déconnexion");
-    alert.setHeaderText("Vous êtes sur le point de vous déconnecter");
-    alert.setContentText("Voulez-vous vous déconnecter "+u.getEmail()+"?");
-    ButtonType okButton = new ButtonType("OK", ButtonBar.ButtonData.OK_DONE);
-    ButtonType cancelButton = new ButtonType("Annuler", ButtonBar.ButtonData.CANCEL_CLOSE);
-    alert.getButtonTypes().setAll(okButton, cancelButton);
-    Optional<ButtonType> result = alert.showAndWait();
-    if (result.isPresent() && result.get() == okButton) {
-         FXMain.setScene("InterfaceLogin");
-        
-    }
+        Stage stage;
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Déconnexion");
+        alert.setHeaderText("Vous êtes sur le point de vous déconnecter");
+        alert.setContentText("Voulez-vous vous déconnecter " + u.getEmail() + "?");
+        ButtonType okButton = new ButtonType("OK", ButtonBar.ButtonData.OK_DONE);
+        ButtonType cancelButton = new ButtonType("Annuler", ButtonBar.ButtonData.CANCEL_CLOSE);
+        alert.getButtonTypes().setAll(okButton, cancelButton);
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.isPresent() && result.get() == okButton) {
+            FXMain.setScene("InterfaceLogin");
+
+        }
     }
 
     @FXML
     private void Dashboard(ActionEvent event) {
-        FXMain.setScene("Dashbord");
+        // FXMain.setScene("Dashbord");
     }
 
     @FXML
     private void reclamation(ActionEvent event) {
-        FXMain.setScene("Rec");
+        FXMain.setScene("Reponse");
     }
 
     @FXML
     private void forum(ActionEvent event) {
-        FXMain.setScene("Forum");
+        FXMain.setScene("adminPOV");
     }
 
     @FXML
     private void Users(ActionEvent event) {
-         FXMain.setScene("Usersmanagment");
+        FXMain.setScene("Usersmanagment");
     }
 
     @FXML
     private void RDV(ActionEvent event) {
-        FXMain.setScene("RDV");
+        // FXMain.setScene("RDV");
     }
-
-    
 
     @FXML
     private void resfreshuser() {
-        
-           data.clear();
-        data=FXCollections.observableArrayList(su.afficher());
-       
+
+        data.clear();
+        data = FXCollections.observableArrayList(su.afficher());
+
         cnom.setCellValueFactory(new PropertyValueFactory<>("nom"));
         cprenom.setCellValueFactory(new PropertyValueFactory<>("prenom"));
         cemail.setCellValueFactory(new PropertyValueFactory<>("email"));
@@ -203,30 +199,31 @@ search();
 
     @FXML
     private void remove(ActionEvent event) {
-          if (tvuser.getSelectionModel().getSelectedItem() != null) {
-        int id = tvuser.getSelectionModel().getSelectedItem().getId();
-        
-        // Create a confirmation dialog box
-        Alert alert = new Alert(AlertType.CONFIRMATION);
-        alert.setTitle("Confirmation");
-        alert.setHeaderText(null);
-        alert.setContentText("Êtes-vous sûr de vouloir supprimer cet User?");
-        Optional<ButtonType> result = alert.showAndWait();
-        
-        // If the user confirms the deletion, call the supprimer() method and refresh the list
-        if (result.isPresent() && result.get() == ButtonType.OK) {
-            su.supprimer(id);
-            resfreshuser();
+        if (tvuser.getSelectionModel().getSelectedItem() != null) {
+            int id = tvuser.getSelectionModel().getSelectedItem().getId();
+
+            // Create a confirmation dialog box
+            Alert alert = new Alert(AlertType.CONFIRMATION);
+            alert.setTitle("Confirmation");
+            alert.setHeaderText(null);
+            alert.setContentText("Êtes-vous sûr de vouloir supprimer cet User?");
+            Optional<ButtonType> result = alert.showAndWait();
+
+            // If the user confirms the deletion, call the supprimer() method and refresh the list
+            if (result.isPresent() && result.get() == ButtonType.OK) {
+                su.supprimer(id);
+                resfreshuser();
+            }
+        } else {
+            // Display an error message if no item is selected
+            Alert alert = new Alert(AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText(null);
+            alert.setContentText("Veuillez sélectionner un Utilisateur");
+            alert.showAndWait();
         }
-    } else {
-        // Display an error message if no item is selected
-        Alert alert = new Alert(AlertType.ERROR);
-        alert.setTitle("Error");
-        alert.setHeaderText(null);
-        alert.setContentText("Veuillez sélectionner un Utilisateur");
-        alert.showAndWait();
     }
-    }
+
     void search() {
         Users p = new Users();
         cnom.setCellValueFactory(new PropertyValueFactory<>("nom"));
@@ -237,13 +234,11 @@ search();
         cgenre.setCellValueFactory(new PropertyValueFactory<>("genre"));
         crole.setCellValueFactory(new PropertyValueFactory<>("roles"));
         cdate.setCellValueFactory(new PropertyValueFactory<>("Datenes"));
-        
-        
-       
+
         tvuser.setItems(data);
-       
+
         FilteredList<Users> filteredData = new FilteredList<>(data, b -> true);
-       
+
         searchBox.textProperty().addListener((observable, oldValue, newValue) -> {
             filteredData.setPredicate((Users us) -> {
                 if (newValue == null || newValue.isEmpty()) {
@@ -251,43 +246,33 @@ search();
                 }
                 String lowerCaseFilter = newValue.toLowerCase();
 
-                if (us.getNom().toLowerCase().indexOf(lowerCaseFilter) != -1 ) {
-					return true; // Filter matches first name.
-				} else if (us.getPrenom().toLowerCase().indexOf(lowerCaseFilter) != -1) {
-					return true; // Filter matches last name.
-				}
-                                else if (us.getAdresse().indexOf(lowerCaseFilter)!=-1){
-				     return true;
-                                }
-                                else if (us.getAdresse().indexOf(lowerCaseFilter)!=-1){
-				     return true;
-                                }else if (us.getAdresse().toUpperCase().indexOf(lowerCaseFilter.toUpperCase()) != -1){
-                                    return true; // Filter matches address.
-} 
-                                else if (us.getEmail().indexOf(lowerCaseFilter)!=-1){
-				     return true;
-                                }
-                                
-                                
-                               
-                                else if (String.valueOf(us.getDatenes()).indexOf(lowerCaseFilter)!=-1){
-				     return true;
-                                }
-                                else if (String.valueOf(us.getTelephone()).indexOf(lowerCaseFilter)!=-1){
-				     return true;
-                                }
-                                
-                                
-                               
-				     else  
-				    	 return false; // Does not match.
-			});
-		});
+                if (us.getNom().toLowerCase().indexOf(lowerCaseFilter) != -1) {
+                    return true; // Filter matches first name.
+                } else if (us.getPrenom().toLowerCase().indexOf(lowerCaseFilter) != -1) {
+                    return true; // Filter matches last name.
+                } else if (us.getAdresse().indexOf(lowerCaseFilter) != -1) {
+                    return true;
+                } else if (us.getAdresse().indexOf(lowerCaseFilter) != -1) {
+                    return true;
+                } else if (us.getAdresse().toUpperCase().indexOf(lowerCaseFilter.toUpperCase()) != -1) {
+                    return true; // Filter matches address.
+                } else if (us.getEmail().indexOf(lowerCaseFilter) != -1) {
+                    return true;
+                } else if (String.valueOf(us.getDatenes()).indexOf(lowerCaseFilter) != -1) {
+                    return true;
+                } else if (String.valueOf(us.getTelephone()).indexOf(lowerCaseFilter) != -1) {
+                    return true;
+                } else {
+                    return false; // Does not match.
+                }
+            });
+        });
         SortedList<Users> sortedData = new SortedList<>(filteredData);
         sortedData.comparatorProperty().bind(tvuser.comparatorProperty());
         tvuser.setItems(sortedData);
-   }
-   /* if (tvuser.getSelectionModel().getSelectedItem() != null) {
+    }
+
+    /* if (tvuser.getSelectionModel().getSelectedItem() != null) {
         int id = tvuser.getSelectionModel().getSelectedItem().getId();
         
         // Create a confirmation dialog box
@@ -321,76 +306,75 @@ alert.showAndWait();
         alert.setContentText("Veuillez sélectionner un Utilisateur");
         alert.showAndWait();
     }*/
-    
-     @FXML
-    private void Activate(ActionEvent event) throws SQLException  {
-         if (tvuser.getSelectionModel().getSelectedItem() != null) {
-        int id = tvuser.getSelectionModel().getSelectedItem().getId();
-        
-        // Create a confirmation dialog box
-        Alert alert = new Alert(AlertType.CONFIRMATION);
-        alert.setTitle("Confirmation");
-        alert.setHeaderText(null);
-        alert.setContentText("Êtes-vous sûr de vouloir Activer cet User?");
-        Optional<ButtonType> result = alert.showAndWait();
-        
-        // If the user confirms the deletion, call the supprimer() method and refresh the list
-        if (result.isPresent() && result.get() == ButtonType.OK) {
-             String requete="UPDATE user  SET activate = 1 WHERE id =?";
-            PreparedStatement pst = MyConnection.getInstance().getCnx().prepareStatement(requete);
-             pst.setInt(1, id);
-            pst.executeUpdate();
-              Alert alert2 = new Alert(Alert.AlertType.INFORMATION);
-            alert2.setTitle("Users details");
-           alert2.setHeaderText("Users details");
-        alert2.setContentText("This user session is activated ");
-        alert2.showAndWait();
-            resfreshuser();
-        }
-    } else {
-        // Display an error message if no item is selected
-        Alert alert = new Alert(AlertType.ERROR);
-        alert.setTitle("Error");
-        alert.setHeaderText(null);
-        alert.setContentText("Veuillez sélectionner un Utilisateur");
-        alert.showAndWait();
-    }
-    }
 
+    @FXML
+    private void Activate(ActionEvent event) throws SQLException {
+        if (tvuser.getSelectionModel().getSelectedItem() != null) {
+            int id = tvuser.getSelectionModel().getSelectedItem().getId();
+
+            // Create a confirmation dialog box
+            Alert alert = new Alert(AlertType.CONFIRMATION);
+            alert.setTitle("Confirmation");
+            alert.setHeaderText(null);
+            alert.setContentText("Êtes-vous sûr de vouloir Activer cet User?");
+            Optional<ButtonType> result = alert.showAndWait();
+
+            // If the user confirms the deletion, call the supprimer() method and refresh the list
+            if (result.isPresent() && result.get() == ButtonType.OK) {
+                String requete = "UPDATE user  SET activate = 1 WHERE id =?";
+                PreparedStatement pst = MyConnection.getInstance().getCnx().prepareStatement(requete);
+                pst.setInt(1, id);
+                pst.executeUpdate();
+                Alert alert2 = new Alert(Alert.AlertType.INFORMATION);
+                alert2.setTitle("Users details");
+                alert2.setHeaderText("Users details");
+                alert2.setContentText("This user session is activated ");
+                alert2.showAndWait();
+                resfreshuser();
+            }
+        } else {
+            // Display an error message if no item is selected
+            Alert alert = new Alert(AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText(null);
+            alert.setContentText("Veuillez sélectionner un Utilisateur");
+            alert.showAndWait();
+        }
+    }
 
     @FXML
     private void desactivate(ActionEvent event) throws SQLException {
-         if (tvuser.getSelectionModel().getSelectedItem() != null) {
-        int id = tvuser.getSelectionModel().getSelectedItem().getId();
-        
-        // Create a confirmation dialog box
-        Alert alert = new Alert(AlertType.CONFIRMATION);
-        alert.setTitle("Confirmation");
-        alert.setHeaderText(null);
-        alert.setContentText("Êtes-vous sûr de vouloir ban cet User?");
-        Optional<ButtonType> result = alert.showAndWait();
-        
-        // If the user confirms the deletion, call the supprimer() method and refresh the list
-        if (result.isPresent() && result.get() == ButtonType.OK) {
-                 String requete="UPDATE user  SET activate = 0 WHERE id =?";
-            PreparedStatement pst = MyConnection.getInstance().getCnx().prepareStatement(requete);
-             pst.setInt(1, id);
-            pst.executeUpdate();
-              Alert alert2 = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Users details");
-            alert2.setHeaderText("Users details");
-            alert2.setContentText("This user is banned!");
-            alert2.showAndWait();
-            resfreshuser();
+        if (tvuser.getSelectionModel().getSelectedItem() != null) {
+            int id = tvuser.getSelectionModel().getSelectedItem().getId();
+
+            // Create a confirmation dialog box
+            Alert alert = new Alert(AlertType.CONFIRMATION);
+            alert.setTitle("Confirmation");
+            alert.setHeaderText(null);
+            alert.setContentText("Êtes-vous sûr de vouloir ban cet User?");
+            Optional<ButtonType> result = alert.showAndWait();
+
+            // If the user confirms the deletion, call the supprimer() method and refresh the list
+            if (result.isPresent() && result.get() == ButtonType.OK) {
+                String requete = "UPDATE user  SET activate = 0 WHERE id =?";
+                PreparedStatement pst = MyConnection.getInstance().getCnx().prepareStatement(requete);
+                pst.setInt(1, id);
+                pst.executeUpdate();
+                Alert alert2 = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Users details");
+                alert2.setHeaderText("Users details");
+                alert2.setContentText("This user is banned!");
+                alert2.showAndWait();
+                resfreshuser();
+            }
+        } else {
+            // Display an error message if no item is selected
+            Alert alert = new Alert(AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText(null);
+            alert.setContentText("Veuillez sélectionner un Utilisateur");
+            alert.showAndWait();
         }
-    } else {
-        // Display an error message if no item is selected
-        Alert alert = new Alert(AlertType.ERROR);
-        alert.setTitle("Error");
-        alert.setHeaderText(null);
-        alert.setContentText("Veuillez sélectionner un Utilisateur");
-        alert.showAndWait();
-    }
     }
 
     @FXML

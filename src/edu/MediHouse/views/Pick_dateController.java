@@ -98,7 +98,7 @@ public class Pick_dateController implements Initializable {
     }else{
           
             
-         r = new RendezVous(Id_RDV,(Fiche) f.getFicheByPatient(u.getId()), UC.getById(Id_Docteur),  UC.getUserByEmail(u.getEmail()), Date.valueOf(picker.getValue()), UC.getById(Id_Docteur).getAdresse());
+         r = new RendezVous(Id_RDV,(Fiche) f.getFicheByPatient(u.getId()), UC.getById(Id_Docteur),  UC.getUserByEmail(u.getEmail()), Date.valueOf(picker.getValue()), UC.getById(Id_Docteur).getAdresse(),Time.valueOf(hh.getValue()+":"+mm.getValue()+":00"));
          rdv.modifierRendezVous(r);
         }
     

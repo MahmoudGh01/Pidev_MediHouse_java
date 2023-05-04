@@ -1,45 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.paint.*?>
-<?import javafx.scene.text.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.shape.*?>
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="632.0" prefWidth="1130.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.MediHouse.views.ProfileDoctorController">
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.MediHouse.views.ProfileDoctorController">
    <children>
-      <ImageView fitHeight="632.0" fitWidth="1130.0">
+      <ImageView fitHeight="800.0" fitWidth="1280.0">
          <image>
             <Image url="@../images/back.png" />
          </image>
       </ImageView>
-      <AnchorPane layoutX="14.0" layoutY="86.0" prefHeight="525.0" prefWidth="217.0" style="-fx-background-color: #15558D; -fx-border-radius: 15; -fx-background-radius: 15;">
-         <children>
-            <Circle fx:id="profilepicture" fill="#f8fcff" layoutX="108.0" layoutY="76.0" onDragDetected="#profile" radius="62.0" stroke="BLACK" strokeType="INSIDE" />
-            <Button layoutX="32.0" layoutY="173.0" mnemonicParsing="false" onAction="#Fiches" prefHeight="31.0" prefWidth="152.0" style="-fx-background-color: #D0E8FA; -fx-background-radius: 15;" text="Fiches">
-               <font>
-                  <Font name="Arial" size="14.0" />
-               </font></Button>
-            <Button layoutX="32.0" layoutY="223.0" mnemonicParsing="false" onAction="#RDVD" prefHeight="31.0" prefWidth="152.0" style="-fx-background-color: #D0E8FA; -fx-background-radius: 15;" text="RDV" />
-            <Button layoutX="32.0" layoutY="321.0" mnemonicParsing="false" onAction="#logout" prefHeight="31.0" prefWidth="152.0" style="-fx-background-color: #D0E8FA; -fx-background-radius: 15;" text="Log out" />
-            <Button layoutX="32.0" layoutY="270.0" mnemonicParsing="false" onAction="#calendrier" prefHeight="31.0" prefWidth="152.0" style="-fx-background-color: #D0E8FA; -fx-background-radius: 15;" text="Calendrier" />
-            <Label fx:id="username" layoutX="8.0" layoutY="154.0" prefHeight="20.0" prefWidth="206.0" textAlignment="CENTER" textFill="WHITE">
-               <font>
-                  <Font name="Arial" size="15.0" />
-               </font>
-            </Label>
-         </children>
-      </AnchorPane>
       <ImageView fitHeight="57.0" fitWidth="217.0" layoutX="14.0" layoutY="14.0">
          <image>
             <Image url="@../images/logo2.png" />
          </image>
       </ImageView>
-      <AnchorPane layoutX="263.0" layoutY="135.0" prefHeight="447.0" prefWidth="368.0" style="-fx-border-color: #09DCA4;">
+      <AnchorPane layoutX="450.0" layoutY="140.0" prefHeight="447.0" prefWidth="368.0" style="-fx-border-color: #09DCA4;">
          <children>
             <TextField fx:id="TFname" layoutX="20.0" layoutY="68.0" prefHeight="31.0" prefWidth="139.0" promptText="Nom" style="-fx-background-radius: 15;">
                <font>
@@ -76,6 +59,36 @@
             <Button layoutX="241.0" layoutY="15.0" mnemonicParsing="false" onAction="#QrCode" prefHeight="30.0" prefWidth="119.0" style="-fx-background-color: #09DCA4; -fx-background-radius: 10;" text="QRcode" textFill="WHITE" />
          </children>
       </AnchorPane>
-      <ImageView fx:id="qrCodeImageView" fitHeight="300.0" fitWidth="300.0" layoutX="722.0" layoutY="193.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="qrCodeImageView" fitHeight="300.0" fitWidth="300.0" layoutX="900.0" layoutY="220.0" pickOnBounds="true" preserveRatio="true" />
+      <AnchorPane layoutX="14.0" layoutY="90.0" prefHeight="600.0" prefWidth="240.0" style="-fx-background-color: #15558D; -fx-border-radius: 15; -fx-background-radius: 15;">
+         <children>
+            <Circle fx:id="profilepicture1" fill="#f8fcff" layoutX="111.0" layoutY="101.0" onDragDetected="#profile" radius="80.0" stroke="BLACK" strokeType="INSIDE" />
+            <Button layoutX="26.0" layoutY="268.0" mnemonicParsing="false" onAction="#Fiches" prefHeight="31.0" prefWidth="170.0" style="-fx-background-color: #D0E8FA; -fx-background-radius: 15;" text="Fiches" textFill="#4e22c9">
+               <font>
+                  <Font name="Arial" size="15.0" />
+               </font>
+            </Button>
+            <Button layoutX="26.0" layoutY="334.0" mnemonicParsing="false" onAction="#RDVD" prefHeight="31.0" prefWidth="170.0" style="-fx-background-color: #D0E8FA; -fx-background-radius: 15;" text="RDV" textFill="#4e22c9">
+               <font>
+                  <Font name="Arial" size="15.0" />
+               </font>
+            </Button>
+            <Button layoutX="26.0" layoutY="462.0" mnemonicParsing="false" onAction="#logout" prefHeight="30.0" prefWidth="170.0" style="-fx-background-color: #D0E8FA; -fx-background-radius: 15;" text="Log out" textFill="#4e22c9">
+               <font>
+                  <Font name="Arial" size="15.0" />
+               </font>
+            </Button>
+            <Button layoutX="26.0" layoutY="393.0" mnemonicParsing="false" onAction="#calendrier" prefHeight="31.0" prefWidth="170.0" style="-fx-background-color: #D0E8FA; -fx-background-radius: 15;" text="Calendrier" textFill="#4e22c9">
+               <font>
+                  <Font name="Arial" size="15.0" />
+               </font>
+            </Button>
+            <Label fx:id="username1" layoutX="14.0" layoutY="207.0" prefHeight="20.0" prefWidth="208.0" textFill="WHITE">
+               <font>
+                  <Font name="Arial" size="15.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>

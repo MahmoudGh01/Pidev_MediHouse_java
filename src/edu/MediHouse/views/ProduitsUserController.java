@@ -78,7 +78,7 @@ public class ProduitsUserController implements Initializable {
      * Initializes the controller class.
      */
     private void setChosenFruit(Produit p) {
-        nameUser.setText(FXMain.user);
+        nameUser.setText(su.getById(FXMain.user).getNom());
         fruitNameLable.setText(p.getNomproduit());
         fruitPriceLabel.setText(p.getPrix() + "");
         String aa = "Dispo";

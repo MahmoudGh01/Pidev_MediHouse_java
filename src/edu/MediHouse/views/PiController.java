@@ -7,10 +7,10 @@ package edu.MediHouse.views;
 
 import edu.MediHouse.entities.Users;
 import edu.MediHouse.entities.question;
-import edu.MediHouse.entities.reponse1;
+import edu.MediHouse.entities.Reponse1;
 import edu.MediHouse.services.ServiceUser;
 import edu.MediHouse.services.questionCRUD;
-import edu.MediHouse.services.reponse1CRUD;
+import edu.MediHouse.services.Reponse1CRUD;
 import java.awt.Desktop;
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -45,6 +45,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonBar;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
@@ -52,8 +53,10 @@ import javafx.scene.control.ScrollBar;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextInputDialog;
+import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Border;
 import javafx.scene.layout.BorderStroke;
 import javafx.scene.layout.BorderStrokeStyle;
@@ -64,6 +67,7 @@ import javafx.scene.layout.Priority;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
+import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 
@@ -86,13 +90,9 @@ public class PiController implements Initializable {
     private VBox questionContainer;
     private VBox reponsecontainer;
     questionCRUD qc = new questionCRUD();
-    reponse1CRUD rc = new reponse1CRUD();
+    Reponse1CRUD rc = new Reponse1CRUD();
     @FXML
     private Button refresh;
-    @FXML
-    private Circle profilepicture;
-    @FXML
-    private Label username;
     @FXML
     private ScrollBar scroll;
     @FXML
@@ -107,9 +107,31 @@ public class PiController implements Initializable {
     private String[] field = {"Médecine générale", "Médecine dentaire", "Pédiatrie", "Médecine interne", " Je ne sais pas"};
     @FXML
     private Button catego;
+    @FXML
+    private Circle ProfilePic;
+    @FXML
+    private Label UserName;
 
+    ServiceUser su=new ServiceUser();
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+          u=su.getUserByEmail(InterfaceLogineeController.iduserglobal);
+        UserName.setText(u.getNom().toUpperCase()+" "+u.getPrenom().toUpperCase());
+        Image im = new Image(u.getProfilePicture());
+        ImagePattern pattern = new ImagePattern(im);
+        ProfilePic.setFill(pattern);
+        ProfilePic.setStroke(Color.SEAGREEN);
+        ProfilePic.setEffect(new DropShadow(20, Color.BLACK));
+        
+    
+        
+                   
+       ProfilePic.setOnMouseClicked(new EventHandler<MouseEvent>() {
+        @Override
+        public void handle(MouseEvent event) {
+            Profile1(event);
+                  }
+    });
         u=U.getUserByEmail(InterfaceLogineeController.iduserglobal);
         categ.setStyle("-fx-background-color: #ffffff; -fx-font-size: 14px; -fx-font-family: Arial; -fx-text-fill: #333333; -fx-border-color: #cccccc; -fx-border-width: 1px; -fx-padding: 5px; -fx-pref-width: 200px;");
         catego.setStyle("-fx-background-color: #2196F3; -fx-border-color: #1565C0; -fx-border-radius: 5px; -fx-padding: 8px 12px; -fx-graphic: url('confirm-icon.png'); -fx-background-size: 20px; -fx-background-position: center;");
@@ -385,7 +407,7 @@ public class PiController implements Initializable {
                 rep.setStyle("-fx-background-color: #3B5998; -fx-text-fill: white; -fx-font-weight: bold;");
                 /*rep.setOnAction(event -> {
     try {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("reponse1.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("Reponse1.fxml"));
         Parent root = loader.load();
         
         ReponseController controller = loader.getController();
@@ -444,11 +466,11 @@ public class PiController implements Initializable {
 
 // add the likes and dislikes HBox to the main VBox
                     int idpub = q.getId();
-                    List<reponse1> commentaires = null;
-                    reponse1CRUD commentaireService = new reponse1CRUD();
+                    List<Reponse1> commentaires = null;
+                    Reponse1CRUD commentaireService = new Reponse1CRUD();
 
                     commentaires = commentaireService.getResponsesByQuestId(q.getId());
-                    for (reponse1 com : commentaires) {
+                    for (Reponse1 com : commentaires) {
                         ImageView userIcons = new ImageView("file:C:/Users/DELL/Downloads/use.png");
                         userIcons.setFitHeight(20); // Set the height of the icon
                         userIcons.setFitWidth(20); // Set the width of the icon
@@ -524,9 +546,9 @@ public class PiController implements Initializable {
                     submitButton.setStyle("-fx-background-color: #00ABFF; -fx-text-fill: white;");
 
                     submitButton.setOnAction(event -> {
-                        reponse1CRUD qcd = new reponse1CRUD();
+                        Reponse1CRUD qcd = new Reponse1CRUD();
                         Date date = new Date(System.currentTimeMillis());
-                        reponse1 r = new reponse1();
+                        Reponse1 r = new Reponse1();
                         String content = commentaireField.getText();
                         // Check for empty content
                         if (content.isEmpty()) {
@@ -739,7 +761,7 @@ public class PiController implements Initializable {
         }
     }
 
-    private void editrep(reponse1 q) {
+    private void editrep(Reponse1 q) {
         TextInputDialog dialog = new TextInputDialog(q.getRep_contenu());
         dialog.setTitle("Edit reponse");
         dialog.setHeaderText("modifiez votre question:");
@@ -758,7 +780,7 @@ public class PiController implements Initializable {
         }
     }
 
-    private void editreponse(reponse1 q) {
+    private void editreponse(Reponse1 q) {
         TextInputDialog dialog = new TextInputDialog(q.getRep_contenu());
         dialog.setTitle("Edit reponse");
         dialog.setHeaderText("Edit the reponse below:");
@@ -966,11 +988,11 @@ public class PiController implements Initializable {
 
 // add the likes and dislikes HBox to the main VBox
                     int idpub = q.getId();
-                    List<reponse1> commentaires = null;
-                    reponse1CRUD commentaireService = new reponse1CRUD();
+                    List<Reponse1> commentaires = null;
+                    Reponse1CRUD commentaireService = new Reponse1CRUD();
 
                     commentaires = commentaireService.getResponsesByQuestId(q.getId());
-                    for (reponse1 com : commentaires) {
+                    for (Reponse1 com : commentaires) {
                         ImageView userIcons = new ImageView("file:C:/Users/DELL/Downloads/use.png");
                         userIcons.setFitHeight(20); // Set the height of the icon
                         userIcons.setFitWidth(20); // Set the width of the icon
@@ -1046,9 +1068,9 @@ public class PiController implements Initializable {
                     submitButton.setStyle("-fx-background-color: #00ABFF; -fx-text-fill: white;");
 
                     submitButton.setOnAction(a -> {
-                        reponse1CRUD qcd = new reponse1CRUD();
+                        Reponse1CRUD qcd = new Reponse1CRUD();
                         Date date = new Date(System.currentTimeMillis());
-                        reponse1 r = new reponse1();
+                        Reponse1 r = new Reponse1();
                         String content = commentaireField.getText();
                         // Check for empty content
                         if (content.isEmpty()) {
@@ -1397,7 +1419,7 @@ public class PiController implements Initializable {
                 rep.setStyle("-fx-background-color: #3B5998; -fx-text-fill: white; -fx-font-weight: bold;");
                 /*rep.setOnAction(event -> {
     try {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("reponse1.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("Reponse1.fxml"));
         Parent root = loader.load();
         
         ReponseController controller = loader.getController();
@@ -1456,11 +1478,11 @@ public class PiController implements Initializable {
 
 // add the likes and dislikes HBox to the main VBox
                     int idpub = q.getId();
-                    List<reponse1> commentaires = null;
-                    reponse1CRUD commentaireService = new reponse1CRUD();
+                    List<Reponse1> commentaires = null;
+                    Reponse1CRUD commentaireService = new Reponse1CRUD();
 
                     commentaires = commentaireService.getResponsesByQuestId(q.getId());
-                    for (reponse1 com : commentaires) {
+                    for (Reponse1 com : commentaires) {
                         ImageView userIcons = new ImageView("file:C:/Users/DELL/Downloads/use.png");
                         userIcons.setFitHeight(20); // Set the height of the icon
                         userIcons.setFitWidth(20); // Set the width of the icon
@@ -1536,9 +1558,9 @@ public class PiController implements Initializable {
                     submitButton.setStyle("-fx-background-color: #00ABFF; -fx-text-fill: white;");
 
                     submitButton.setOnAction(a -> {
-                        reponse1CRUD qcd = new reponse1CRUD();
+                        Reponse1CRUD qcd = new Reponse1CRUD();
                         Date date = new Date(System.currentTimeMillis());
-                        reponse1 r = new reponse1();
+                        Reponse1 r = new Reponse1();
                         String content = commentaireField.getText();
                         // Check for empty content
                         if (content.isEmpty()) {
@@ -1753,5 +1775,51 @@ public class PiController implements Initializable {
 
         }
 
+    }
+
+    @FXML
+   private void RechMed(ActionEvent event) {
+        FXMain.setScene("Search_doctor");
+    }
+
+    @FXML
+    private void parapharmacie(ActionEvent event) {
+        FXMain.setScene("ProduitsUser");
+    }
+    
+    @FXML
+    private void forum(ActionEvent event) {
+        FXMain.setScene("pi");
+    }
+
+    @FXML
+    private void reclamation(ActionEvent event) {
+       FXMain.setScene("Reclamation");
+    }
+
+    @FXML
+    private void RDVP(ActionEvent event) {
+       FXMain.setScene("ListRDV");
+    }
+   @FXML
+    private void Profile1(MouseEvent event) {
+        FXMain.setScene("ProfilePatient");
+    }
+
+    @FXML
+    private void Logout(ActionEvent event) {
+            Stage stage;
+    javafx.scene.control.Alert alert = new javafx.scene.control.Alert(javafx.scene.control.Alert.AlertType.CONFIRMATION);
+    alert.setTitle("Déconnexion");
+    alert.setHeaderText("Vous êtes sur le point de vous déconnecter");
+    alert.setContentText("Voulez-vous vous déconnecter "+u.getEmail()+"?");
+    ButtonType okButton = new ButtonType("OK", ButtonBar.ButtonData.OK_DONE);
+    ButtonType cancelButton = new ButtonType("Annuler", ButtonBar.ButtonData.CANCEL_CLOSE);
+    alert.getButtonTypes().setAll(okButton, cancelButton);
+    Optional<ButtonType> result = alert.showAndWait();
+    if (result.isPresent() && result.get() == okButton) {
+         FXMain.setScene("InterfaceLogin");
+        
+    }
     }
 }

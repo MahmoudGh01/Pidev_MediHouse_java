@@ -5,7 +5,7 @@
  */
 package edu.MediHouse.services;
 
-import edu.MediHouse.entities.Reponse;
+import edu.MediHouse.entities.Dhia;
 import edu.MediHouse.tools.MyConnection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -23,15 +23,15 @@ public class ReponseCRUD {
     
     
     ReclamationCRUD RC =new ReclamationCRUD();
-         public void ajouterReponse(Reponse c) {
+         public void ajouterReponse(Dhia c) {
         try {
-            String requete = "INSERT INTO reponse(reponse1_des,reclamation_id)Values(?,?)";
+            String requete = "INSERT INTO reponse1(reclamation_id,reponse1_des)Values(?,?)";
             PreparedStatement pst = MyConnection.getInstance().getCnx().prepareStatement(requete);
 
-            pst.setString(1,c.getReponse());
            
-            pst.setInt(2,c.getReclamation().getId());
-           
+            pst.setInt(1,c.getReclamation().getId());
+                       pst.setString(2,c.getReponse());
+
             pst.executeUpdate();
             System.out.println("elemenT AJOUTEEEEE");
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -50,23 +50,23 @@ public class ReponseCRUD {
         }
     }
 
-    public List<Reponse> listerReponse() {
-        List<Reponse> mylist = new ArrayList();
+    public List<Dhia> listerReponse() {
+        List<Dhia> mylist = new ArrayList();
       
         try {
 
-            String requete = "SELECT * FROM reponse";
+            String requete = "SELECT * FROM reponse1";
             Statement st = MyConnection.getInstance().getCnx().createStatement();
             ResultSet rs = st.executeQuery(requete);
             while (rs.next()) {
 
-                Reponse rdv = new Reponse();
+                Dhia rdv = new Dhia();
 
                 rdv.setId(rs.getInt(1));
-                rdv.setReponse(rs.getString("reponse1_des"));
+               
                
                 rdv.setReclamation(RC.getReclamation(rs.getInt("reclamation_id")));
-                
+                 rdv.setReponse(rs.getString("reponse1_des"));
 
                 mylist.add(rdv);
 
@@ -78,8 +78,8 @@ public class ReponseCRUD {
         return mylist;
     }
 
-    public void deleteReponse(Reponse C) {
-        String requete = "DELETE FROM reponse WHERE id=?";
+    public void deleteReponse(Dhia C) {
+        String requete = "DELETE FROM reponse1 WHERE id=?";
 
         try {
             PreparedStatement statement = MyConnection.getInstance().getCnx().prepareStatement(requete);
@@ -101,14 +101,14 @@ public class ReponseCRUD {
         }
     }
 
-    public void modifierReponse(Reponse c) {
+    public void modifierReponse(Dhia c) {
         try {
-            String requete = "UPDATE reponse SET reponse1_des=? , reclamation_id=? WHERE id=?";
+            String requete = "UPDATE reponse1 SET reclamation_id=? , reponse1_des=? WHERE id=?";
 
             PreparedStatement pst = MyConnection.getInstance().getCnx().prepareStatement(requete);
             pst.setInt(3, c.getId());
-            pst.setString(1,c.getReponse());
-            pst.setInt(2,c.getReclamation().getId());
+            pst.setString(2,c.getReponse());
+            pst.setInt(1,c.getReclamation().getId());
             pst.executeUpdate();
             System.out.println("Reponse modifiée!");
             
@@ -128,18 +128,18 @@ public class ReponseCRUD {
         }
     }
     
-    public Reponse getReponse(int Id) {
-        Reponse x=new Reponse();
+    public Dhia getReponse(int Id) {
+        Dhia x=new Dhia();
       
         
         
     try {
-        String query = "SELECT * FROM reponse WHERE id = ?";
+        String query = "SELECT * FROM reponse1 WHERE id = ?";
         PreparedStatement statement = MyConnection.getInstance().getCnx().prepareStatement(query);
         statement.setInt(1, Id);
         ResultSet resultSet = statement.executeQuery();
         if (resultSet.next()) {
-            x = new Reponse(resultSet.getInt("id"), resultSet.getString("reponse1_des") ,RC.getReclamation(resultSet.getInt("reclamation_id")));
+            x = new Dhia(resultSet.getInt("id"), resultSet.getString("reponse1_des") ,RC.getReclamation(resultSet.getInt("reclamation_id")));
         }
     } catch (SQLException ex) {
         System.out.println(ex.getMessage());

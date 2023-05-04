@@ -43,7 +43,17 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Callback;
 import edu.MediHouse.entities.RendezVous;
+import edu.MediHouse.entities.Users;
 import edu.MediHouse.services.RendezVousCRUD;
+import edu.MediHouse.services.ServiceUser;
+import java.util.Optional;
+import javafx.event.EventHandler;
+import javafx.scene.control.ButtonBar;
+import javafx.scene.control.ButtonType;
+import javafx.scene.effect.DropShadow;
+import javafx.scene.image.Image;
+import javafx.scene.paint.Color;
+import javafx.scene.paint.ImagePattern;
 
 /**
  * FXML Controller class
@@ -60,12 +70,6 @@ public class ListRDVController implements Initializable {
     Timer timer = new Timer();
     TimerTask task;
     @FXML
-    private Circle ProfilePic;
-    @FXML
-    private Label UserName;
-    @FXML
-    private Button btnsearch;
-    @FXML
     private TableView<RendezVous> Tbv;
     @FXML
     private TableColumn<RendezVous, Integer> Id_Col;
@@ -78,8 +82,6 @@ public class ListRDVController implements Initializable {
     @FXML
     private TableColumn<RendezVous, String> Local_Col;
     @FXML
-    private Button btnCalendar;
-    @FXML
     private TableColumn<RendezVous, Integer> Fiche_Col;
     @FXML
     private TableColumn<RendezVous, Void> Action_Col;
@@ -87,13 +89,34 @@ public class ListRDVController implements Initializable {
     private Label timeLeft =new Label();
     @FXML
     private Button Chart;
-
+    @FXML
+    private Circle ProfilePic1;
+    @FXML
+    private Label UserName1;
+Users u =new Users();
+    ServiceUser su=new ServiceUser();
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-
+  u=su.getUserByEmail(InterfaceLogineeController.iduserglobal);
+        UserName1.setText(u.getNom().toUpperCase()+" "+u.getPrenom().toUpperCase());
+        Image im = new Image(u.getProfilePicture());
+        ImagePattern pattern = new ImagePattern(im);
+        ProfilePic1.setFill(pattern);
+        ProfilePic1.setStroke(Color.SEAGREEN);
+        ProfilePic1.setEffect(new DropShadow(20, Color.BLACK));
+        
+    
+        
+                   
+       ProfilePic1.setOnMouseClicked(new EventHandler<MouseEvent>() {
+        @Override
+        public void handle(MouseEvent event) {
+            Profile1(event);
+                  }
+    });
         // System.out.println(R.getRendezVous(16));
         Countdown();
         ShowRendezVous();
@@ -237,12 +260,10 @@ public class ListRDVController implements Initializable {
 
     }
 
-    @FXML
     private void btnsearch(ActionEvent event) {
         FXMain.setScene("Search_doctor");
     }
 
-    @FXML
     private void btnCalendar(ActionEvent event) {
         FXMain.setScene("Fiche");
     }
@@ -301,6 +322,52 @@ public class ListRDVController implements Initializable {
         stage.setScene(new Scene(parent));
         stage.initStyle(StageStyle.UTILITY);
         stage.show();
+    }
+
+    @FXML
+   private void RechMed(ActionEvent event) {
+        FXMain.setScene("Search_doctor");
+    }
+
+    @FXML
+    private void parapharmacie(ActionEvent event) {
+        FXMain.setScene("ProduitsUser");
+    }
+    
+    @FXML
+    private void forum(ActionEvent event) {
+        FXMain.setScene("pi");
+    }
+
+    @FXML
+    private void reclamation(ActionEvent event) {
+       FXMain.setScene("Reclamation");
+    }
+
+    @FXML
+    private void RDVP(ActionEvent event) {
+       FXMain.setScene("ListRDV");
+    }
+   @FXML
+    private void Profile1(MouseEvent event) {
+        FXMain.setScene("ProfilePatient");
+    }
+
+    @FXML
+    private void Logout(ActionEvent event) {
+            Stage stage;
+    javafx.scene.control.Alert alert = new javafx.scene.control.Alert(javafx.scene.control.Alert.AlertType.CONFIRMATION);
+    alert.setTitle("Déconnexion");
+    alert.setHeaderText("Vous êtes sur le point de vous déconnecter");
+    alert.setContentText("Voulez-vous vous déconnecter "+u.getEmail()+"?");
+    ButtonType okButton = new ButtonType("OK", ButtonBar.ButtonData.OK_DONE);
+    ButtonType cancelButton = new ButtonType("Annuler", ButtonBar.ButtonData.CANCEL_CLOSE);
+    alert.getButtonTypes().setAll(okButton, cancelButton);
+    Optional<ButtonType> result = alert.showAndWait();
+    if (result.isPresent() && result.get() == okButton) {
+         FXMain.setScene("InterfaceLogin");
+        
+    }
     }
 
 }

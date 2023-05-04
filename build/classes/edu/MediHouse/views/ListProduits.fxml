@@ -21,7 +21,7 @@
             <Image url="@../images/back.png" />
          </image>
       </ImageView>
-      <TableView fx:id="TabMagasin" layoutX="262.0" layoutY="85.0" prefHeight="486.0" prefWidth="661.0">
+      <TableView fx:id="TabMagasin" layoutX="262.0" layoutY="85.0" prefHeight="486.0" prefWidth="661.0" stylesheets="@tableview.css">
          <columns>
             <TableColumn fx:id="IdProTab" prefWidth="75.0" text="Id Produit" />
             <TableColumn fx:id="nomProTab" prefWidth="107.20001220703125" text="Nom Produit" />
@@ -32,37 +32,35 @@
             <TableColumn fx:id="ColorProdTab" prefWidth="75.0" text="Color" />
          </columns>
       </TableView>
-      <Button layoutX="515.0" layoutY="582.0" mnemonicParsing="false" onAction="#SuppProdGo" prefHeight="36.0" prefWidth="173.0" style="-fx-background-color: #09DCA4; -fx-background-radius: 10;" text="Supprimer" textFill="WHITE" />
-      <Button layoutX="750.0" layoutY="582.0" mnemonicParsing="false" onAction="#ModifierProdGo" prefHeight="36.0" prefWidth="173.0" style="-fx-background-color: #09DCA4; -fx-background-radius: 10;" text="Modifier" textFill="WHITE" />
+      <Button layoutX="515.0" layoutY="582.0" mnemonicParsing="false" onAction="#SuppProdGo" prefHeight="36.0" prefWidth="173.0" style="-fx-background-color: #09DCA4; -fx-background-radius: 10;" text="Supprimer" textFill="WHITE">
+         <font>
+            <Font name="Arial" size="15.0" />
+         </font></Button>
+      <Button layoutX="750.0" layoutY="582.0" mnemonicParsing="false" onAction="#ModifierProdGo" prefHeight="36.0" prefWidth="173.0" style="-fx-background-color: #09DCA4; -fx-background-radius: 10;" text="Modifier" textFill="WHITE">
+         <font>
+            <Font name="Arial" size="15.0" />
+         </font></Button>
       <Button layoutX="971.0" layoutY="138.0" mnemonicParsing="false" onAction="#CsVCreate" prefHeight="36.0" prefWidth="200.0" style="-fx-background-color: #09DCA4; -fx-background-radius: 10;" text="csv" textFill="WHITE">
          <font>
-            <Font size="15.0" />
+            <Font name="Arial" size="16.0" />
          </font>
       </Button>
-      <TextField fx:id="searchProd" layoutX="989.0" layoutY="80.0" prefHeight="25.0" prefWidth="173.0" />
+      <TextField fx:id="searchProd" layoutX="989.0" layoutY="80.0" prefHeight="27.0" prefWidth="216.0">
+         <font>
+            <Font name="Arial" size="15.0" />
+         </font></TextField>
       <Label layoutX="945.0" layoutY="84.0" text="Search">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
       <Label fx:id="Err" layoutX="815.0" layoutY="28.0" prefHeight="17.0" prefWidth="156.0" text="*" textFill="#ff0505" />
-      <Button layoutX="964.0" layoutY="485.0" mnemonicParsing="false" onAction="#imageget" prefHeight="31.0" prefWidth="200.0" style="-fx-background-color: #09DCA4; -fx-background-radius: 10;" text="Image" textFill="WHITE" />
-      <ImageView fx:id="imageV" fitHeight="228.0" fitWidth="200.0" layoutX="964.0" layoutY="222.0" pickOnBounds="true" preserveRatio="true" />
-      <AnchorPane layoutX="23.0" layoutY="124.0" prefHeight="525.0" prefWidth="217.0" style="-fx-background-color: #15558D; -fx-border-radius: 15; -fx-background-radius: 15;">
-         <children>
-            <Circle fx:id="profilepicture" fill="#f8fcff" layoutX="102.0" layoutY="76.0" onDragDetected="#profile" radius="65.0" stroke="BLACK" strokeType="INSIDE" />
-            <Button layoutX="32.0" layoutY="175.0" mnemonicParsing="false" onAction="#TabBord" prefHeight="31.0" prefWidth="152.0" style="-fx-background-color: #7989E4; -fx-background-radius: 15;" text="Tableau de bord" />
-            <Button layoutX="32.0" layoutY="263.0" mnemonicParsing="false" onAction="#AddProduit" prefHeight="31.0" prefWidth="152.0" style="-fx-background-color: #D0E8FA; -fx-background-radius: 15;" text="Ajouter Produit" />
-            <Button layoutX="33.0" layoutY="313.0" mnemonicParsing="false" onAction="#logout" prefHeight="31.0" prefWidth="152.0" style="-fx-background-color: #D0E8FA; -fx-background-radius: 15;" text="Log out" />
-            <Label fx:id="Username" layoutX="2.0" layoutY="154.0" prefHeight="21.0" prefWidth="211.0" textFill="WHITE">
-               <font>
-                  <Font name="Arial" size="15.0" />
-               </font>
-            </Label>
-            <Button layoutX="32.0" layoutY="217.0" mnemonicParsing="false" onAction="#ListeC" prefHeight="31.0" prefWidth="152.0" style="-fx-background-color: #D0E8FA; -fx-background-radius: 15;" text="Liste Commandes" />
-         </children>
-      </AnchorPane>
-      <ImageView fitHeight="57.0" fitWidth="217.0" layoutX="34.0" layoutY="34.0">
+      <Button layoutX="964.0" layoutY="485.0" mnemonicParsing="false" onAction="#imageget" prefHeight="31.0" prefWidth="200.0" style="-fx-background-color: #09DCA4; -fx-background-radius: 10;" text="Image" textFill="WHITE">
+         <font>
+            <Font name="Arial" size="15.0" />
+         </font></Button>
+      <ImageView fx:id="imageV" fitHeight="228.0" fitWidth="262.0" layoutX="964.0" layoutY="222.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fitHeight="57.0" fitWidth="217.0" layoutX="29.0" layoutY="16.0">
          <image>
             <Image url="@../images/logo2.png" />
          </image>
@@ -80,5 +78,35 @@
             <Font name="Arial Bold Italic" size="35.0" />
          </font>
       </Text>
+      <AnchorPane layoutX="14.0" layoutY="90.0" prefHeight="600.0" prefWidth="240.0" style="-fx-background-color: #15558D; -fx-border-radius: 15; -fx-background-radius: 15;">
+         <children>
+            <Circle fx:id="profilepicture1" fill="#f8fcff" layoutX="121.0" layoutY="95.0" onDragDetected="#profile" radius="80.0" stroke="BLACK" strokeType="INSIDE" />
+            <Button layoutX="30.0" layoutY="276.0" mnemonicParsing="false" onAction="#TabBord" prefHeight="30.0" prefWidth="170.0" style="-fx-background-color: #7989E4; -fx-background-radius: 15;" text="Tableau de bord" textFill="WHITE">
+               <font>
+                  <Font name="Arial" size="15.0" />
+               </font>
+            </Button>
+            <Button layoutX="30.0" layoutY="384.0" mnemonicParsing="false" onAction="#AddProduit" prefHeight="30.0" prefWidth="170.0" style="-fx-background-color: #D0E8FA; -fx-background-radius: 15;" text="Ajouter Produit" textFill="#4e22c9">
+               <font>
+                  <Font name="Arial" size="15.0" />
+               </font>
+            </Button>
+            <Button layoutX="30.0" layoutY="435.0" mnemonicParsing="false" onAction="#logout" prefHeight="30.0" prefWidth="170.0" style="-fx-background-color: #D0E8FA; -fx-background-radius: 15;" text="Log out" textFill="#4e22c9">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
+            <Label fx:id="Username1" layoutX="11.0" layoutY="194.0" prefHeight="22.0" prefWidth="227.0" textFill="WHITE">
+               <font>
+                  <Font name="Arial" size="15.0" />
+               </font>
+            </Label>
+            <Button layoutX="30.0" layoutY="333.0" mnemonicParsing="false" onAction="#ListeC" prefHeight="30.0" prefWidth="170.0" style="-fx-background-color: #D0E8FA; -fx-background-radius: 15;" text="Liste Commandes" textFill="#4e22c9">
+               <font>
+                  <Font name="Arial" size="15.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>

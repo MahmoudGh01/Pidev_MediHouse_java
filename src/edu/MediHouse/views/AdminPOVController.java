@@ -5,10 +5,13 @@
  */
 package edu.MediHouse.views;
 
+import edu.MediHouse.entities.Users;
 import edu.MediHouse.entities.question;
-import edu.MediHouse.entities.reponse1;
+import edu.MediHouse.entities.Reponse1;
+import edu.MediHouse.services.ServiceUser;
 import edu.MediHouse.services.questionCRUD;
-import edu.MediHouse.services.reponse1CRUD;
+import edu.MediHouse.services.Reponse1CRUD;
+import static edu.MediHouse.views.InterfaceAdminController.generatePseudo;
 import java.net.URL;
 import java.sql.Date;
 import java.util.List;
@@ -18,6 +21,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventDispatchChain;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
@@ -31,6 +35,7 @@ import javafx.scene.chart.XYChart;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonBar;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableCell;
@@ -38,9 +43,13 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.Tooltip;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.effect.DropShadow;
+import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
+import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 import javafx.util.Callback;
@@ -67,22 +76,35 @@ public class AdminPOVController implements Initializable {
     @FXML
     private TableColumn<question, String> category;
     questionCRUD qc = new questionCRUD();
-    reponse1CRUD rc = new reponse1CRUD();
+    Reponse1CRUD rc = new Reponse1CRUD();
     ObservableList<question> questions = FXCollections.observableArrayList(qc.display());
-    @FXML
-    private Circle profilepicture;
-    @FXML
-    private Label username;
     @FXML
     private Button Deletebtn;
     @FXML
-    private Label username1;
-    @FXML
     private Button stat;
-
+    @FXML
+    private Circle ProfilePic12;
+    @FXML
+    private Label UserName12;
+Users u =new Users();
+     ServiceUser su=new ServiceUser();
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         test();
+         u=su.getUserByEmail(InterfaceLogineeController.iduserglobal);
+        Image im = new Image(u.getProfilePicture());
+        ImagePattern pattern = new ImagePattern(im);
+        ProfilePic12.setFill(pattern);
+        ProfilePic12.setStroke(Color.SEAGREEN);
+        ProfilePic12.setEffect(new DropShadow(20, Color.BLACK));
+       // String pseudo = generatePseudo(u.getNom(), u.getPrenom());
+        UserName12.setText(generatePseudo(u.getNom(), u.getPrenom()));
+          ProfilePic12.setOnMouseClicked(new EventHandler<MouseEvent>() {
+        @Override
+        public void handle(MouseEvent event) {
+            profile(event);
+                  }
+    });
 
     }
 
@@ -155,34 +177,34 @@ public class AdminPOVController implements Initializable {
                             stage.setTitle("Responses");
 
                             // Create the table view
-                            TableView<reponse1> tableView = new TableView<>();
+                            TableView<Reponse1> tableView = new TableView<>();
 
                             // Create the columns for the table view
-                            TableColumn<reponse1, Integer> idColumn = new TableColumn<>("ID");
+                            TableColumn<Reponse1, Integer> idColumn = new TableColumn<>("ID");
                             idColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
 
-                            TableColumn<reponse1, String> contenuColumn = new TableColumn<>("Contenu");
+                            TableColumn<Reponse1, String> contenuColumn = new TableColumn<>("Contenu");
                             contenuColumn.setCellValueFactory(new PropertyValueFactory<>("rep_contenu"));
 
-                            TableColumn<reponse1, Date> dateColumn = new TableColumn<>("Date");
+                            TableColumn<Reponse1, Date> dateColumn = new TableColumn<>("Date");
                             dateColumn.setCellValueFactory(new PropertyValueFactory<>("rep_date_pub"));
 
-                            TableColumn<reponse1, Integer> likesColumn = new TableColumn<>("Likes");
+                            TableColumn<Reponse1, Integer> likesColumn = new TableColumn<>("Likes");
                             likesColumn.setCellValueFactory(new PropertyValueFactory<>("likes"));
 
-                            TableColumn<reponse1, Integer> dislikesColumn = new TableColumn<>("Dislikes");
+                            TableColumn<Reponse1, Integer> dislikesColumn = new TableColumn<>("Dislikes");
                             dislikesColumn.setCellValueFactory(new PropertyValueFactory<>("dislikes"));
 
-                            TableColumn<reponse1, Integer> questColumn = new TableColumn<>("Question ID");
+                            TableColumn<Reponse1, Integer> questColumn = new TableColumn<>("Question ID");
                             questColumn.setCellValueFactory(new PropertyValueFactory<>("quest_id"));
 
                             // Add the columns to the table view
                             tableView.getColumns().addAll(idColumn, contenuColumn, dateColumn, likesColumn, dislikesColumn, questColumn);
 
                             // Get the list of responses and add them to the table view
-                            List<reponse1> responses = rc.display();
-                            ObservableList<reponse1> data = FXCollections.observableArrayList();
-                            for (reponse1 e : responses) {
+                            List<Reponse1> responses = rc.display();
+                            ObservableList<Reponse1> data = FXCollections.observableArrayList();
+                            for (Reponse1 e : responses) {
                                 if (e.getQuest_id() == questionId) {
                                     data.add(e);
                                 }
@@ -198,7 +220,7 @@ public class AdminPOVController implements Initializable {
 
                             deleteButton.setOnAction(e -> {
                                 // Get the selected item
-                                reponse1 selectedResponse = tableView.getSelectionModel().getSelectedItem();
+                                Reponse1 selectedResponse = tableView.getSelectionModel().getSelectedItem();
                                 if (selectedResponse == null) {
                                     // Show an alert if nothing is selected
                                     Alert alert = new Alert(Alert.AlertType.WARNING);
@@ -357,6 +379,55 @@ public class AdminPOVController implements Initializable {
         stage.setScene(scene);
         stage.setTitle("Statistics");
         stage.show();
+    }
+
+       @FXML
+    private void Dashboard(ActionEvent event) {
+        // FXMain.setScene("Dashbord");
+    }
+
+    @FXML
+    private void reclamation(ActionEvent event) {
+         FXMain.setScene("Reponse");
+    }
+
+    @FXML
+    private void forum(ActionEvent event) {
+         FXMain.setScene("adminPOV");
+    }
+
+    @FXML
+    private void Users(ActionEvent event) {
+         FXMain.setScene("Usersmanagment");
+    }
+
+    @FXML
+    private void RDV(ActionEvent event) {
+     //    FXMain.setScene("RDV");
+    }
+
+    @FXML
+    private void profile(MouseEvent event) {
+         FXMain.setScene("ProfileAdmin");
+    }
+        @FXML
+    private void Logout(ActionEvent event) {
+        
+         
+        Stage stage;
+    Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+    alert.setTitle("Déconnexion");
+    alert.setHeaderText("Vous êtes sur le point de vous déconnecter");
+    alert.setContentText("Voulez-vous vous déconnecter "+u.getEmail()+"?");
+    ButtonType okButton = new ButtonType("OK", ButtonBar.ButtonData.OK_DONE);
+    ButtonType cancelButton = new ButtonType("Annuler", ButtonBar.ButtonData.CANCEL_CLOSE);
+    alert.getButtonTypes().setAll(okButton, cancelButton);
+    Optional<ButtonType> result = alert.showAndWait();
+    if (result.isPresent() && result.get() == okButton) {
+         FXMain.setScene("InterfaceLogin");
+        
+    }
+        
     }
 
 }

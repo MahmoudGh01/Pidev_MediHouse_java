@@ -68,12 +68,12 @@ Users u =new Users();
 
     @FXML
     private void Fiches(ActionEvent event) {
-        FXMain.setScene("Fiches");
+        FXMain.setScene("Fiche");
     }
 
     @FXML
     private void RDVD(ActionEvent event) {
-        FXMain.setScene("RDVP");
+        FXMain.setScene("ListRDV_1");
     }
 
     @FXML

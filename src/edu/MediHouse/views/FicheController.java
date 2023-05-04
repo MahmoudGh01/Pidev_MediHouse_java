@@ -44,6 +44,14 @@ import edu.MediHouse.entities.Fiche;
 import edu.MediHouse.services.FicheCRUD;
 import edu.MediHouse.entities.Users;
 import edu.MediHouse.services.ServiceUser;
+import java.util.Optional;
+import javafx.event.EventHandler;
+import javafx.scene.control.ButtonBar;
+import javafx.scene.control.ButtonType;
+import javafx.scene.effect.DropShadow;
+import javafx.scene.image.Image;
+import javafx.scene.paint.Color;
+import javafx.scene.paint.ImagePattern;
 
 
 /**
@@ -53,12 +61,6 @@ import edu.MediHouse.services.ServiceUser;
  */
 public class FicheController implements Initializable {
 
-    @FXML
-    private Circle ProfilePic;
-    @FXML
-    private Label UserName;
-    @FXML
-    private Button btnsearch;
     @FXML
     private ChoiceBox<Users> CBPatient;
     @FXML
@@ -82,10 +84,13 @@ public class FicheController implements Initializable {
     private TextField TfAge;
     private TextField TfBldType;
     @FXML
-    private Button btnRDV;
-    @FXML
     private ChoiceBox<String> CBloodType;
-
+    @FXML
+    private Circle profilepicture;
+    @FXML
+    private Label username;
+Users u =new Users();
+     ServiceUser su=new ServiceUser();
     /**
      * Initializes the controller class.
      */
@@ -94,6 +99,19 @@ public class FicheController implements Initializable {
         CBloodType.getItems().addAll("A+", "A-", "B+", "B-", "O+", "O-");
         ComboxClient();
         ShowFiche();
+        u=su.getUserByEmail(InterfaceLogineeController.iduserglobal);
+        Image im = new Image(u.getProfilePicture());
+        ImagePattern pattern = new ImagePattern(im);
+        profilepicture.setFill(pattern);
+        profilepicture.setStroke(Color.SEAGREEN);
+        profilepicture.setEffect(new DropShadow(20, Color.BLACK));
+        username.setText(u.getNom().toUpperCase()+" "+u.getPrenom().toUpperCase());
+          profilepicture.setOnMouseClicked(new EventHandler<MouseEvent>() {
+        @Override
+        public void handle(MouseEvent event) {
+            profile(event);
+                  }
+    });
     }
 
     @FXML
@@ -255,14 +273,41 @@ public class FicheController implements Initializable {
 
     }
 
+   
+
     @FXML
-    private void btnsearch(ActionEvent event) {
-        FXMain.setScene("Search_doctor");
+    private void Fiches(ActionEvent event) {
+        FXMain.setScene("Fiche");
     }
 
     @FXML
-    private void btnRDV(ActionEvent event) {
+    private void RDVD(ActionEvent event) {
         FXMain.setScene("ListRDV");
+    }
+
+    @FXML
+    private void logout(ActionEvent event) {
+         
+        Stage stage;
+    Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+    alert.setTitle("Déconnexion");
+    alert.setHeaderText("Vous êtes sur le point de vous déconnecter");
+    alert.setContentText("Voulez-vous vous déconnecter "+u.getEmail()+"?");
+    ButtonType okButton = new ButtonType("OK", ButtonBar.ButtonData.OK_DONE);
+    ButtonType cancelButton = new ButtonType("Annuler", ButtonBar.ButtonData.CANCEL_CLOSE);
+    alert.getButtonTypes().setAll(okButton, cancelButton);
+    Optional<ButtonType> result = alert.showAndWait();
+    if (result.isPresent() && result.get() == okButton) {
+         FXMain.setScene("InterfaceLogin");
+        
+    }
+    }
+
+    
+
+    @FXML
+    private void profile(MouseEvent event) {
+        FXMain.setScene("ProfileDoctor");
     }
 
 }

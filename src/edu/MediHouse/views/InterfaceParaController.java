@@ -68,7 +68,7 @@ Users u =new Users();
 
     @FXML
     private void TabBord(ActionEvent event) {
-        FXMain.setScene("ListProduits");
+        FXMain.setScene("ListCommandes");
     }
 
     @FXML
@@ -98,11 +98,6 @@ Users u =new Users();
     @FXML
     private void profile(MouseEvent event) {
            FXMain.setScene("ProfilePara");
-    }
-
-    @FXML
-    private void ListeC(ActionEvent event) {
-         FXMain.setScene("ListCommandes");
     }
     
 }

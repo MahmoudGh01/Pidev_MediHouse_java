@@ -23,11 +23,17 @@
       <Pane layoutX="231.0" layoutY="150.0" prefHeight="595.0" prefWidth="818.0">
          <children>
             <ImageView fx:id="imageV" fitHeight="243.0" fitWidth="224.0" layoutX="314.0" layoutY="133.0" pickOnBounds="true" preserveRatio="true" />
-            <TextField fx:id="NomProduit" layoutX="219.0" layoutY="102.0" prefHeight="25.0" prefWidth="318.0" />
-            <TextField fx:id="QuantProduit" layoutX="219.0" layoutY="236.0" prefHeight="25.0" prefWidth="318.0" />
-            <TextField fx:id="PrixProduit" layoutX="219.0" layoutY="169.0" prefHeight="25.0" prefWidth="318.0" />
-            <Button layoutX="518.0" layoutY="494.0" mnemonicParsing="false" onAction="#Enregistremagasin" prefHeight="35.0" prefWidth="148.0" style="-fx-background-color: #64CEDC; -fx-background-radius: 10;" text="Enregistre" textFill="#fffdfd" />
-            <Button layoutX="701.0" layoutY="495.0" mnemonicParsing="false" onAction="#retourAjout" prefHeight="35.0" prefWidth="148.0" style="-fx-background-color: #64CEDC; -fx-background-radius: 10;" text="Retour" textFill="WHITE" />
+            <TextField fx:id="NomProduit" layoutX="219.0" layoutY="102.0" prefHeight="32.0" prefWidth="258.0" style="-fx-background-radius: 15;" />
+            <TextField fx:id="QuantProduit" layoutX="219.0" layoutY="236.0" prefHeight="32.0" prefWidth="258.0" style="-fx-background-radius: 15;" />
+            <TextField fx:id="PrixProduit" layoutX="219.0" layoutY="169.0" prefHeight="32.0" prefWidth="258.0" style="-fx-background-radius: 15;" />
+            <Button layoutX="480.0" layoutY="497.0" mnemonicParsing="false" onAction="#Enregistremagasin" prefHeight="35.0" prefWidth="148.0" style="-fx-background-color: #64CEDC; -fx-background-radius: 10;" text="Enregistre" textFill="#fffdfd">
+               <font>
+                  <Font size="18.0" />
+               </font></Button>
+            <Button layoutX="668.0" layoutY="497.0" mnemonicParsing="false" onAction="#retourAjout" prefHeight="35.0" prefWidth="148.0" style="-fx-background-color: #64CEDC; -fx-background-radius: 10;" text="Retour" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font></Button>
             <Label layoutX="173.0" layoutY="74.0" text="Nom Produit">
                <font>
                   <Font name="System Bold" size="14.0" />
@@ -51,13 +57,13 @@
                   <Font name="System Bold" size="22.0" />
                </font>
             </Button>
-            <TextField fx:id="imageText" layoutX="224.0" layoutY="425.0" prefHeight="31.0" prefWidth="368.0" />
+            <TextField fx:id="imageText" layoutX="224.0" layoutY="425.0" prefHeight="31.0" prefWidth="368.0" style="-fx-background-radius: 15;" />
             <Label fx:id="ErrImage" layoutX="433.0" layoutY="366.0" text="*" textFill="#c60303">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>
             </Label>
-            <ColorPicker fx:id="ColorProdut" layoutX="219.0" layoutY="305.0" prefHeight="26.0" prefWidth="318.0" />
+            <ColorPicker fx:id="ColorProdut" layoutX="219.0" layoutY="305.0" prefHeight="43.0" prefWidth="343.0" style="-fx-background-radius: 15;" />
             <Label layoutX="173.0" layoutY="272.0" text="Color Produit">
                <font>
                   <Font name="System Bold" size="14.0" />
@@ -69,7 +75,7 @@
             <Image url="@../images/logo2.png" />
          </image>
       </ImageView>
-      <Text layoutX="298.0" layoutY="76.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Modifier Produit" wrappingWidth="358.55126953125">
+      <Text layoutX="481.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Modifier Produit" wrappingWidth="358.55126953125">
          <fill>
             <LinearGradient cycleMethod="REFLECT" endX="1.0" endY="1.0" startX="0.3140096618357488">
                <stops>
