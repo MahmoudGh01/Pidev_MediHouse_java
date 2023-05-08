@@ -1,41 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.paint.*?>
-<?import javafx.scene.text.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.shape.*?>
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="632.0" prefWidth="1130.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.MediHouse.views.ProfileParaController">
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.MediHouse.views.ProfileParaController">
    <children>
-      <ImageView fitHeight="632.0" fitWidth="1130.0">
+      <ImageView fitHeight="800.0" fitWidth="1280.0">
          <image>
             <Image url="@../images/back.png" />
          </image>
       </ImageView>
-      <AnchorPane layoutX="14.0" layoutY="86.0" prefHeight="525.0" prefWidth="217.0" style="-fx-background-color: #15558D; -fx-border-radius: 15; -fx-background-radius: 15;">
-         <children>
-            <Circle fx:id="profilepicture" fill="#f8fcff" layoutX="105.0" layoutY="76.0" onDragDetected="#profile" radius="62.0" stroke="BLACK" strokeType="INSIDE" />
-            <Button layoutX="33.0" layoutY="198.0" mnemonicParsing="false" onAction="#TabBord" prefHeight="31.0" prefWidth="152.0" style="-fx-background-color: #D0E8FA; -fx-background-radius: 15;" text="Tableau de bord" />
-            <Button layoutX="33.0" layoutY="248.0" mnemonicParsing="false" onAction="#AddProduit" prefHeight="31.0" prefWidth="152.0" style="-fx-background-color: #D0E8FA; -fx-background-radius: 15;" text="Ajouter Produit" />
-            <Button layoutX="33.0" layoutY="297.0" mnemonicParsing="false" onAction="#logout" prefHeight="31.0" prefWidth="152.0" style="-fx-background-color: #D0E8FA; -fx-background-radius: 15;" text="Log out" />
-            <Label fx:id="Username" layoutX="2.0" layoutY="154.0" prefHeight="21.0" prefWidth="211.0" textFill="WHITE">
-               <font>
-                  <Font name="Arial" size="15.0" />
-               </font>
-            </Label>
-         </children>
-      </AnchorPane>
       <ImageView fitHeight="57.0" fitWidth="217.0" layoutX="14.0" layoutY="14.0">
          <image>
             <Image url="@../images/logo2.png" />
          </image>
       </ImageView>
-      <AnchorPane layoutX="260.0" layoutY="135.0" prefHeight="447.0" prefWidth="368.0" style="-fx-border-color: #09DCA4;">
+      <AnchorPane layoutX="450.0" layoutY="140.0" prefHeight="447.0" prefWidth="368.0" style="-fx-border-color: #09DCA4;">
          <children>
             <TextField fx:id="TFname" layoutX="20.0" layoutY="68.0" prefHeight="31.0" prefWidth="139.0" promptText="Nom" style="-fx-background-radius: 15;">
                <font>
@@ -72,6 +59,36 @@
             <Button layoutX="244.0" layoutY="12.0" mnemonicParsing="false" onAction="#QrCode" prefHeight="30.0" prefWidth="119.0" style="-fx-background-color: #09DCA4; -fx-background-radius: 10;" text="QRcode" textFill="WHITE" />
          </children>
       </AnchorPane>
-      <ImageView fx:id="qrCodeImageView" fitHeight="300.0" fitWidth="300.0" layoutX="712.0" layoutY="183.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="qrCodeImageView" fitHeight="300.0" fitWidth="300.0" layoutX="872.0" layoutY="214.0" pickOnBounds="true" preserveRatio="true" />
+      <AnchorPane layoutX="14.0" layoutY="90.0" prefHeight="600.0" prefWidth="240.0" style="-fx-background-color: #15558D; -fx-border-radius: 15; -fx-background-radius: 15;">
+         <children>
+            <Circle fx:id="profilepicture1" fill="#f8fcff" layoutX="121.0" layoutY="95.0" onDragDetected="#profile" radius="80.0" stroke="BLACK" strokeType="INSIDE" />
+            <Button layoutX="30.0" layoutY="276.0" mnemonicParsing="false" onAction="#TabBord" prefHeight="30.0" prefWidth="170.0" style="-fx-background-color: #D0E8FA; -fx-background-radius: 15;" text="Tableau de bord" textFill="#4e22c9">
+               <font>
+                  <Font name="Arial" size="15.0" />
+               </font>
+            </Button>
+            <Button layoutX="30.0" layoutY="384.0" mnemonicParsing="false" onAction="#AddProduit" prefHeight="30.0" prefWidth="170.0" style="-fx-background-color: #D0E8FA; -fx-background-radius: 15;" text="Ajouter Produit" textFill="#4e22c9">
+               <font>
+                  <Font name="Arial" size="15.0" />
+               </font>
+            </Button>
+            <Button layoutX="30.0" layoutY="435.0" mnemonicParsing="false" onAction="#logout" prefHeight="30.0" prefWidth="170.0" style="-fx-background-color: #D0E8FA; -fx-background-radius: 15;" text="Log out" textFill="#4e22c9">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
+            <Label fx:id="Username1" layoutX="11.0" layoutY="194.0" prefHeight="22.0" prefWidth="227.0" textFill="WHITE">
+               <font>
+                  <Font name="Arial" size="15.0" />
+               </font>
+            </Label>
+            <Button layoutX="30.0" layoutY="333.0" mnemonicParsing="false" onAction="#ListeC" prefHeight="30.0" prefWidth="170.0" style="-fx-background-color: #D0E8FA; -fx-background-radius: 15;" text="Liste Commandes" textFill="#4e22c9">
+               <font>
+                  <Font name="Arial" size="15.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>

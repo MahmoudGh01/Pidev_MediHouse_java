@@ -7,7 +7,7 @@ package edu.MediHouse.views;
 
 import static edu.MediHouse.entities.BadWords.checkWords;
 import edu.MediHouse.entities.Reclamation;
-import edu.MediHouse.entities.Dhia;
+import edu.MediHouse.entities.Reply;
 import edu.MediHouse.entities.Users;
 import edu.MediHouse.services.ReclamationCRUD;
 import edu.MediHouse.services.ReponseCRUD;
@@ -60,13 +60,13 @@ public class ReponseController implements Initializable {
     @FXML
     private Button btnUpdate;
     @FXML
-    private TableView<Dhia> Tbv;
+    private TableView<Reply> Tbv;
     @FXML
-    private TableColumn<Dhia, Integer> Id_Col;
+    private TableColumn<Reply, Integer> Id_Col;
     @FXML
-    private TableColumn<Dhia, String> Email_Col;
+    private TableColumn<Reply, String> Email_Col;
     @FXML
-    private TableColumn<Dhia, String> Sujet_Col;
+    private TableColumn<Reply, String> Sujet_Col;
     @FXML
     private TextArea TaReponse;
     @FXML
@@ -108,7 +108,7 @@ Users u =new Users();
 
     @FXML
     private void tbC(MouseEvent event) {
-        Dhia rv = Tbv.getSelectionModel().getSelectedItem();
+        Reply rv = Tbv.getSelectionModel().getSelectedItem();
         //CBDocteur.getSelectionModel().select(rv.getDocteur());
 
         CBReclamation.setValue(rv.getReclamation());
@@ -128,7 +128,7 @@ Users u =new Users();
         }
         if (checkWords(TaReponse.getText()).equals("false")) {
             ReponseCRUD rdv = new ReponseCRUD();
-            Dhia r = new Dhia(TaReponse.getText(), CBReclamation.getValue());
+            Reply r = new Reply(TaReponse.getText(), CBReclamation.getValue());
             rdv.ajouterReponse(r);
             ShowReponse();
 
@@ -151,7 +151,7 @@ Users u =new Users();
     @FXML
     private void btnDelete(ActionEvent event) {
 
-        Dhia rv = Tbv.getSelectionModel().getSelectedItem();
+        Reply rv = Tbv.getSelectionModel().getSelectedItem();
         if (Tbv.getSelectionModel().isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Erreur");
@@ -175,7 +175,7 @@ Users u =new Users();
 
     @FXML
     private void btnUpdate(ActionEvent event) {
-        Dhia rv = Tbv.getSelectionModel().getSelectedItem();
+        Reply rv = Tbv.getSelectionModel().getSelectedItem();
         if (Tbv.getSelectionModel().isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Erreur");
@@ -184,7 +184,7 @@ Users u =new Users();
             return;
         }
 
-        Dhia r = new Dhia(rv.getId(), TaReponse.getText(), CBReclamation.getValue());
+        Reply r = new Reply(rv.getId(), TaReponse.getText(), CBReclamation.getValue());
         if (checkWords(TaReponse.getText()).equals("false")) {
             ReponseCRUD rdv = new ReponseCRUD();
             rdv.modifierReponse(r);
@@ -209,13 +209,13 @@ Users u =new Users();
     private void ShowReponse() {
         ReponseCRUD rdv = new ReponseCRUD();
 
-        ObservableList<Dhia> list = FXCollections.observableArrayList(rdv.listerReponse());
-        Id_Col.setCellValueFactory(new PropertyValueFactory<Dhia, Integer>("id"));
+        ObservableList<Reply> list = FXCollections.observableArrayList(rdv.listerReponse());
+        Id_Col.setCellValueFactory(new PropertyValueFactory<Reply, Integer>("id"));
         //Patient_Col.setCellValueFactory(new PropertyValueFactory<Reponse, String>("Name"));
 
         //Email_Col.setCellValueFactory(new PropertyValueFactory<Reponse, Reclamation>("Email"));
         Email_Col.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getReclamation().getEmail()));
-        Email_Col.setCellFactory(column -> new TableCell<Dhia, String>() {
+        Email_Col.setCellFactory(column -> new TableCell<Reply, String>() {
             @Override
             protected void updateItem(String docteur, boolean empty) {
                 super.updateItem(docteur, empty);
@@ -227,7 +227,7 @@ Users u =new Users();
             }
         });
 
-        Sujet_Col.setCellValueFactory(new PropertyValueFactory<Dhia, String>("Reponse"));
+        Sujet_Col.setCellValueFactory(new PropertyValueFactory<Reply, String>("Reponse"));
 
         //System.out.print("test");
         Tbv.setItems(list);

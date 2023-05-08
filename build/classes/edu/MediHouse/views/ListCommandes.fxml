@@ -83,7 +83,7 @@
                   <Font name="Arial" size="15.0" />
                </font>
             </Button>
-            <Button layoutX="30.0" layoutY="384.0" mnemonicParsing="false" onAction="#AddProduit" prefHeight="30.0" prefWidth="170.0" style="-fx-background-color: #7989E4; -fx-background-radius: 15;" text="Ajouter Produit" textFill="WHITE">
+            <Button layoutX="30.0" layoutY="384.0" mnemonicParsing="false" onAction="#AddProduit" prefHeight="30.0" prefWidth="170.0" style="-fx-background-color: #D0E8FA; -fx-background-radius: 15;" text="Ajouter Produit" textFill="#4e22c9">
                <font>
                   <Font name="Arial" size="15.0" />
                </font>
@@ -98,7 +98,7 @@
                   <Font name="Arial" size="15.0" />
                </font>
             </Label>
-            <Button layoutX="30.0" layoutY="333.0" mnemonicParsing="false" onAction="#ListeC" prefHeight="30.0" prefWidth="170.0" style="-fx-background-color: #D0E8FA; -fx-background-radius: 15;" text="Liste Commandes" textFill="#4e22c9">
+            <Button layoutX="30.0" layoutY="333.0" mnemonicParsing="false" onAction="#ListeC" prefHeight="30.0" prefWidth="170.0" style="-fx-background-color: #7989E4; -fx-background-radius: 15;" text="Liste Commandes" textFill="WHITE">
                <font>
                   <Font name="Arial" size="15.0" />
                </font>

@@ -94,7 +94,6 @@ Users u =new Users();
     }
     }
 
-    @FXML
     private void calendrier(ActionEvent event) {
         FXMain.setScene("Calendrier");
     }

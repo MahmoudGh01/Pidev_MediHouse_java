@@ -43,7 +43,17 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Callback;
 import edu.MediHouse.entities.RendezVous;
+import edu.MediHouse.entities.Users;
 import edu.MediHouse.services.RendezVousCRUD;
+import edu.MediHouse.services.ServiceUser;
+import java.util.Optional;
+import javafx.event.EventHandler;
+import javafx.scene.control.ButtonBar;
+import javafx.scene.control.ButtonType;
+import javafx.scene.effect.DropShadow;
+import javafx.scene.image.Image;
+import javafx.scene.paint.Color;
+import javafx.scene.paint.ImagePattern;
 
 /**
  * FXML Controller class
@@ -80,16 +90,29 @@ public class ListRDVController_1 implements Initializable {
     @FXML
     private Button Chart;
     @FXML
-    private Circle ProfilePic1;
+    private Circle profilepicture;
     @FXML
-    private Label UserName1;
-
+    private Label username;
+Users u =new Users();
+     ServiceUser su=new ServiceUser();
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-
+  u=su.getUserByEmail(InterfaceLogineeController.iduserglobal);
+        Image im = new Image(u.getProfilePicture());
+        ImagePattern pattern = new ImagePattern(im);
+        profilepicture.setFill(pattern);
+        profilepicture.setStroke(Color.SEAGREEN);
+        profilepicture.setEffect(new DropShadow(20, Color.BLACK));
+        username.setText(u.getNom().toUpperCase()+" "+u.getPrenom().toUpperCase());
+          profilepicture.setOnMouseClicked(new EventHandler<MouseEvent>() {
+        @Override
+        public void handle(MouseEvent event) {
+            profile(event);
+                  }
+    });
         // System.out.println(R.getRendezVous(16));
         Countdown();
         ShowRendezVous();
@@ -296,33 +319,38 @@ public class ListRDVController_1 implements Initializable {
         stage.initStyle(StageStyle.UTILITY);
         stage.show();
     }
-
-    @FXML
-    private void Profile1(MouseEvent event) {
+@FXML
+    private void Fiches(ActionEvent event) {
+        FXMain.setScene("Fiche");
     }
 
     @FXML
-    private void Logout(ActionEvent event) {
+    private void RDVD(ActionEvent event) {
+        FXMain.setScene("ListRDV_1");
     }
 
     @FXML
-    private void RDVP(ActionEvent event) {
+    private void logout(ActionEvent event) {
+         
+        Stage stage;
+    javafx.scene.control.Alert alert = new javafx.scene.control.Alert(javafx.scene.control.Alert.AlertType.CONFIRMATION);
+    alert.setTitle("Déconnexion");
+    alert.setHeaderText("Vous êtes sur le point de vous déconnecter");
+    alert.setContentText("Voulez-vous vous déconnecter "+u.getEmail()+"?");
+    ButtonType okButton = new ButtonType("OK", ButtonBar.ButtonData.OK_DONE);
+    ButtonType cancelButton = new ButtonType("Annuler", ButtonBar.ButtonData.CANCEL_CLOSE);
+    alert.getButtonTypes().setAll(okButton, cancelButton);
+    Optional<ButtonType> result = alert.showAndWait();
+    if (result.isPresent() && result.get() == okButton) {
+         FXMain.setScene("InterfaceLogin");
+        
     }
+    }
+     @FXML
+    private void profile(MouseEvent event) {
+        FXMain.setScene("ProfileDoctor");
+    }
+    
 
-    @FXML
-    private void reclamation(ActionEvent event) {
-    }
-
-    @FXML
-    private void forum(ActionEvent event) {
-    }
-
-    @FXML
-    private void parapharmacie(ActionEvent event) {
-    }
-
-    @FXML
-    private void RechMed(ActionEvent event) {
-    }
 
 }

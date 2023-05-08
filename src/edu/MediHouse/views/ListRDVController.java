@@ -348,7 +348,7 @@ Users u =new Users();
     private void RDVP(ActionEvent event) {
        FXMain.setScene("ListRDV");
     }
-   @FXML
+    @FXML
     private void Profile1(MouseEvent event) {
         FXMain.setScene("ProfilePatient");
     }
@@ -369,5 +369,6 @@ Users u =new Users();
         
     }
     }
+
 
 }

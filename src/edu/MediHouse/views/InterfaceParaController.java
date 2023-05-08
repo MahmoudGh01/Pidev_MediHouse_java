@@ -33,12 +33,14 @@ import javafx.stage.Stage;
  */
 public class InterfaceParaController implements Initializable {
 
-    @FXML
     private Circle profilepicture;
-    @FXML
     private Label Username;
 Users u =new Users();
      ServiceUser su=new ServiceUser();
+    @FXML
+    private Circle profilepicture1;
+    @FXML
+    private Label Username1;
     /**
      * Initializes the controller class.
      * @param url
@@ -50,11 +52,11 @@ Users u =new Users();
          u=su.getUserByEmail(InterfaceLogineeController.iduserglobal);
         Image im = new Image(u.getProfilePicture());
         ImagePattern pattern = new ImagePattern(im);
-        profilepicture.setFill(pattern);
-        profilepicture.setStroke(Color.SEAGREEN);
-        profilepicture.setEffect(new DropShadow(20, Color.BLACK));
-        Username.setText(u.getNom().toUpperCase()+" "+u.getPrenom().toUpperCase());
-           profilepicture.setOnMouseClicked(new EventHandler<MouseEvent>() {
+        profilepicture1.setFill(pattern);
+        profilepicture1.setStroke(Color.SEAGREEN);
+        profilepicture1.setEffect(new DropShadow(20, Color.BLACK));
+        Username1.setText(u.getNom().toUpperCase()+" "+u.getPrenom().toUpperCase());
+           profilepicture1.setOnMouseClicked(new EventHandler<MouseEvent>() {
         @Override
         public void handle(MouseEvent event) {
             profile(event);
@@ -65,10 +67,9 @@ Users u =new Users();
     private void profile(ActionEvent event) {
         FXMain.setScene("ProfilePara");
     }
-
-    @FXML
+@FXML
     private void TabBord(ActionEvent event) {
-        FXMain.setScene("ListCommandes");
+        FXMain.setScene("ListProduits");
     }
 
     @FXML
@@ -95,9 +96,15 @@ Users u =new Users();
     }
     }
 
-    @FXML
+   @FXML
     private void profile(MouseEvent event) {
            FXMain.setScene("ProfilePara");
     }
+
+    @FXML
+    private void ListeC(ActionEvent event) {
+         FXMain.setScene("ListCommandes");
+    }
+    
     
 }

@@ -58,9 +58,7 @@ import org.controlsfx.control.textfield.TextFields;
  */
 public class ProfileParaController implements Initializable {
 
-    @FXML
     private Circle profilepicture;
-    @FXML
     private Label Username;
     @FXML
     private TextField TFname;
@@ -87,6 +85,10 @@ Users u =new Users();
     private static String profilepictures="";
     @FXML
     private ImageView qrCodeImageView;
+    @FXML
+    private Circle profilepicture1;
+    @FXML
+    private Label Username1;
     /**
      * Initializes the controller class.
      */
@@ -94,12 +96,12 @@ Users u =new Users();
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
          u=su.getUserByEmail(InterfaceLogineeController.iduserglobal);
-        Username.setText(u.getNom().toUpperCase()+" "+u.getPrenom().toUpperCase());
+        Username1.setText(u.getNom().toUpperCase()+" "+u.getPrenom().toUpperCase());
         Image im = new Image(u.getProfilePicture());
         ImagePattern pattern = new ImagePattern(im);
-        profilepicture.setFill(pattern);
-        profilepicture.setStroke(Color.SEAGREEN);
-        profilepicture.setEffect(new DropShadow(20, Color.BLACK));
+        profilepicture1.setFill(pattern);
+        profilepicture1.setStroke(Color.SEAGREEN);
+        profilepicture1.setEffect(new DropShadow(20, Color.BLACK));
         
         TFname.setText(u.getNom());
         TFlastname.setText(u.getPrenom());
@@ -117,7 +119,7 @@ Users u =new Users();
                 TFnumtel.setText(suggestionsMap.getOrDefault(selectedAdresse, ""));
             }
         });
-         profilepicture.setOnMouseClicked(new EventHandler<MouseEvent>() {
+         profilepicture1.setOnMouseClicked(new EventHandler<MouseEvent>() {
         @Override
         public void handle(MouseEvent event) {
             profile(event);
@@ -179,18 +181,19 @@ Users u =new Users();
         FXMain.setScene("ProfilePara");
     }
 
-    @FXML
+     @FXML
     private void TabBord(ActionEvent event) {
-        FXMain.setScene("Tabbord");
+        FXMain.setScene("ListProduits");
     }
 
     @FXML
     private void AddProduit(ActionEvent event) {
-        FXMain.setScene("Addproduit");
+        FXMain.setScene("AjoutProduit");
     }
 
-    @FXML
+     @FXML
     private void logout(ActionEvent event) {
+        
          
         Stage stage;
     Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
@@ -241,7 +244,7 @@ Users u =new Users();
         fileChooser.setTitle("Open Resource File");
         fileChooser.getExtensionFilters().addAll(
                 new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.jpeg"));
-        fileChooser.setInitialDirectory(new File("C:\\Users\\chaab\\Desktop\\3A41\\S2\\web-java-mobile\\java\\MediHouse\\src\\edu\\MediHouse\\images"));
+        fileChooser.setInitialDirectory(new File("C:\\Users\\user\\Documents\\NetBeansProjects\\Pidev_MediHouse_java\\src\\edu\\MediHouse\\images"));
         File file = fileChooser.showOpenDialog(null);
         if (file != null) {
             String TempprofilePicture = file.toURI().toString();
@@ -309,10 +312,7 @@ Users u =new Users();
         return erreur;
     }
 
-    @FXML
-    private void profile(MouseEvent event) {
-         FXMain.setScene("ProfilePara");
-    }
+    
 
     @FXML
     private void QrCode(ActionEvent event) {
@@ -322,7 +322,7 @@ Users u =new Users();
     int width = 300;
     int height = 300;
     String format = "png";
-    File file = new File("C:\\Users\\chaab\\Desktop\\3A41\\S2\\web-java-mobile\\java\\MediHouse\\src\\edu\\MediHouse\\images/","qrcode.png");
+    File file = new File("C:\\Users\\user\\Documents\\NetBeansProjects\\Pidev_MediHouse_java\\src\\edu\\MediHouse\\images/","qrcode.png");
     try {
         QRCodeWriter qrCodeWriter = new QRCodeWriter();
         BitMatrix bitMatrix = qrCodeWriter.encode(text, BarcodeFormat.QR_CODE, width, height);
@@ -332,6 +332,16 @@ Users u =new Users();
     } catch (WriterException ex) {
         ex.printStackTrace();
     }
+    }
+
+   @FXML
+    private void profile(MouseEvent event) {
+           FXMain.setScene("ProfilePara");
+    }
+
+    @FXML
+    private void ListeC(ActionEvent event) {
+         FXMain.setScene("ListCommandes");
     }
     
 }

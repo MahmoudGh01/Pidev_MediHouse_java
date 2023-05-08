@@ -73,12 +73,7 @@
                   <Font name="Arial" size="15.0" />
                </font>
             </Button>
-            <Button layoutX="26.0" layoutY="462.0" mnemonicParsing="false" onAction="#logout" prefHeight="30.0" prefWidth="170.0" style="-fx-background-color: #D0E8FA; -fx-background-radius: 15;" text="Log out" textFill="#4e22c9">
-               <font>
-                  <Font name="Arial" size="15.0" />
-               </font>
-            </Button>
-            <Button layoutX="26.0" layoutY="393.0" mnemonicParsing="false" onAction="#calendrier" prefHeight="31.0" prefWidth="170.0" style="-fx-background-color: #D0E8FA; -fx-background-radius: 15;" text="Calendrier" textFill="#4e22c9">
+            <Button layoutX="26.0" layoutY="395.0" mnemonicParsing="false" onAction="#logout" prefHeight="30.0" prefWidth="170.0" style="-fx-background-color: #D0E8FA; -fx-background-radius: 15;" text="Log out" textFill="#4e22c9">
                <font>
                   <Font name="Arial" size="15.0" />
                </font>

@@ -54,9 +54,7 @@ import org.controlsfx.control.textfield.TextFields;
  */
 public class ProfileDoctorController implements Initializable {
 
-    @FXML
     private Circle profilepicture;
-    @FXML
     private Label username;
     @FXML
     private TextField TFname;
@@ -83,6 +81,10 @@ Users u =new Users();
     private static String profilepictures="";
     @FXML
     private ImageView qrCodeImageView;
+    @FXML
+    private Circle profilepicture1;
+    @FXML
+    private Label username1;
     /**
      * Initializes the controller class.
      */
@@ -91,12 +93,12 @@ Users u =new Users();
         
         // TODO
          u=su.getUserByEmail(InterfaceLogineeController.iduserglobal);
-        username.setText(u.getNom().toUpperCase()+" "+u.getPrenom().toUpperCase());
+        username1.setText(u.getNom().toUpperCase()+" "+u.getPrenom().toUpperCase());
         Image im = new Image(u.getProfilePicture());
         ImagePattern pattern = new ImagePattern(im);
-        profilepicture.setFill(pattern);
-        profilepicture.setStroke(Color.SEAGREEN);
-        profilepicture.setEffect(new DropShadow(20, Color.BLACK));
+        profilepicture1.setFill(pattern);
+        profilepicture1.setStroke(Color.SEAGREEN);
+        profilepicture1.setEffect(new DropShadow(20, Color.BLACK));
         TFname.setText(u.getNom());
         TFlastname.setText(u.getPrenom());
         TFadresse.setText(u.getAdresse());
@@ -115,7 +117,7 @@ Users u =new Users();
                 TFnumtel.setText(suggestionsMap.getOrDefault(selectedAdresse, ""));
             }
         });
-        profilepicture.setOnMouseClicked(new EventHandler<MouseEvent>() {
+        profilepicture1.setOnMouseClicked(new EventHandler<MouseEvent>() {
         @Override
         public void handle(MouseEvent event) {
             profile(event);
@@ -179,12 +181,12 @@ Users u =new Users();
 
     @FXML
     private void Fiches(ActionEvent event) {
-        FXMain.setScene("Fiches");
+        FXMain.setScene("Fiche");
     }
 
     @FXML
     private void RDVD(ActionEvent event) {
-        FXMain.setScene("RDVP");
+        FXMain.setScene("ListRDV_1");
     }
 
     @FXML
@@ -205,7 +207,6 @@ Users u =new Users();
     }
     }
 
-    @FXML
     private void calendrier(ActionEvent event) {
         FXMain.setScene("Calendrier");
     }
@@ -244,7 +245,7 @@ Users u =new Users();
         fileChooser.setTitle("Open Resource File");
         fileChooser.getExtensionFilters().addAll(
                 new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.jpeg"));
-        fileChooser.setInitialDirectory(new File("C:\\Users\\chaab\\Desktop\\3A41\\S2\\web-java-mobile\\java\\MediHouse\\src\\edu\\MediHouse\\images"));
+        fileChooser.setInitialDirectory(new File("C:\\Users\\user\\Documents\\NetBeansProjects\\Pidev_MediHouse_java\\src\\edu\\MediHouse\\images"));
         File file = fileChooser.showOpenDialog(null);
         if (file != null) {
             String TempprofilePicture = file.toURI().toString();
@@ -328,7 +329,7 @@ Users u =new Users();
     int width = 300;
     int height = 300;
     String format = "png";
-    File file = new File("C:\\Users\\chaab\\Desktop\\3A41\\S2\\web-java-mobile\\java\\MediHouse\\src\\edu\\MediHouse\\images/","qrcode.png");
+    File file = new File("C:\\Users\\user\\Documents\\NetBeansProjects\\Pidev_MediHouse_java\\src\\edu\\MediHouse\\images/","qrcode.png");
     try {
         QRCodeWriter qrCodeWriter = new QRCodeWriter();
         BitMatrix bitMatrix = qrCodeWriter.encode(text, BarcodeFormat.QR_CODE, width, height);

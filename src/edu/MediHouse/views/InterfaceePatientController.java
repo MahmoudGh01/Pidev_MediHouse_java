@@ -106,7 +106,7 @@ public class InterfaceePatientController implements Initializable {
 
     @FXML
     private void RDVP(ActionEvent event) {
-       FXMain.setScene("RDVP");
+       FXMain.setScene("ListRDV");
     }
 
     @FXML

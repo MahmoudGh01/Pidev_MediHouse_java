@@ -99,12 +99,12 @@ private static String profilepictures="";
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
          u=su.getUserByEmail(InterfaceLogineeController.iduserglobal);
-        username.setText(u.getNom().toUpperCase()+" "+u.getPrenom().toUpperCase());
+        UserName.setText(u.getNom().toUpperCase()+" "+u.getPrenom().toUpperCase());
         Image im = new Image(u.getProfilePicture());
         ImagePattern pattern = new ImagePattern(im);
-        profilepicture.setFill(pattern);
-        profilepicture.setStroke(Color.SEAGREEN);
-        profilepicture.setEffect(new DropShadow(20, Color.BLACK));
+        ProfilePic.setFill(pattern);
+        ProfilePic.setStroke(Color.SEAGREEN);
+        ProfilePic.setEffect(new DropShadow(20, Color.BLACK));
         
         TFname.setText(u.getNom());
         TFlastname.setText(u.getPrenom());
@@ -123,7 +123,7 @@ private static String profilepictures="";
                 TFnultel.setText(suggestionsMap.getOrDefault(selectedAdresse, ""));
             }
         });
-       profilepicture.setOnMouseClicked(new EventHandler<MouseEvent>() {
+       ProfilePic.setOnMouseClicked(new EventHandler<MouseEvent>() {
         @Override
         public void handle(MouseEvent event) {
             profile(event);
